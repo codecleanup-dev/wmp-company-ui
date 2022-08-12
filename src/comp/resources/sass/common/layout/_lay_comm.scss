@@ -1,0 +1,52 @@
+// layout 공통
+.wrap{
+	position:relative;
+	min-width:1440px;
+	min-height:100%;
+}
+.center_inner{
+	@extend %inner-center-block;
+}
+.container{
+	min-height:100%;
+	.container_inner{
+		position:relative;
+		width:100%;
+		min-width:$content-center-size;
+		.contents_wrap{
+			width:100%;
+		}
+		.content_main{
+			position:relative;
+			height:100%;
+			@extend %inner-center-block;
+		}
+	}
+	&.main{
+		margin-top: 0;
+	}
+}
+
+//action
+$distance: 50px; //거리
+$derections: ( //방향
+	top : (0,$distance),
+	left : ($distance,0),
+	bottom : (0,-$distance),
+	right : (-$distance,0)
+);
+@each $derection, $info in $derections{
+	&.to_#{$derection}{
+		-webkit-animation:slide_#{$derection} 1.2s;
+		@-webkit-keyframes slide_#{$derection} {
+			0% {
+				opacity:0;
+				transform: translate(nth($info,1),nth($info,2));
+			}
+			100% {
+				opacity:1;
+				transform: translate(0,0);
+			}
+		}
+	}
+}

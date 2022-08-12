@@ -1,0 +1,61 @@
+<div class="center_inner">
+	<h1 class="logo"><a href="http://company.wemakeprice.com/wmp/">위메프</a></h1>
+	<div class="gnb_wrap">
+		<nav id="gnb" class="gnb">
+			<ul class="depth_1">
+				<li class="active"><!-- 활성화시 .active -->
+					<a href="#none">위메프소개</a>
+					<ul class="depth_2">
+						<li class="active"><a href="#none">핵심가치</a></li> <!-- 2depth 활성화시 .active -->
+						<li><a href="#none">주요연혁</a></li>
+						<li><a href="#none">사회공헌</a></li>
+						<li><a href="#none">회사소개서</a></li>
+						<li><a href="#none">오시는길</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="" href="#none">서비스</a>
+					<ul class="depth_2">
+						<li><a href="#none">주요 서비스</a></li>
+						<li><a href="#none">파트너 서비스</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="" href="#none">브랜드</a>
+					<ul class="depth_2">
+						<li><a href="#none">CI</a></li>
+						<li><a href="#none">위메프체</a></li>
+					</ul>
+				</li>
+				<!-- UIDEV-1942 추 가 -->
+				<li>
+					<a class="" href="#none">소식</a>
+					<ul class="depth_2">
+						<li><a href="#none">위메프로그</a></li>
+						<li><a href="#none">브랜드피드</a></li>
+					</ul>
+				</li>
+				<!-- //UIDEV-1942 추 가 -->
+				<li>
+					<a class="" href="#none">윤리경영</a>
+					<ul class="depth_2">
+						<li><a href="#none">윤리경영</a></li>
+						<li><a href="#none">개인정보보호</a></li>
+						<li><a href="#none">지식재산권 센터</a></li>
+					</ul>
+				</li>
+				<li class="last"><a class="" href="https://recruit.wemakeprice.com/notice/list" target="_blank">인재채용</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+<script>
+	//헤더
+	$('.depth_1 > li').not('.last').on('mouseenter', function (e) {
+		$(this).parents('.header_wrap').addClass('active');
+	})
+	$('.depth_1 > li').on('mouseleave', function (e) {
+		$(this).parents('.header_wrap').removeClass('active');
+	})
+</script>

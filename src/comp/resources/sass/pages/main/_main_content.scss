@@ -1,0 +1,243 @@
+.main_vision{
+	background: color(red,0);
+	color: color(white,0);
+	padding: 160px 0;
+	letter-spacing: -1px;
+	font-size: 0;
+	h3.title{
+		display: inline-block;
+		width: 308px;
+		color: color(white,0);
+		vertical-align: top;
+	}
+	.con_side{
+		display: inline-block;
+		width: 892px;
+		vertical-align: top;
+		letter-spacing: -1px;
+		ul{
+			margin: 0 -24px 0 -15px;
+			li{
+				display: inline-block;
+				width: 277px;
+				margin: 3px 15px 76px;
+				padding-top: 13px;
+				border-top:2px solid color(white,0);
+				i{
+					display: inline-block;
+					@extend %spr_main;
+					@extend %img-replace;
+					margin-bottom: 20px;
+				}
+				span{
+					display: block;
+					font-family: $w-font;
+					@include font(20px,32px);
+					color: color(white,0);
+					font-weight: bold;
+					margin-bottom: 16px;
+					em{
+						font-size: 15px;
+						font-weight: normal;
+						letter-spacing: 0;
+					}
+				}
+				p{
+					width: 290px;
+					@include font(18px,32px);
+					color: color(white,0);
+				}
+			}
+		}
+	}
+}
+
+.main_history{
+	padding:100px 0 43px;
+	h3.title{
+		margin-bottom: 50px;
+	}
+	.time_line{
+		position:relative;
+		font-size:0;
+		padding-top: 10px;
+		height:200px;
+		white-space: nowrap;
+		overflow: hidden;
+		&:before{
+			content:'';
+			@include poslt(0,9px);
+			@include size(100%,1px);
+			border-top: 1px solid color(red,0);
+		}
+		> li{
+			position: relative;
+			display:inline-block;
+			width:308px;
+			vertical-align: top;
+			letter-spacing: -1px;
+			box-sizing: border-box;
+			&:before{
+				content:'';
+				@include poslt(0,-5px);
+				@include size(10px);
+				border-radius: 50%;
+				background: color(red,0);
+			}
+			&.now{
+				&:before{
+					@include poslt(-11px,-11px);
+					@extend %spr_main;
+					background-color: transparent;
+					@include sprite($ico_main_history_now);
+				}
+			}
+			h4{
+				font-family: $w-font;
+				font-weight: normal;
+				@include font(22px,46px);
+				margin-top: 10px;
+				margin-bottom: 4px;
+			}
+			li{
+				position: relative;
+				font-size: 14px;
+				padding-left: 20px;
+				color: color(black,2);
+				span{
+					@include poslt;
+				}
+			}
+		}
+	}
+}
+
+.main_csr{
+	padding:110px 0;
+	background: color(black,12);
+	font-family: $w-font;
+	letter-spacing: -1px;
+	h3.title{
+		margin-bottom: 22px;
+	}
+	.txt{
+		@include font(18px,34px);
+		font-family: $SpoqaHanSans-font;
+		color: color(black,2);
+		margin-bottom:56px;
+	}
+	.csr_list{
+		font-size: 0;
+		li{
+			display: inline-block;
+			color: color(red,0);
+			i{
+				display: inline-block;
+				@extend %spr_main;
+				@extend %img-replace;
+				margin-bottom: 32px;
+			}
+			span{
+				display: block;
+				@include font(14px,23px);
+				color: color(black,13);
+			}
+			h4{
+				color: color(black,0);
+				font-weight: 400;
+				@include font(20px,29px);
+			}
+			p{
+				@include font(52px,72px);
+				font-weight: bold;
+			}
+			~ li{
+				margin-left: 121px;
+			}
+		}
+	}
+}
+
+.main_introduction{
+	padding:74px 0;
+	span{
+		display: inline-block;
+		@include font(20px,33px);
+		font-family: $w-font;
+		color: color(black,0);
+		vertical-align: top;
+	}
+	.btn_wrap{
+		float: right;
+		.btn{
+			@include size(380px,88px);
+			@include font(20px,88px);
+			font-weight: bold;
+			background-color: color(red,0);
+			color: color(white,0);
+			padding-left: 36px;
+			&:after{
+				content:'';
+				@include posrt(38px,34px);
+				@extend %spr_main;
+				@include sprite($btn_down_01);
+			}
+			&:hover{
+				background: color(black,0);
+			}
+		}
+	}
+}
+
+.main_contact{
+	padding:80px 0 300px;
+	h3.title{
+		margin-bottom: 58px;
+	}
+	.map_wrap{
+		margin-bottom: 60px;
+	}
+	.contact_info{
+		font-size: 0;
+		li{
+			display: inline-block;
+			vertical-align: top;
+			h4{
+				@include font(20px,30px);
+				font-family: $w-font;
+				font-weight: bold;
+				color: color(black,0);
+			}
+			p{
+				margin-top: 9px;
+				margin-bottom: 27px;
+				@include font(14px,24px);
+				color: color(black,6);
+			}
+			&:first-child{
+				width: 492px;
+				p{
+					margin-top: 3px;
+					@include font(18px,38px);
+					color: color(black,2);
+				}
+			}
+			~ li{
+				margin-left: 123px;
+			}
+			.btn{
+				&:after{
+					content:'';
+					background-image: url($common-spr-img);
+					@include posrt(17px,24px);
+					@include sprite($btn_arrow_6);
+				}
+				&:hover{
+					&:after{
+						@include sprite($btn_arrow_6_hover);
+					}
+				}
+			}
+		}
+	}
+}

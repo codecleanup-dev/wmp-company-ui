@@ -1,0 +1,59 @@
+html, body{
+	height: 100vh;
+	font-size: $size;
+}
+// layout 공통
+.wrap{
+	position:relative;
+	min-width:$w1280;
+	min-height:100%;
+}
+.center_inner{
+	position:relative;
+	@extend %inner-center-block;
+}
+.container{
+	position: relative;
+	&.main{
+		min-height: calc(100% - #{$header-h} - #{$footer-h});
+	}
+	.container_inner{
+		padding-top: $header-h;
+		min-height: 700px;
+		.contents_wrap{
+			width:100%;
+		}
+		.content_main{
+			position:relative;
+			height:100%;
+		}
+	}
+}
+
+
+
+
+
+//action
+$distance: 50px; //거리
+$derections: ( //방향
+	top : (0,$distance),
+	left : ($distance,0),
+	bottom : (0,-$distance),
+	right : (-$distance,0)
+);
+// @each $derection, $info in $derections{
+// 	&.to_#{$derection}{
+// 		-webkit-animation:slide_#{$derection} 1.2s;
+// 		// @-webkit-keyframes slide_#{$derection} {
+// 		// 	0% {
+// 		// 		opacity:0;
+// 		// 		transform: translate(nth($info,1),nth($info,2));
+// 		// 	}
+// 		// 	100% {
+// 		// 		opacity:1;
+// 		// 		transform: translate(0,0);
+// 		// 	}
+// 		// }
+// 	}
+// }

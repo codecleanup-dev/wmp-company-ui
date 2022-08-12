@@ -1,0 +1,101 @@
+.blind{
+	@include absolute();
+	@include size(1px);
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+}
+
+//placeholder
+::-webkit-input-placeholder {color:color(black,7);}/* Chrome, Safari, Opera */
+::-moz-placeholder {color:color(black,7);}/* Firefox */
+:-ms-input-placeholder {color:color(black,7);}/* IE10–11 */
+::-ms-input-placeholder {color:color(black,7);}/* Edge */
+::placeholder {color:color(black,7);}/* CSS Working Draft */
+
+// drag 
+::selection {
+  background: color(red,0);
+  color: color(white,0);
+}
+
+%label_base{
+	@extend %clearfix;
+	display: inline-block;
+	position: relative;
+	min-height: 18px;
+	input{
+		@include size(1px);
+		@include poslt;
+		opacity: 0;
+	}
+	span{
+		float: left;
+		overflow: hidden;
+		line-height: 16px;
+		vertical-align: top;
+	}
+	i{
+		display: inline-block;
+		@include poslt;
+		box-sizing: border-box;
+		&:before{
+			content:'';
+			display: inline-block;
+			background-image: url($common-spr-img);
+		}
+	}
+}
+
+//checkbox
+.ip_chk{
+	@extend %label_base;
+	padding-left: 20px;
+	vertical-align: middle;
+	font-size: 14px;
+	input:checked ~ i{
+		&:before{
+			// @include sprite($ico_chk_on);
+		}
+	}
+	//icon
+	i{
+		&:before{
+			// @include sprite($ico_chk);
+		}
+	}
+}
+//radio button
+.ip_radi{
+	@extend %label_base;
+	padding-left: 20px;
+	vertical-align: middle;
+	font-size: 14px;
+	i{
+		&:before{
+			// @include sprite($ico_rd);
+		}
+	}
+	span{
+		outline:none;
+	}
+	input:checked ~ i{
+		&:before{
+			// @include sprite($ico_rd_on);
+		}
+ 	}
+}
+//
+input,
+textarea{
+	border: none;
+	@include font(16px,48px);
+	color: color(black,2);
+}
+select{
+	display: inline-block;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border: none;
+}

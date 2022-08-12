@@ -1,0 +1,22 @@
+/* Reset */
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0}
+body{font-family: $w-font;font-size:$size;color:color(black,1)}
+input,textarea,select,button,table{font-family:inherit;font-size:$size;color:color(black,1)}
+body{word-break: break-all;}
+img,fieldset,button{border:0}
+ul,ol{list-style:none}
+em,address{font-style:normal}
+a{color:color(black,1);text-decoration:none;cursor:pointer}
+caption{display:none}
+button{cursor:pointer;border-radius:0;}
+iframe,img{vertical-align:top}
+select{vertical-align:middle}
+table{border-collapse:collapse;border-spacing:0}
+caption{display:none}
+th,td{text-align:left;vertical-align:top}
+form{margin:0;}
+fieldset{margin:0;padding:0;border:0 none}
+legend{display:none}
+textarea{vertical-align:top;resize:none;}
+*:focus{outline: none;}
+/* html,body{height:100%} */

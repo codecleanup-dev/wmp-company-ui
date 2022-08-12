@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>위메프 기업소개 </title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="imagetoolbar" content="no">
+	<link rel="shortcut icon" href="/dist/wmplog/images/common/favicon.ico">
+	<link rel="stylesheet" href="/dist/wmplog/css/common/common.css" />
+	<link rel="stylesheet" href="/dist/wmplog/css/common/layout.css" />
+	<link rel="stylesheet" href="/dist/wmplog/css/pages/main.css" />
+	<script type="text/javascript" src="/src/wmplog/resources/js/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<!-- Header 영역 -->
+		<header class="header_wrap">
+		<!-- //Header 영역 -->
+
+		<div id="container" class="container main">
+			<!-- 메인페이지 container에 .main 클래스 추가했습니다. -->
+			<div class="center_inner container_inner">
+				<h2 class="blind">컨텐츠영역</h2>
+				<!-- 컨텐츠 영역 -->
+				<div class="contents_wrap">
+					<section>
+						<div>
+							배너
+						</div>
+						<div>
+							<h3>WE MAKE IT 채용</h3>
+							<div>
+								SJF위메프 서울재즈페스티벌에 핫한 위메프가 떴다!🐻 공연을 서울재즈페스티벌에 팬데믹을 뚫고 3년만에 돌아왔습니다!
+							</div>
+						</div>
+					</section>
+
+				<!-- //컨텐츠 영역 -->
+				</div>
+			</div><!-- // #container -->
+		</div>
+		<!-- footer 영역 -->
+		<footer class="footer_wrap"></footer>
+		<!-- //footer 영역 -->
+
+	</div>
+
+	<script type="text/javascript" src="/src/wmplog/resources/js/guide.js"></script>
+	<!-- 디자인QA용 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+	<script>
+		var swiper = new Swiper('.keytxt_wrap', {
+			wrapperClass: 'keytxt',
+			slideClass: 'list_box',
+			effect: 'fade',
+			loop: true,
+			autoplay: {
+				delay: 5000,
+				disableOnInteraction: false,
+			},
+			on: {
+				slideChange: function () { //슬라이드 변경시 액션클래스 삽입
+					$('.keytxt').addClass('to_top');
+				},
+				slideChangeTransitionEnd: function(){ //슬라이드 완료뒤 4초후 액션클래스 삭제
+					setTimeout(function () {
+							$('.keytxt').removeClass('to_top');
+					}, 4000);
+				}
+			}
+		});
+	</script>
+</body>
+</html>

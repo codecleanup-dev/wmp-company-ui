@@ -1,0 +1,78 @@
+@charset "utf-8";
+/* Reset */body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0}
+body,input,textarea,select,button,table{font-family:'Apple SD Gothic Neo','맑은고딕','Malgun Gothic','Tahoma',sans-serif;font-size:12px;color:#333}
+img,fieldset,button{border:0}
+ul,ol{list-style:none}
+em,address{font-style:normal}
+a{color:#333;text-decoration:none;cursor:pointer}
+caption{display:none}
+button{cursor:pointer}
+img{vertical-align:top}
+select{vertical-align:middle}
+table{border-collapse:collapse;border-spacing:0}
+caption{display:none}
+th,td{text-align:left;vertical-align:top}
+form{margin:0}
+fieldset{margin:0;padding:0;border:0 none}
+legend{display:none}
+input:disabled + label,
+label[class*=disabled]{color:#ccc}
+
+body{background:#fafafa;}
+/* main index */
+.idx_wrap{padding:10px;max-width:1000px;margin:0 auto;}
+.tit{position:relative;padding:10px 0;z-index:10;}
+h1{font-size:20px;font-weight:bold;color:#555;}
+.hash{*zoom:1;padding:10px 0;background:none;}
+.hash:after{clear:both;display:table;content:'';}
+.hash li{float:left;margin:5px 7px 5px 0;}
+.hash a{padding:5px;border:1px solid #99a7cc;font-size:13px;color:#99a7cc;}
+.hash a:hover{text-decoration:underline;}
+
+.cnt{position:relative;}
+.tbl{width:100%;background:#fff;border-bottom:1px solid #ededed;}
+.tbl thead{background:#334a64;color:#fff;font-size:16px;text-align:center;}
+.tbl th{text-align:center;}
+.tbl th,td{padding:7px 10px;border:1px solid #ededed;font-weight:normal;vertical-align:middle;}
+.tbl tbody{font-size:13px;}
+.tbl tbody th,td{padding:7px 10px;border:1px solid #ededed;border-bottom:0;font-weight:normal;}
+.tbl tbody th{text-align:center;padding:0;}
+.tbl td.line{padding:0;}
+.tbl td.title{background-color: #f5f5f5;}
+a.url{display:block;max-width:120px;height:24px;margin:0 auto;border-radius:50px;background:#5f7592;color:#fff;font-size:12px;line-height:25px;text-align:center;overflow:hidden;*zoom:1;}
+a.url:hover{background:#3a4e69;}
+a.url.pc{background:#ee5555;}
+a.url.mb{background:#5976b7;}
+a.url.biz{background:#4FB98E;}
+a.url.etc{background:#999;}
+a.url.guide{background:#dea821;}
+a.url.gtiket{background:#a652b8;}
+
+a.jira{display:block;text-align:center;}
+a.jira:hover{text-decoration:underline;}
+.user{color:#999;text-align:center}
+
+.line{padding:0;margin:0;height:1px;*height:2px;border:0;background:#b8bec7;border:0;}
+.hoverrow{background:#f7f8fa;}
+
+/* sub index */
+.idx{padding:10px;}
+.idx h1{padding:5px 0 15px;border-bottom:1px solid #ededed;font-size:17px;color:#666;}
+.idx h1 + ul{margin-top:15px;}
+.idx ul ~ h1{padding-top:20px;}
+.idx h1 ~ h2{padding:20px 7px 10px;}
+.idx h2{padding:10px 7px;color:#5f7592;font-size:15px;}
+.idx ul{
+	background: #fff;
+	box-shadow: 0 1px 4px rgba(0,0,0,.04);
+	border: 1px solid rgba(0,0,0,.09);
+	border-radius: 3px;
+}
+.idx a{display:block;padding:10px;color:#666;font-size:12px;}
+.idx a:hover{background:#f7f8fa;}
+.idx h1 > span,.idx h2 > span,.idx a span{margin-left:5px;padding:2px 5px 1px 5px;font-size:10px;color:#ee5555;border:1px solid #ee5555;border-radius:9999px;vertical-align:0;}
+.idx .new{color:#ee5555;border-color:#ee5555}
+.idx .add{color:#00A8D1;border-color:#00A8D1}/* 하늘 */
+.idx .add2,.idx .add_2{color:#ef00ee;border-color:#ef00ee}/* 핑크 */
+.idx .add3{color:#EF9928;border-color:#EF9928}/* 오렌지 */
+.idx .desc{color:#999;font-size:9px;border:none;}

@@ -1,0 +1,1010 @@
+//ellipsis 말줄임시 사용, 기본 1줄(1줄이면서 webkit-box로 사용할경우 boxline:1)
+@mixin ellipsis($count:1,$boxline:null){
+	overflow:hidden;
+	text-overflow:ellipsis;
+	@if $count == 1{
+		@if $boxline{
+			display:-webkit-box;
+			-webkit-line-clamp:$boxline;
+			-webkit-box-orient:vertical;
+		}@else{
+			white-space:nowrap;
+		}
+	}@else{
+		display:-webkit-box;
+		-webkit-line-clamp:$count;
+		-webkit-box-orient:vertical;
+	}
+}
+
+//table th - td가 가로로 한줄이 기본, 세로일 경우 vertical
+@mixin table($direction:horizon,$font-size:11px,$line-height:13px){
+	width:100%;
+	border:1px solid color(black,6);
+	font-size:$font-size;
+	line-height:$line-height;
+	th, td{
+		border-bottom:1px solid color(black,6);
+		@if $direction == horizon{
+			text-align:left;
+			vertical-align:top;
+		}@else{
+			text-align:center;
+		}
+		padding:10px;
+	}
+	@if $direction == horizon{
+		th{
+			background:color(white,2);
+			font-weight:normal;
+			color:color(black,2);
+		}
+	}@else{
+		thead th{
+			background:color(white,2);
+			color:color(black,2);
+		}
+	}
+	td{
+		background:color(white,0);
+		color:color(black,3);
+	}
+}
+//= fixed menu
+@mixin fix-menu($top,$z-index:18){
+	//tab 고정
+	&.sticky{
+		position:fixed;
+		top:$top;
+		left:0;
+		right:0;
+		z-index:$z-index;
+	}
+}
+//fixed menu(list_title)
+@mixin fix-title($top){
+	@include absolute(-1px,0,$left:0);
+	@include fix-menu($top);
+}
+//fixed menu 하단
+@mixin fix-menu-btm($bottom){
+	&.sticky{
+		position:fixed;
+		bottom:$bottom;
+		left:0;
+		right:0;
+		z-index:100;
+	}
+}
+//arrow
+@mixin arrow($size,$right,$deg,$color,$top:null,$pseudo:after,$bd-width:1px){
+	&:#{$pseudo}{
+		content:'';
+		position:absolute;
+		box-sizing:border-box;
+		width:$size;
+		height:$size;
+		@if $top == null{
+			top:50%;
+			margin-top:(- half($size)) - 1;
+		}@else{
+			top:$top;
+		}
+		right:$right;
+		border:solid $color;
+		border-width:$bd-width $bd-width 0 0;
+		@include rotate($deg);
+		pointer-events:none;
+	}
+}
+//bullet list
+@mixin bl-list($color:color(black,3),$font-size:11px,$line-height:13px,$padding-left:7px,$size:2px,$radius:null,$margin-top:5px){
+	> li{
+		@include bullet($color,$font-size,$line-height,$padding-left,$size,$radius);
+		~ li{
+			margin-top:$margin-top;
+		}
+	}
+}
+
+//single bullet
+@mixin bullet($color:color(black,3),$font-size:11px,$line-height:13px,$padding-left:7px,$size:2px,$radius:null){
+	position:relative;
+	padding-left:$padding-left;
+	font-size:$font-size;
+	line-height:$line-height;
+	color:$color;
+	&:before{
+		content:'';
+		position:absolute;
+		width:$size;
+		height:$size;
+		top:half($line-height - $size - 1);
+		left:0;
+		border-radius:$radius;
+		background:$color;
+	}
+}
+
+//bar bullet
+@mixin bullet-bar($color:color(black,3),$font-size:11px,$line-height:13px,$padding-left:8px,$width:4px,$height:1px){
+	position:relative;
+	padding-left:$padding-left;
+	font-size:$font-size;
+	line-height:$line-height;
+	color:$color;
+	&:before{
+		content:'';
+		position:absolute;
+		width:$width;
+		height:$height;
+		top:half($line-height - $height - 1);
+		left:0;
+		background:$color;
+	}
+}
+@mixin bullet-bar-list($color:color(black,3), $font-size:11px, $line-height:13px, $padding-left:8px, $margin-top:4px, $width:4px, $height:1px) {
+	> li {
+		@include bullet-bar($color, $font-size, $line-height, $padding-left, $width, $height);
+		~ li{
+			margin-top:$margin-top;
+		}
+	}
+}
+
+// position center
+@mixin center-positon($width,$height:$width){
+	position:absolute;
+	width:$width;
+	height:$height;
+	top:50%;
+	left:50%;
+	margin-top:- half($height);
+	margin-left:- half($width);
+}
+//default image
+@mixin prd-dft($background-size:40px,$background-color:color(white,2)){
+	@include svg(img_dft,$background-color,50% 50%);
+	background-size:$background-size;
+}
+//adult image
+@mixin prd-adult($background-size:68px,$backgroud-color:color(white,2),$background-position:50% 50%){
+	@include svg(img_adult,$backgroud-color,$background-position);
+	background-size:$background-size;
+	img{display:none;}
+}
+//soldout image
+@mixin prd-soldout($content:'SOLD\AOUT',$font-size:15px,$line-height:15px,$height:$line-height,$top:0){
+	&:before{
+		content:'';
+		position:absolute;
+		top:$top;
+		bottom:0;
+		left:0;right:0;
+		background:rgba(color(black,0),.6);
+		z-index:1;
+	}
+	&:after{
+		content:$content;
+		white-space:pre;
+		position:absolute;
+		top:50%;left:0;right:0;
+		margin-top:- half($height - $top);
+		font-size:$font-size;
+		line-height:$line-height;
+		font-weight:bold;
+		text-align:center;
+		color:color(white,0);
+		z-index:1;
+	}
+}
+//no list
+@mixin no-list($padding:70px 0 130px){
+	padding:$padding;
+	font-size:14px;
+	line-height:17px;
+	text-align:center;
+	color:color(black,3);
+	> .blue_mid{
+		display:inline-block;
+		width:auto;
+		margin:20px auto 0;
+		padding:0 23px;
+	}
+}
+//swiper 상위
+@mixin swiper($width:100%){
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:flex;
+	> *{
+		width:$width;
+		-webkit-flex-shrink:0;
+		flex-shrink:0;
+	}
+}
+// indicator
+@mixin indicator($size:6px,$marign:1px 2px,$bottom:10px,$position:absolute,$class:on){
+	position:$position;
+	width:100%;
+	height:$size + 2px;//shadow size
+	bottom:$bottom;
+	left:0;
+	text-align:center;
+	@include translate3d(0,0,0);//swipe transform 관련 오류로 인해 추가
+	span{
+		display:inline-block;
+		width:$size;
+		height:$size;
+		margin:$marign;
+		border-radius:50%;
+		background:color(white,0);
+		vertical-align:top;
+		@include box-shadow(0 0 3px rgba(color(black,3),.8));
+		@extend %no-text;
+		&.#{$class}{
+			background:color(black,1);
+			@include box-shadow(none);
+		}
+	}
+}
+@mixin indicator-line($size:6px,$marign:1px 2px,$bottom:0,$position:absolute,$class:on){
+	position:$position;
+	width:100%;
+	height:$size + 2px;
+	bottom:$bottom;
+	left:0;
+	text-align:center;
+	@include translate3d(0,0,0);
+	span{
+		display:inline-block;
+		box-sizing:border-box;
+		width:$size;
+		height:$size;
+		margin:$marign;
+		border:1px solid color(black,5);
+		border-radius:50%;
+		background:rgba(color(white,0),.8);
+		vertical-align:top;
+		@extend %no-text;
+		&.#{$class}{
+			border-width:0;
+			background:rgba(color(black,0),.6);
+		}
+	}
+}
+@mixin indicator-red($size:5px,$marign:0 2px 0 3px,$bottom:10px,$position:absolute,$class:on){
+	position:$position;
+	height:$size;
+	text-align:center;
+	@if $position == absolute{//absolute인 경우 디자인 수급 후 변경
+		width:100%;
+		bottom:$bottom;
+		left:0;
+	}
+	@include translate3d(0,0,0);//swipe transform 관련 오류로 인해 추가
+	span{
+		display:inline-block;
+		@include size($size);
+		margin:$marign;
+		border-radius:50%;
+		background:rgba(color(black,5),.8);
+		vertical-align:top;
+		@extend %no-text;
+		&.#{$class}{
+			background:color(red,0);
+		}
+		&.video_paging{
+			@include svgcolor($ic_video_paging,'circle{fill-opacity:.148}');
+			margin-top:ic-height($ic_video_paging,$plus:4px);
+			@include box-shadow(none);
+			&.#{$class}{
+				@include svgcolor($ic_video_paging,'circle{fill:'+color(black,1)+'}',$width:n);
+			}
+		}
+	}
+}
+//btn-warp
+@mixin btn-wrap($spacing:null){
+	ul{
+		@extend %table-layout;
+		li{
+			display:table-cell;
+		}
+	}
+	@if $spacing != null{
+		margin:0 (-$spacing);
+		ul{
+			border-spacing:$spacing 0;
+		}
+	}
+}
+//swipe btn
+@mixin swipe-btn($width:35px,$height:40px,$arr-size:10px,$radius:4px,$position:absolute){
+	position:$position;
+	height:0;
+	top:50%;
+	right:0;
+	left:0;
+	margin-top:- half($height);
+	@include translate3d(0,0,0);
+	z-index: 1;
+	.btn{
+		position:relative;
+		background-color:rgba(color(black,0),.1);
+		width:$width;
+		height:$height;
+		border:1px solid transparent;
+		@extend %no-text;
+		&.prev{
+			float:left;
+			border-radius:0 $radius $radius 0;
+			@include arrow($arr-size,half($width - $arr-size) - 3,-135,color(white,0));
+		}
+		&.next{
+			float:right;
+			border-radius:$radius 0 0 $radius;
+			@include arrow($arr-size,half($width - $arr-size),45,color(white,0));
+		}
+	}
+}
+//옵션리스트 팝업(상세, 기획전) - dim_pop_wrap에 넣을 것(inner 상위)
+@mixin pop-opt-list{
+	.inner{
+		position:relative;
+		max-width:640px;
+		height:100%;
+	}
+	.pop_contents{
+		position:absolute;
+		top:69px;
+		left:20px;
+		right:20px;
+		bottom:75px;
+		margin:0;
+		@include swiper-list;
+		.opt_list{
+			background-color:color(white,2);
+		}
+	}
+	.pop_bottom{
+		position:absolute;
+		left:0;
+		right:0;
+		bottom:0;
+	}
+}
+//스와이퍼 스크롤 리스트(스크롤될 내용 감싼 후 상위 div 2개 더 필요, swiper-container-vertical > swiper-wrapper > swiper-slide(ul 가능) step 순이며 제일 상위에 include 필요)
+@mixin swiper-list($font-size:14px,$line-height:17px,$padding:10px){
+	border:1px solid color(black,6);
+	background:color(white,0);
+	overflow:hidden;
+	> div{
+		margin:-1px 0;
+		border:1px solid color(black,8);
+		border-width:1px 0;
+		li{
+			a{
+				display:block;
+				padding:$padding;
+				font-size:$font-size;
+				line-height:$line-height;
+			}
+			~ li{
+				border-top:1px solid color(black,8);
+			}
+			&.disabled{
+				color:color(black,5);
+				a{
+					cursor:default;
+				}
+			}
+		}
+	}
+}
+//한줄에 li 2~3개 적용, float:left되어있는 li별로 line, ul에 include, flex사용할 경우 $display:flex
+@mixin in-each-border($col:2,$li-color:color(black,8),$ul-color:color(black,6),$background:color(white,0),$display:block){
+	position:relative;
+	background:$background;
+	@if $ul-color != none{
+		border:1px solid $ul-color;
+		border-width:1px 0;
+	}
+	@if $display == flex{
+		display:flex;
+		flex-wrap:wrap;
+	}@else{
+		overflow:hidden;
+		> li{
+			float:left;
+		}
+	}
+	> li{
+		position:relative;
+	}
+	&:before{
+		content:'';
+		position:absolute;
+		top:0;
+		bottom:0;
+		margin-left:-1px;
+		border:1px solid $li-color;
+		z-index:2;
+		pointer-events:none;
+	}
+	@if $col==2{
+		> li{
+			width:50%;
+			&:nth-child(2) ~ li{
+				padding-top:1px;
+			}
+			&:nth-child(2n + 3){
+				&:before{
+					content:'';
+					position:absolute;
+					width:200%;
+					top:0;
+					left:0;
+					border-bottom:1px solid $li-color;
+					z-index:2;
+				}
+			}
+		}
+		&:before{
+			width:0;
+			left:50%;
+			border-width:0 0 0 1px;
+		}
+	}@else if $col==3{
+		> li{
+			width:33.3334%;
+			&:nth-child(3) ~ li{
+				padding-top:1px;
+			}
+			&:nth-child(3n + 4){
+				&:before{
+					content:'';
+					position:absolute;
+					width:300%;
+					top:0;
+					left:0;
+					border-bottom:1px solid $li-color;
+					z-index:2;
+				}
+			}
+		}
+		&:before{
+			left:33.3334%;
+			right:33.3334%;
+			border-width:0 1px;
+		}
+	}@else{
+		> li{
+			width:25%;
+			&:nth-child(4) ~ li{
+				padding-top:1px;
+			}
+			&:nth-child(4n + 5){
+				&:before{
+					content:'';
+					position:absolute;
+					width:400%;
+					top:0;
+					left:0;
+					border-bottom:1px solid $li-color;
+					z-index:2;
+				}
+			}
+		}
+		&:before{
+			left:25%;
+			right:50%;
+			border-width:0 1px;
+		}
+		&:after{
+			content:'';
+			position:absolute;
+			box-sizing:border-box;
+			top:0;
+			bottom:0;
+			left:75%;
+			margin-left:-1px;
+			border-left:1px solid $li-color;
+			z-index:2;
+			pointer-events:none;
+		}
+	}
+}
+//reset icon
+@mixin btn-reset{
+	// @include svgsprite($ic_reset_13,common);
+}
+//필터나 브랜드 선택버튼
+@mixin btn-select{
+	ul{
+		font-size:0;
+		white-space:nowrap;
+		overflow-x:auto;
+		overflow-y:hidden;
+		li{
+			display:inline-block;
+			.btn{
+				width:auto;
+				height:28px;
+				padding:0 4px 0 6px;
+				border:0;
+				background:color(blue,0);
+				font-weight:normal;
+				font-size:13px;
+				line-height:28px;
+				.ico_x{
+					position:relative;
+					@include ic-x(9px,1px,3px,color(white,0));
+					margin-top:-2px;
+					margin-left:-2px;
+					vertical-align:middle;
+				}
+			}
+			~ li{
+				margin-left:5px;
+			}
+		}
+	}
+}
+@mixin tooltip($layer,$close){
+	.#{$layer}{
+		padding:10px 30px 10px 10px;
+		border:1px solid color(black,6);
+		background:color(white,0);
+		font-size:11px;
+		line-height:13px;
+		color:color(black,4);
+		display:none;
+	}
+	&.on{
+		.#{$layer}{
+			display:block;
+		}
+	}
+	.#{$close}{
+		@include ic-x(9px,1px,3px,color(black,3));
+		@include posrt(8px);
+	}
+}
+//appearance
+@mixin appearance($appearance){
+	-webkit-appearance:$appearance;
+	-moz-appearance:$appearance;
+	appearance:$appearance;
+}
+
+//Box shadow
+@mixin box-shadow($shadow...){
+	-webkit-box-shadow:$shadow;
+	box-shadow:$shadow;
+}
+
+@mixin border-top-radius($radius){
+	border-top-right-radius:$radius;
+	border-top-left-radius:$radius;
+}
+@mixin border-right-radius($radius){
+	border-top-right-radius:$radius;
+	border-bottom-right-radius:$radius;
+}
+@mixin border-bottom-radius($radius){
+	border-bottom-right-radius:$radius;
+	border-bottom-left-radius:$radius;
+}
+@mixin border-left-radius($radius){
+	border-top-left-radius:$radius;
+	border-bottom-left-radius:$radius;
+}
+
+//== Gradient
+// Vertical gradient, from top to bottom
+@mixin gradient-vertical($start-color:#fff, $end-color:#f9f9f9, $solid-color:#fafafa, $start-percent:0%, $end-percent:100%){
+	// $start-color, $end-color, $solid-color 기본 색상은 그대로 사용하면서 percent만 변경하고 싶을때 아래 예시와 같이 사용
+	// 예 ) @include gradient-vertical(null, null, null, 10%, 90%);
+	@if ($start-color == null){
+		$start-color:#fff;
+	}
+	@if ($end-color == null){
+		$end-color:#f9f9f9;
+	}
+	@if ($solid-color == null){
+		$solid-color:#fafafa;
+	}
+	background-color:$solid-color; // Old browser
+	background-image:-webkit-gradient(linear, left top, left bottom, color-stop($start-percent, $start-color), color-stop($end-percent, $end-color)); // Chrome, Safari4+
+	background-image:-webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); // Chrome10+, Safari5.1+
+	background-image:linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE 10+, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+	background-repeat:repeat-x;
+}
+// Horizontal gradient, from left to right
+@mixin gradient-horizontal($start-color:#fff, $end-color:#f9f9f9, $solid-color:#fafafa, $start-percent:0%, $end-percent:100%){
+	// $start-color, $end-color, $solid-color 기본 색상은 그대로 사용하면서 percent만 변경하고 싶을때 아래 예시와 같이 사용
+	// 예 ) @include gradient-horizontal(null, null, null, 10%, 90%);
+	@if ($start-color == null){
+		$start-color:#fff;
+	}
+	@if ($end-color == null){
+		$end-color:#f9f9f9;
+	}
+	@if ($solid-color == null){
+		$solid-color:#fafafa;
+	}
+	background-color:$solid-color; // Old browser
+	background-image:-webkit-gradient(linear, left top, right top, color-stop($start-percent, $start-color), color-stop($end-percent, $end-color)); // Chrome, Safari4+
+	background-image:-webkit-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Chrome10+, Safari5.1+
+	background-image:linear-gradient(to right, $start-color $start-percent, $end-color $end-percent); // Standard, IE 10+, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+	background-repeat:repeat-x;
+}
+
+
+//== Transition
+//** Transition full value
+@mixin transition($transition...){
+	-webkit-transition:$transition;
+	transition:$transition;
+}
+
+//** Transition each set option
+@mixin transition-option($options, $transitions){
+	-webkit-transition-#{$options}:$transitions;
+	transition-#{$options}:$transitions;
+}
+
+//** Transition propery
+@mixin transition-property($property...){
+	@include transition-option('property', $property);
+}
+
+//** Transition delay
+@mixin transition-delay($delay...){
+	@include transition-option('delay', $delay);
+}
+
+//** Transition duration
+@mixin transition-duration($duration...){
+	@include transition-option('duration', $duration);
+}
+
+//** Transition timing-function
+@mixin transition-timing-function($timing-function...){
+	@include transition-option('timing-function', $timing-function);
+}
+
+
+//== Transform
+//** Transform full value
+@mixin transform($transforms){
+	-webkit-transform:$transforms;
+	transform:$transforms;
+}
+
+//** Transform rotate
+@mixin rotate($deg){
+	@include transform(rotate(#{$deg}deg));
+}
+
+//** Transform rotateX
+@mixin rotateX($deg){
+	@include transform(rotateX(#{$deg}deg));
+}
+
+//** Transform rotateY
+@mixin rotateY($deg){
+	@include transform(rotateY(#{$deg}deg));
+}
+
+//** Transform scale
+@mixin scale($scale){
+	@include transform(scale($scale));
+}
+
+//** Transform translate
+@mixin translate($x, $y){
+	@include transform(translate($x, $y));
+}
+
+//** Transform translate3d
+@mixin translate3d($x, $y, $z){
+	@include transform(translate3d($x, $y, $z));
+}
+
+//** Transform skew
+@mixin skew($x, $y){
+	@include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+//** Transform origin
+@mixin transform-origin($origin){
+	-webkit-transform-origin:$origin;
+	transform-origin:$origin;
+}
+
+
+//== Animation
+@mixin animation($animation){
+	-webkit-animation:$animation;
+	animation:$animation;
+}
+@mixin animation-name($name){
+	-webkit-animation-name:$name;
+	animation-name:$name;
+}
+@mixin animation-duration($duration){
+	-webkit-animation-duration:$duration;
+	animation-duration:$duration;
+}
+@mixin animation-timing-function($timing-function){
+	-webkit-animation-timing-function:$timing-function;
+	animation-timing-function:$timing-function;
+}
+@mixin animation-delay($delay){
+	-webkit-animation-delay:$delay;
+	animation-delay:$delay;
+}
+@mixin animation-iteration-count($iteration-count){
+	-webkit-animation-iteration-count:$iteration-count;
+	animation-iteration-count:$iteration-count;
+}
+@mixin animation-direction($direction){
+	-webkit-animation-direction:$direction;
+	animation-direction:$direction;
+}
+
+
+//Keyframes
+@mixin keyframes($name){
+	// @-webkit-keyframes #{$name}{
+	// 	@content;
+	// }
+	@keyframes #{$name}{
+		@content;
+	}
+}
+
+//User select
+@mixin user-select($select){
+	-webkit-user-select:$select;
+	user-select:$select;
+}
+
+//position property
+@mixin position($position, $top:null, $right:null, $bottom:null, $left:null) {
+	position:$position;
+	top:$top;
+	right:$right;
+	bottom:$bottom;
+	left:$left;
+}
+
+@mixin fixed($args...){
+	@include position(fixed, $args...);
+}
+
+@mixin absolute($args...){
+	@include position(absolute, $args...);
+}
+
+@mixin posrt($right:0, $top:$right){
+	@include absolute($right:$right, $top:$top);
+}
+
+@mixin poslt($left:0, $top:$left){
+	@include absolute($left:$left, $top:$top);
+}
+
+@mixin posrb($right:0, $bottom:$right){
+	@include absolute($right:$right, $bottom:$bottom);
+}
+
+@mixin poslb($left:0, $bottom:$left){
+	@include absolute($left:$left, $bottom:$bottom);
+}
+
+//box-size model
+@mixin size($width, $height:$width){
+	width:$width;
+	height:$height;
+}
+
+//border
+@mixin bd($bd-color:color(black,6), $bd-width:1px , $bd-style:solid){
+	@if length($bd-width) > 1 {
+		border-style:$bd-style;
+		border-color:$bd-color;
+		border-width:$bd-width;
+	}@else {
+		border:$bd-width $bd-style $bd-color;
+	}
+}
+
+//x icon
+@mixin ic-x($size:null, $thick:2px, $padding:2px, $color:color(black,0), $height:null){
+	$x-width:round($size * $sqrt2 - $thick);
+	width:$size + $padding * 2;
+	@if $height == null{
+		height:$size + $padding * 2;
+	}@else{
+		height:$height;
+	}
+	@extend %no-text;
+	&:after,
+	&:before{
+		content:'';
+		@include poslt(50%);
+		width:$x-width;
+		height:$thick;
+		margin-left:-($x-width / 2);
+		margin-top:-($thick / 2);
+		background-color:$color;
+	}
+	&:after{
+		transform:rotate(45deg);
+	}
+	&:before{
+		transform:rotate(135deg);
+	}
+}
+//svg
+//etc svg
+@mixin svg($url,$color:null,$position:0 0,$repeat:no-repeat){
+	background:$color url('../svg/#{$url}.svg') $position $repeat;
+	// background:$color url('../svg/#{$url}.svg?v='+$time) $position $repeat;
+}
+@mixin vsvg($url,$color:null,$position:0 0,$repeat:no-repeat){
+	background:$color url('../vsvg/#{$url}.svg?v='+$time) $position $repeat;
+	// background:$color url('../vsvg/#{$url}.svg?v='+$time) $position $repeat;
+}
+
+@mixin svg-url($url){
+	background-image:url('../svg/#{$url}.svg');
+	// background-image:url('../svg/#{$url}.svg?v='+$time);
+}
+
+@mixin vsvg-url($url){
+	background-image:url('../vsvg/#{$url}.svg?v='+$time);
+	// background-image:url('../vsvg/#{$url}.svg?v='+$time);
+}
+@mixin svgsprite-bgposition($img){
+	background-position:map-get($img, 'x') map-get($img, 'y');
+}
+
+@mixin svgsprite-rightbg($img, $width){
+	width:$width;
+	background-position:(map-get($img, 'x') - (map-get($img, 'width') - $width)) map-get($img, 'y');
+}
+
+@mixin svgsprite-width($img){
+	width:map-get($img, 'width');
+}
+
+@mixin svgsprite-height($img){
+	height:map-get($img, 'height');
+}
+
+@mixin svgsprite-size($img){
+	width:map-get($img, 'width');
+	height:map-get($img, 'height');
+}
+
+@mixin svgsprite($img,$url:null,$color:null){
+	@include svgsprite-size($img);
+	@if $url{
+		@include svg($url,$color,map-get($img, 'x') map-get($img, 'y'));
+	}@else{
+		@include svgsprite-bgposition($img);
+	}
+}
+
+@mixin vsvgsprite($img,$url:null){
+	@include svgsprite-size($img);
+	@if $url{
+		@include vsvg($url,null,map-get($img, 'x') map-get($img, 'y'));
+	}@else{
+		@include svgsprite-bgposition($img);
+	}
+}
+
+@mixin svgsprite-render-classes{
+	@each $shape in $svgsprite-shapes{
+		.#{map-get($shape, 'name')}{
+			@include svgsprite($shape);
+		}
+	}
+}
+
+@mixin svgcolor($img,$css:'',$width:null,$height:$width,$color:null,$repeat:no-repeat,$mask:null){
+	//기본 이미지랑 크기가 다를 경우 width, height에 사이즈 입력, 사이즈 사용 안할경우 width에 'n' 입력, mask시 'y'
+	$svg : map-get($img, 'svg');
+	$svgsize : 'width="' + str-slice(#{map-get($img, 'width')},1,-3) + '" height="' + str-slice(#{map-get($img, 'height')},1,-3) + '"';
+	@if $css!=''{
+		$css : str-replace($css, '#', '%23');
+		$css : '<defs><style type="text/css">'+$css+'</style></defs>';
+	}
+
+	$svgprop : $color url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ' + $svgsize +'>' + $css + $svg + '</svg>') $repeat;
+	background:$svgprop;
+	@if $mask{
+		-webkit-mask:$svgprop;
+		mask:$svgprop;
+	}
+
+	@if $width!='n'{
+		@if $width{
+			@include size($width,$height);
+			background-size:100%;
+		}@else{
+			@include svgsprite-size($img);
+		}
+	}
+}
+
+//max-width media query
+@mixin media-sm-width($width) {
+	@media (max-width: $width) { @content; }
+}
+
+//height
+@mixin vt-m($height, $line-height:$height){
+	height: $height;
+	line-height: $line-height;
+}
+// font
+@mixin font($font-size, $line-height, $color:null){
+	font-size: $font-size;
+	line-height: $line-height;
+	color: $color;
+}
+// 리스트,상세 라벨
+@mixin desc_label($height:18px,$font-size:11px,$timer-width:75px){
+	min-height:$height;
+	@extend %clearfix;
+	margin-bottom:4px;
+	> span{
+		float:left;
+		margin-right:4px;
+		height:$height;
+		@include font($font-size,$height - 1);
+		letter-spacing:-0.5px;
+		border-radius:9px;
+		box-sizing:border-box;
+		padding:0 8px;
+		color:color(black,18);
+		border:1px solid color(black,20);
+		&:last-child{
+			margin-right:0;
+		}
+		&.timer{
+			padding-right:0;
+			width:$timer-width;
+			font-family:tahoma;
+			font-size:0 !important;
+			span{
+				display:inline-block;
+				font-size:$font-size;
+			}
+			.clock{
+				position:relative;
+				display:inline-block;
+				margin-right:4px;
+				@include size(10px);
+				vertical-align:-1px;
+				border:1px solid;
+				border-radius:50%;
+				box-sizing:border-box;
+				&:before{
+					content:'';
+					display:inline-block;
+					@include size(2.5px);
+					border:1px solid;
+					border-width:0 0 1px 1px;
+					@include posrt(1px);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,90 @@
+// lucy
+//header
+h1.logo{
+	position: absolute;
+	top: 0; 
+	left: 0;
+	a{
+		@include poslt(0, 20px);
+		display: block;
+		@include svgsprite($logo, smain);
+		@extend %img-replace;
+	}
+}
+.gnb_wrap{
+	float: right;
+	height: 100%;
+	vertical-align: top;
+	// gnbgul
+	.gnb{
+		@extend %clearfix;
+		height: 100%;
+		margin-left: 157px;
+		.category_area{
+			height: 100%;
+			margin-right: 242px;
+			li{
+				position: relative;
+				float: left;
+				padding: 0 5px;
+				height: 80px;
+				box-sizing: border-box;
+				> a{
+					position: relative;
+					display: inline-block;
+					@include font($size5, 80px, color(black,0));
+					.base{
+						position: absolute;
+						top: 0; 
+						left: 0;
+						width: 100%;
+						text-align: center;
+					}
+					.hover{
+						em{
+							color: color(red,0)
+						}
+					}
+					&:not(:hover){
+						.base{
+							visibility: visible;
+						}
+						.hover{
+							visibility: hidden;
+						}
+					}
+					&.active, 
+					&:hover{
+						.base{
+							visibility: hidden;
+						}
+						.hover{
+							visibility: visible;
+						}
+					}
+				}
+			}
+		}
+		.btn_area{
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+}
+header{
+	@include fixed(0,0,null,0);
+	height: $header-h;
+	overflow: hidden;
+	box-sizing: border-box;
+	// border-bottom: 1px solid transparent;
+	background: color(white,0);
+	z-index: z-index(fixed);
+	&:after{
+		content:'';
+		@include poslb(0,0);
+		@include size(100%,1px);
+		background-color: color(black,6);
+	}
+}
+

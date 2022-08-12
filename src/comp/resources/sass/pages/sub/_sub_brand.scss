@@ -1,0 +1,72 @@
+.brand_cont{
+	h3.title{
+		display: inline-block;
+		width: 308px;
+		vertical-align: top;
+	}
+	.con_side{
+		display: inline-block;
+		width: 885px;
+		vertical-align: top;
+		letter-spacing: -1px;
+		span{
+			display: block;
+			@include font(18px,34px);
+			color: color(black,2);
+			margin-bottom: 30px;
+		}
+		.btn_wrap{
+			margin-bottom: 100px;
+			.btn{
+				min-width: 145px;
+				padding-right: 40px;
+				&:after{
+					content:'';
+					background-image: url($common-spr-img);
+					@include posrt(13px,20px);
+					@include sprite($btn_down_02);
+				}
+				&:hover{
+					&:after{
+						@include sprite($btn_down_02_on);
+					}
+				}
+				~ .btn{
+					margin-left: 30px;
+				}
+			}
+		}
+	}
+	dl{
+		margin-top: 101px;
+		margin-bottom: 270px;
+		padding-top: 17px;
+		border-top: 1px solid color(red,0);
+		dt{
+			@include font(20px,32px);
+			font-weight: bold;
+			font-family: $w-font;
+			margin-bottom: 23px;
+			color: color(red,0);
+		}
+		dd{
+			position: relative;
+			padding-left: 8px;
+			@include font(16px,35px);
+			color: color(black,2);
+			&:before{
+				content:'';
+				@include poslt(0,17px);
+				@include size(2px,2px);
+				background: color(black,2);
+			}
+		}
+	}
+	~ .brand_cont{
+		margin-top: 128px;
+		.center_inner{
+			padding-top: 132px;
+			border-top: 1px solid color(black,3);
+		}
+	}
+}

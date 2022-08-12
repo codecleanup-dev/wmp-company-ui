@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<title>SVG sprite preview Guide | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ffd174;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}
+		span{text-indent:200%;white-space:nowrap;overflow:hidden;display:inline-block}</style>
+
+<!--
+
+Sprite CSS
+====================================================================================================
+This is an all-in-one inline version of the CSS necessary to use the SVG sprite.
+
+-->
+
+<style type="text/css">
+.ic_banner_arrow {
+	background: url("../../../dist/wmplog/css/svg/common.svg") calc(-114px - 2px) calc(-40px - 2px) no-repeat;
+	width: 18px;
+	height: 32px;
+}
+.ic_btn_arrow {
+	background: url("../../../dist/wmplog/css/svg/common.svg") calc(-114px - 2px) calc(-76px - 2px) no-repeat;
+	width: 11px;
+	height: 6px;
+}
+.ic_btn_menu {
+	background: url("../../../dist/wmplog/css/svg/common.svg") calc(-84px - 2px) calc(-26px - 2px) no-repeat;
+	width: 20px;
+	height: 16px;
+}
+.ic_btn_share {
+	background: url("../../../dist/wmplog/css/svg/common.svg") calc(-136px - 2px) calc(-40px - 2px) no-repeat;
+	width: 14px;
+	height: 14px;
+}
+.ic_footer_link {
+	background: url("../../../dist/wmplog/css/svg/common.svg") calc(-60px - 2px) calc(-86px - 2px) no-repeat;
+	width: 16px;
+	height: 16px;
+}
+.ic_header_pop_close {
+	background: url("../../../dist/wmplog/css/svg/common.svg") calc(-36px - 2px) calc(-86px - 2px) no-repeat;
+	width: 20px;
+	height: 20px;
+}
+.ic_header_pop_search {
+	background: url("../../../dist/wmplog/css/svg/common.svg") calc(0px - 2px) calc(-86px - 2px) no-repeat;
+	width: 32px;
+	height: 32px;
+}
+.ic_header_pop_search_close {
+	background: url("../../../dist/wmplog/css/svg/common.svg") calc(-80px - 2px) calc(-86px - 2px) no-repeat;
+	width: 14px;
+	height: 14px;
+}
+.ic_header_search {
+	background: url("../../../dist/wmplog/css/svg/common.svg") calc(-80px - 2px) calc(-46px - 2px) no-repeat;
+	width: 24px;
+	height: 24px;
+}
+.ic_sns_facebook {
+	background: url("../../../dist/wmplog/css/svg/common.svg") calc(-114px - 2px) calc(0px - 2px) no-repeat;
+	width: 36px;
+	height: 36px;
+}
+.ic_sns_instagram {
+	background: url("../../../dist/wmplog/css/svg/common.svg") calc(-40px - 2px) calc(-46px - 2px) no-repeat;
+	width: 36px;
+	height: 36px;
+}
+.ic_sns_youtube {
+	background: url("../../../dist/wmplog/css/svg/common.svg") calc(0px - 2px) calc(-46px - 2px) no-repeat;
+	width: 36px;
+	height: 36px;
+}
+.ic_toast_share {
+	background: url("../../../dist/wmplog/css/svg/common.svg") calc(-136px - 2px) calc(-58px - 2px) no-repeat;
+	width: 14px;
+	height: 14px;
+}
+.logo {
+	background: url("../../../dist/wmplog/css/svg/common.svg") calc(0px - 2px) calc(0px - 2px) no-repeat;
+	width: 110px;
+	height: 22px;
+}
+.logo_footer {
+	background: url("../../../dist/wmplog/css/svg/common.svg") calc(0px - 2px) calc(-26px - 2px) no-repeat;
+	width: 80px;
+	height: 16px;
+}
+</style>
+<!--
+====================================================================================================
+-->
+
+</head>
+
+<body>
+	<header>
+		<h1>SVG CSS sprite preview</h1>
+		<p>This preview features the generated SVG file as a conventional CSS sprite. The shapes are displayed as background images of several <code>&lt;i&gt;</code> elements.</p>
+	</header>
+	<section>
+
+		<!--
+
+Conventional CSS sprite
+====================================================================================================
+This technique uses CSS classes to display portions of the sprite as background image of
+appropriately sized elements.
+
+-->
+
+		<ul>
+				<li title="ic_banner_arrow">
+					<div class="icon-box">
+
+						<!-- ic_banner_arrow -->
+						<span class="ic_banner_arrow"></span>
+
+					</div>
+					<h2>ic_banner_arrow</h2>
+				</li>
+				<li title="ic_btn_arrow">
+					<div class="icon-box">
+
+						<!-- ic_btn_arrow -->
+						<span class="ic_btn_arrow"></span>
+
+					</div>
+					<h2>ic_btn_arrow</h2>
+				</li>
+				<li title="ic_btn_menu">
+					<div class="icon-box">
+
+						<!-- ic_btn_menu -->
+						<span class="ic_btn_menu"></span>
+
+					</div>
+					<h2>ic_btn_menu</h2>
+				</li>
+				<li title="ic_btn_share">
+					<div class="icon-box">
+
+						<!-- ic_btn_share -->
+						<span class="ic_btn_share"></span>
+
+					</div>
+					<h2>ic_btn_share</h2>
+				</li>
+				<li title="ic_footer_link">
+					<div class="icon-box">
+
+						<!-- ic_footer_link -->
+						<span class="ic_footer_link"></span>
+
+					</div>
+					<h2>ic_footer_link</h2>
+				</li>
+				<li title="ic_header_pop_close">
+					<div class="icon-box">
+
+						<!-- ic_header_pop_close -->
+						<span class="ic_header_pop_close"></span>
+
+					</div>
+					<h2>ic_header_pop_close</h2>
+				</li>
+				<li title="ic_header_pop_search">
+					<div class="icon-box">
+
+						<!-- ic_header_pop_search -->
+						<span class="ic_header_pop_search"></span>
+
+					</div>
+					<h2>ic_header_pop_search</h2>
+				</li>
+				<li title="ic_header_pop_search_close">
+					<div class="icon-box">
+
+						<!-- ic_header_pop_search_close -->
+						<span class="ic_header_pop_search_close"></span>
+
+					</div>
+					<h2>ic_header_pop_search_close</h2>
+				</li>
+				<li title="ic_header_search">
+					<div class="icon-box">
+
+						<!-- ic_header_search -->
+						<span class="ic_header_search"></span>
+
+					</div>
+					<h2>ic_header_search</h2>
+				</li>
+				<li title="ic_sns_facebook">
+					<div class="icon-box">
+
+						<!-- ic_sns_facebook -->
+						<span class="ic_sns_facebook"></span>
+
+					</div>
+					<h2>ic_sns_facebook</h2>
+				</li>
+				<li title="ic_sns_instagram">
+					<div class="icon-box">
+
+						<!-- ic_sns_instagram -->
+						<span class="ic_sns_instagram"></span>
+
+					</div>
+					<h2>ic_sns_instagram</h2>
+				</li>
+				<li title="ic_sns_youtube">
+					<div class="icon-box">
+
+						<!-- ic_sns_youtube -->
+						<span class="ic_sns_youtube"></span>
+
+					</div>
+					<h2>ic_sns_youtube</h2>
+				</li>
+				<li title="ic_toast_share">
+					<div class="icon-box">
+
+						<!-- ic_toast_share -->
+						<span class="ic_toast_share"></span>
+
+					</div>
+					<h2>ic_toast_share</h2>
+				</li>
+				<li title="logo">
+					<div class="icon-box">
+
+						<!-- logo -->
+						<span class="logo"></span>
+
+					</div>
+					<h2>logo</h2>
+				</li>
+				<li title="logo_footer">
+					<div class="icon-box">
+
+						<!-- logo_footer -->
+						<span class="logo_footer"></span>
+
+					</div>
+					<h2>logo_footer</h2>
+				</li>
+		</ul>
+
+		<!--
+====================================================================================================
+-->
+
+	</section>
+	<footer>
+		<p>Generated at Wed, 10 Aug 2022 09:40:48 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+	</footer>
+</body>
+
+</html>

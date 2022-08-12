@@ -1,0 +1,75 @@
+// color-pallettes
+$palettes: (
+	white: (
+		0: #fff
+	),
+	black: (
+		0: #000
+		,1: #333
+		,2: #666
+		,3: #b4b4b4
+		,4: #1e1e1e
+		,5: #e6e6e6
+		,6: #808080
+		,7: #b3b3b3
+		,8: #cccccc
+		,9: #e1e1e1
+		,10: #414141
+		,11: #969696
+		,12 : #f8f8f8
+		,13: #717171
+		,14: #aaaba9
+		,15: #a5a5a5
+		,16: #eeeeee
+		,17: #e0e0e0
+	),
+	blue: (
+		0: #00a8d1
+	),
+	red: (
+		0: #e40520
+	),
+	yellow: (
+		0: #dea821
+	),
+	green: (
+		0: #a8bd28
+	),
+);
+
+// 헤더 높이
+$header-height: 80px;
+
+//image url
+//$img-url : '/src/pc/resources/images';
+// $spr-img-url : '/wmp/css/spr';
+// $img-url : '/wmp/images';
+
+//상대경로
+$img-url : '../../images';
+$spr-img-url : '../../css/spr';
+
+//common sprite
+$common-spr-img:'#{$spr-img-url}/common.png';
+
+//투명배경(ie 11이하 hover나 클릭 이슈)
+$bg-transparent:'#{$img-url}/common/bg_transparent.png';
+
+//font-family
+$w-font : Wemakeprice;
+$SpoqaHanSans-font : 'Spoqa Han Sans Neo', 'sans-serif';
+
+//content-center-size
+$content-center-size: 1200px;
+$scr-width : 17px;//window 스크롤 넓이
+
+$z-indexes: (
+	auto							: auto,
+	zero							: 0,
+	low								: 1,
+	basic							: 5,
+	mid								: 10,
+	high							: 15,
+	fixed							: 500,
+	layer							: 1000
+);

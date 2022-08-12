@@ -1,0 +1,329 @@
+.ethic_cont{
+	h3.title{
+		display: inline-block;
+		width: 308px;
+		vertical-align: top;
+		line-height: 34px;
+	}
+	.con_side{
+		display: inline-block;
+		width: 885px;
+		vertical-align: top;
+		letter-spacing: -1px;
+		span{
+			display: block;
+			@include font(18px,34px);
+			color: color(black,2);
+			margin-bottom: 30px;
+		}
+		&.ethics{
+			ul{
+				font-size: 0;
+				margin-top: 45px;
+				li{
+					display:block;
+					i{
+						position: relative;
+						display: inline-block;
+						width: 104px;
+						@extend %img-replace;
+						vertical-align: top;
+						&:before{
+							content:'';
+							display: block;
+							@extend %spr_sub;
+							margin-top: 8px;
+						}
+					}
+					.txt{
+						display: inline-block;
+						width: 780px;
+					}
+					h5{
+						font-weight: bold;
+						@include font(20px,32px);
+						color: color(black,0);
+						font-family: $w-font;
+					}
+					span{
+						@include font(18px,32px);
+						color: color(black,2);
+						margin-bottom: 0;
+						margin-top: -2px;
+					}
+					&:nth-child(1){
+						i{
+							&:before{
+								@include sprite($ico_sub_ethic_04);
+								margin-left: 9px;
+							}
+						}
+					}
+					&:nth-child(2){
+						margin-top: 31px;
+						i{
+							&:before{
+								@include sprite($ico_sub_ethic_05);
+								margin-left: 4px;
+								margin-top: 2px;
+							}
+						}
+					}
+					&:nth-child(3){
+						margin-top: 29px;
+						i{
+							&:before{
+								@include sprite($ico_sub_ethic_06);
+								margin-left: 2px;
+								margin-top: 2px;
+							}
+						}
+					}
+					&:nth-child(4){
+						margin-top: 36px;
+						i{
+							&:before{
+								@include sprite($ico_sub_ethic_07);
+								margin-left: 1px;
+								margin-top: -2px;
+							}
+						}
+					}
+				}
+			}
+		}
+		&.report{
+			> ol{
+				> li{
+					@include font(18px,34px);
+					h5{
+						color: color(black,0);
+						font-size: 20px;
+						font-weight: bold;
+						font-family: $w-font;
+					}
+					ol > li{
+						padding-left: 20px;
+						color: color(black,2);
+						text-indent: -20px;
+					}
+					~ li{
+						margin-top: 60px;
+					}
+					.table_wrap{
+						margin-top: 17px;
+						margin-left: -20px;
+						table{
+							@include font(18px,32px);
+							color: color(black,2);
+							button{
+								background: none;
+								span{
+									position: relative;
+									border-bottom: 1px solid color(black,2);
+									@include font(18px, 32px);
+									letter-spacing: -1px;
+									margin-bottom: 0;
+									&:after{
+										content:'';
+										@include posrt(-15px,13px);
+										background-image: url($common-spr-img);
+										@include sprite($btn_arrow_6);
+									}
+								}
+							}
+						}
+					}
+					.btn_wrap{
+						margin-top: 22px;
+						margin-left: -20px;
+						text-indent: 0;
+					}
+				}
+			}
+		}
+		&.activities{
+			ul{
+				font-size: 0;
+				margin-top: 59px;
+				li{
+					display:block;
+					i{
+						position: relative;
+						display: inline-block;
+						width: 105px;
+						@extend %img-replace;
+						vertical-align: top;
+						&:before{
+							content:'';
+							display: block;
+							@extend %spr_sub;
+							margin-top: 4px;
+						}
+					}
+					.txt{
+						display: inline-block;
+						width: 775px;
+					}
+					h5{
+						font-weight: bold;
+						@include font(20px,32px);
+						color: color(black,0);
+						font-family: $w-font;
+					}
+					span{
+						@include font(18px,32px);
+						color: color(black,2);
+						margin-bottom: 0;
+						margin-top: -3px;
+					}
+					&:nth-child(1){
+						i{
+							&:before{
+								@include sprite($ico_sub_ethic_acticites_01);
+								margin-left: -1px;
+							}
+						}
+					}
+					&:nth-child(2){
+						i{
+							&:before{@include sprite($ico_sub_ethic_acticites_02);}
+						}
+					}
+					&:nth-child(3){
+						i{
+							&:before{@include sprite($ico_sub_ethic_acticites_03);}
+						}
+					}
+					&:nth-child(4){
+						i{
+							&:before{@include sprite($ico_sub_ethic_acticites_04);}
+						}
+					}
+					&:nth-child(5){
+						i{
+							&:before{@include sprite($ico_sub_ethic_acticites_05);}
+						}
+					}
+					&:nth-child(6){
+						i{
+							&:before{@include sprite($ico_sub_ethic_acticites_06);}
+						}
+					}
+					~ li{
+						margin-top: 43px;
+					}
+				}
+			}
+		}
+		&.sub_contact{
+			a{
+				position: relative;
+				font-size: 18px;
+				color: color(black,11);
+				&:before{
+					content:'';
+					display: inline-block;
+					@extend %spr_sub;
+					@include sprite($ico_sub_ethic_mail);
+					margin: 0 7px 0 5px;
+				}
+			}
+		}
+		&.process{
+			margin-bottom: 300px;
+			.process_title{
+				ul{
+					font-size: 0;
+				}
+				li{
+					display: inline-block;
+					@include font(18px,25px);
+					font-family: $w-font;
+					font-weight: bold;
+					color: color(red,0);
+					&:nth-child(2){
+						margin-left: 150px;
+					}
+					&:nth-child(3){
+						margin-left: 211px;
+					}
+					&:nth-child(4){
+						margin-left: 140px;
+					}
+				}
+			}
+			.process_step{
+				ul{
+					font-size:0;
+					margin-top: -2px;
+					li{
+						display: inline-block;
+						width: 192px;
+						vertical-align: top;
+						.num{
+							position: relative;
+							@include size(33px,32px);
+							@include font(14px,34px);
+							font-family: $w-font;
+							color: color(red,0);
+							margin-top: 20px;
+							margin-bottom: 15px;
+							border: 1px solid color(red,0);
+							border-radius: 50%;
+							text-align: center;
+							box-sizing: border-box;
+							text-indent: -1px;
+						}
+						p{
+							@include font(14px,22px);
+							color: color(black,2);
+						}
+						~ li{
+							.num{
+								&:before{
+									content:'';
+									@include poslt(-160px,15px);
+									display: inline-block;
+									@include size(159px,1px);
+									background: color(red,0);
+								}
+							}
+						}
+						&:last-child{
+							width: 115px;
+						}
+					}
+				}
+				+ span{
+					@include font(18px,35px);
+					margin-top: 82px;
+					margin-bottom: 20px;
+				}
+			}
+		}
+	}
+	~ .ethic_cont{
+		margin-top: 128px;
+		.center_inner{
+			padding-top: 132px;
+			border-top: 1px solid color(black,5);
+			&.br_st2{
+				border-top: 1px solid color(black,3);
+			}
+		}
+	}
+	.btn_wrap{
+		.btn{
+			@include size(278px,88px);
+			@include font(20px,39px);
+			background: color(red,0);
+			color: color(white,0);
+			padding: 0;
+			text-align: center;
+			&:hover{
+				background: color(black,0);
+			}
+		}
+	}
+}

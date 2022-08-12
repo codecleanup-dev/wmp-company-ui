@@ -1,0 +1,101 @@
+// color-pallettes
+$palettes: (
+	white: (
+		0: #fff
+	),
+	black: (
+		0: #000,
+		1: #222,
+		2: #555,
+		3: #888,
+		4: #AAA,
+		5: #CCC,
+		6: #DDD,
+		7: #EEE,
+		8: #f7f7f7,
+		9: #e1e1e1, // lucy 삭제 
+		10: #414141,
+		11: #969696,
+		12: #f8f8f8,
+		13: #717171,
+		14: #aaaba9,
+		15: #a5a5a5,
+		16: #eeeeee,
+		17: #e0e0e0
+	),
+	red: (
+		0: #FF585D
+	),
+	// lucy 삭제 
+	blue: (
+		0: #00a8d1
+	),
+	yellow: (
+		0: #dea821
+	),
+	green: (
+		0: #a8bd28
+	),
+);
+
+// 헤더 높이
+$header-height: 80px;
+
+//image url
+//$img-url : '/src/pc/resources/images';
+// $spr-img-url : '/wmp/css/spr';
+// $img-url : '/wmp/images';
+
+//상대경로
+$img-url : '../../images';
+$spr-img-url : '../../css/spr';
+
+//common sprite
+$common-spr-img:'#{$spr-img-url}/common.png';
+
+//투명배경(ie 11이하 hover나 클릭 이슈)
+$bg-transparent:'#{$img-url}/common/bg_transparent.png';
+
+//font-family
+$w-font : Wemakeprice;
+$SpoqaHanSans-font : 'Spoqa Han Sans Neo', 'sans-serif';
+
+$size: 10px;
+$size1: 1.3rem;
+$size2: 1.4rem;
+$size3: 1.6rem;
+$size4: 1.8rem;
+$size5: 2.0rem;
+$size6: 2.4rem;
+$size7: 2.8rem;
+$size8: 3.4rem;
+$size9: 5.2rem;
+$size10: 6.0rem;
+
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-bold: 700;
+
+$letter-spacing: 0;
+
+
+//content-center-size
+$w1280: 1280px;
+$content-center-size: 1216px;
+$scr-width : 17px;//window 스크롤 넓이
+
+
+$header-h: 80px; 
+$footer-h: 247px; 
+
+
+$z-indexes: (
+	auto							: auto,
+	zero							: 0,
+	low								: 1,
+	basic							: 5,
+	mid								: 10,
+	high							: 15,
+	fixed							: 500,
+	layer							: 1000
+);
