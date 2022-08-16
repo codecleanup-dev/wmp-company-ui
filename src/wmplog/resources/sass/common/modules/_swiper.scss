@@ -1,0 +1,73 @@
+.swiper-wrapper{
+  align-items: center;
+  // justify-content: center;
+  text-align: center;
+  font-size: $size3;
+}
+// 좌우 버튼
+.swiper-button-next, .swiper-button-prev{
+  &::after{
+    content: '';
+    @include svgsprite($ic_banner_arrow, common)
+  }
+}
+.swiper-button-next{
+  transform: rotate(-180deg)
+}
+.swiper-button-prev.swiper-button-disabled{
+  opacity: 0;
+}
+// .swiper-pagination{
+//   font-size:0;
+//   &::before{
+//     content: '';
+//     display: block;
+//     width: 100%;
+//     height: 100%;
+//     background-color: color(white, 0);
+//     opacity: 0.6
+//   }
+// }
+// 프로그레스바
+.swiper-horizontal>.swiper-pagination-progressbar, 
+.swiper-pagination-progressbar.swiper-pagination-horizontal{
+  @include posrb(32px, 28px);
+  top: auto;
+  left: auto;
+  width: 120px !important;
+  height: 4px;
+  text-align: right;
+  z-index: 10;
+}
+.swiper-pagination-progressbar{
+  background-color: transparent;
+  &::before{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: color(white, 0);
+    opacity: 0.3
+  }
+}
+.swiper-pagination-progressbar 
+.swiper-pagination-progressbar-fill{
+  background-color: color(white, 0);
+}
+// 카운트
+.swiper-pagination-fraction{
+  @include posrb(157px, 22px);
+  left: auto;
+  width: auto;
+  font-size: $size1;
+  color: color(white, 0);
+  z-index: 10;
+  text-align: right;
+  
+}
+.swiper-pagination-current{
+  opacity: 1;
+}
+.swiper-pagination-total{
+  opacity: 0.6;
+}

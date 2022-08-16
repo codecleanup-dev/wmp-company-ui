@@ -1,32 +1,105 @@
-.btn{
-	position: relative;
-	display: inline-block;
-	min-width: 159px;
-	height: 57px;
-	border:1px solid transparent;
-	background-image: none;
-	background-color: transparent;
-	@include font(16px,57px);
-	padding-left: 17px;
-	color: color(black,2);
-	white-space:nowrap;
-	text-align: left;
-	//색상
-	&[class*=st1]{
-		border-color: color(black,0);
-	}
-	&[class*=st2]{
-		border-color: color(black,0);
-		background: transparent;
-		color: color(black,0);
-		&:hover{
-			background: color(black,0);
-			color: color(white,0);
+// .btn{
+// 	position: relative;
+// 	display: inline-block;
+// 	min-width: 159px;
+// 	height: 57px;
+// 	border:1px solid transparent;
+// 	background-image: none;
+// 	background-color: transparent;
+// 	@include font(16px,57px);
+// 	padding-left: 17px;
+// 	color: color(black,2);
+// 	white-space:nowrap;
+// 	text-align: left;
+// 	//색상
+// 	&[class*=st1]{
+// 		border-color: color(black,0);
+// 	}
+// 	&[class*=st2]{
+// 		border-color: color(black,0);
+// 		background: transparent;
+// 		color: color(black,0);
+// 		&:hover{
+// 			background: color(black,0);
+// 			color: color(white,0);
+// 		}
+// 	}
+// 	//hover
+// 	&:hover{
+// 		background-color: color(black,3);
+// 		color: color(white,0);
+// 	}
+// }
+
+button{
+	&.btn{
+		background-color: transparent;
+		&.btn_line{
+			position: relative;
+			display: inline-block;
+			box-sizing: border-box;
+			border-width: 1px; 
+			border-style: solid;
+			border-color: color(black,3);
+			background-color: color(white, 0);
+			&[class*=st1]{
+				border-color: color(black,3);
+				border-radius: 3px;
+			}
+			&[class*=st2]{
+				border-color: color(black,6);
+				border-radius: 100px;
+			}
+			// 더보기
+			&.btn_add{
+				height: 54px;
+				line-height: 52px;
+				padding: 0 160px;
+			}
+			// 패밀리 사이트 
+			&.btn_site{
+				width: 100%;
+				height: 40px;
+				line-height: 38px;
+				padding: 0 100px 0 20px;
+				text-align: left;
+			}
+			.txt{
+				position: relative;
+				font-family: $sub-font;
+				// 더보기
+				&.txt_add{
+					font-weight: $weight-medium;
+					font-size: $size16;
+					color: color(black,1);
+					&::before{
+						content: '';
+						@include posrt(-18px, 50%);	
+						display: block;
+						width: 100%; 
+						height: 100%; 
+						margin-top: -3px;
+						@include svgsprite($ic_btn_arrow, common)
+					}
+				}
+				// 패밀리 사이트 
+				&.txt_site{
+					font-weight: $weight-regular;
+					font-size: $size14;
+					color: color(black,2);
+					&::before{
+						content: '';
+						@include posrt(-80px, 50%);	
+						display: block;
+						width: 100%; 
+						height: 100%; 
+						margin-top: -3px;
+						@include svgsprite($ic_btn_arrow, common)
+					}
+				}
+			}
 		}
 	}
-	//hover
-	&:hover{
-		background-color: color(black,3);
-		color: color(white,0);
-	}
 }
+
+

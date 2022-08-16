@@ -1,12 +1,14 @@
-	<h1 class="logo">
-		<a href="https://blog.wemakeprice.com">위메프로그</a>
-	</h1>
-	<div class="gnb_wrap">
-		<nav class="gnb">
+
+<div class="header_inner_wrap">
+	<div class="header_inner">
+		<h1 class="logo">
+			<a href="https://blog.wemakeprice.com">위메프로그</a>
+		</h1>
+		<div class="gnb_wrap">
 
 			<!-- 카테고리 메뉴 -->
-			<div class="category_area">
-				<ul class="">
+			<nav class="gnb">
+				<ul class="category_list_grp">
 					<li class="category work">
 						<!-- js active: 활성화 -->
 						<a href="#none" class="active">
@@ -27,7 +29,7 @@
 						</a>
 					</li>
 				</ul>
-			</div>
+			</nav>
 			<!-- //카테고리 메뉴 --> 
 
 			<!-- 지원/검색/메뉴 버튼 -->
@@ -44,9 +46,26 @@
 				</button>
 			</div>
 			<!-- //지원/검색/메뉴 버튼 -->
-
-		</nav>
+		</div>
 	</div>
+</div>
+
+<!-- 검색 팝 영역 -->
+<div class="search_pop search_wrap">
+	<div class="center_inner center">
+		<button class="btn btn_search_pop_close">닫기</button>
+		<div class="search_box">
+			<input type="text" placeholder="검색어를 입력해 주세요" class="search_pop_input">
+			<button class="btn pop_delete_btn">
+				<span>삭제</span>
+			</button>
+			<button class="btn search_pop_btn">
+				<span>검색</span>
+			</button>
+		</div>
+	</div>
+</div>
+<!-- //검색 팝 영역 -->
 
 <script>
 	//헤더
@@ -57,3 +76,4 @@
 	// 	$(this).parents('.header_wrap').removeClass('active');
 	// })
 </script>
+<script src="../../resources/js/header.js"></script>

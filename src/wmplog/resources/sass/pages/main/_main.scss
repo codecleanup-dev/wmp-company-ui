@@ -1,0 +1,59 @@
+.content_top{
+	position: relative;
+	margin-top: 60px;
+	.slider_area{
+		position: absolute;
+		top: 0; 
+		right: 0;
+		width: $banner-width;
+		height: $swiper-height;
+		border-radius: 12px;
+		background: color(black, 5);
+		overflow: hidden;
+		text-align: right;
+		&::before{
+			content: '800 X 433';
+			@include poslt(0, 60%);
+			width: 100%;
+			margin-top: -16px;
+			font-size: $size8;
+			text-align: center;
+			color: color(black, 3);
+			opacity: 0.8;
+		}
+	}
+	.infotxt_area{
+		display: table;
+		height: $swiper-height;
+		width: calc(100% - #{$banner-width} - 40px);
+		font-family: $sub-font;
+		font-size: $size9;
+		font-weight: $weight-medium;
+		color: color(black,1);
+		text-align: left;
+		.infotxt_area_wrap{
+			display: table-cell;
+			vertical-align: middle
+		}
+		.tit{
+			margin-bottom: 12px;
+			font-size: $size3;
+			color: color(red,0);
+		}
+		.txt{
+			@include ellipsis(4);
+		}
+	}
+}
+.content_middle{
+	margin-top: 80px;
+	.tit{
+		font-family: $sub-font;
+		font-size: $size8;
+		font-weight: $weight-medium;
+	}
+	.card_news_area{
+		margin-top: 32px;
+	}
+}
+

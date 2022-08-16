@@ -20,37 +20,10 @@
   color: color(white,0);
 }
 
-%label_base{
-	@extend %clearfix;
-	display: inline-block;
-	position: relative;
-	min-height: 18px;
-	input{
-		@include size(1px);
-		@include poslt;
-		opacity: 0;
-	}
-	span{
-		float: left;
-		overflow: hidden;
-		line-height: 16px;
-		vertical-align: top;
-	}
-	i{
-		display: inline-block;
-		@include poslt;
-		box-sizing: border-box;
-		&:before{
-			content:'';
-			display: inline-block;
-			background-image: url($common-spr-img);
-		}
-	}
-}
 
 //checkbox
 .ip_chk{
-	@extend %label_base;
+	// @extend %label_base;
 	padding-left: 20px;
 	vertical-align: middle;
 	font-size: 14px;
@@ -68,7 +41,7 @@
 }
 //radio button
 .ip_radi{
-	@extend %label_base;
+	// @extend %label_base;
 	padding-left: 20px;
 	vertical-align: middle;
 	font-size: 14px;

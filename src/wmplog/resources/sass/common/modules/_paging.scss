@@ -29,7 +29,7 @@
 		font-size: 0;
 		@include size(9px,16px);
 		vertical-align:top;
-		@extend %img-common;
+		// @extend %img-common;
 	}
 	.btn_prev{
 		margin-right: 3px;

@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="/dist/wmplog/css/common/common.css" />
 	<link rel="stylesheet" href="/dist/wmplog/css/common/layout.css" />
-	<link rel="stylesheet" href="/dist/wmplog/css/pages/main.css" />
+	<link rel="stylesheet" href="/dist/wmplog/css/pages/sub.css" />
 </head>
 
 <!-- js body | is_dim: 검색버튼 클릭시 검색 영역 활성화 -->
@@ -20,51 +20,42 @@
 			<header class="header_wrap"></header>
 			<!-- //Header -->
 
-			<!-- container/main -->
-			<main class="container main">
+			<!-- container/sub -->
+			<main class="container sub">
 				<div class="container_inner_wrap">
 					<h2 class="blind">컨텐츠영역</h2>
 					<!-- 컨텐츠 영역 -->
 					<div class="container_inner">
-						<section class="content_top">
-							<h3 class="blind">배너</h3>
-							<!-- 슬라이더 배너 -->
-							<div class="slider_area">
-								<!-- js swiper slider: 상단 배너  -->
-								<div class="swiper">
-									<div class="swiper-wrapper">
-										<div class="swiper-slide">
-											<img src="../../resources/images/temp/img_banner_1.jpg" alt="배너">
-										</div>
-										<div class="swiper-slide">slide2</div>
-										<div class="swiper-slide">slide3</div>
-										<div class="swiper-slide">slide4</div>
-										<div class="swiper-slide">slide5</div>
-									</div>
-									<!-- Add Pagination -->
-									<div class="pagination_progress"></div>
-									<div class="pagination_number"></div>
-									<!-- Add Navigation -->
-									<div class="swiper-button-prev"></div>
-									<div class="swiper-button-next"></div>
-								</div>
-							</div>
-							<!-- //슬라이더 배너 -->
-							<!-- 정보 -->
-							<div class="infotxt_area">
-								<div class="infotxt_area_wrap">
-									<h3 class="tit">WE MAKE IT 채용</h3>
-									<div class="txt">
-										SJF위메프 서울재즈페스티벌에 핫한 위메프가 떴다!🐻 공연을 서울재즈페스티벌에 팬데믹을 뚫고 3년만에 돌아왔습니다!
-									</div>
-								</div>
-							</div>
-							<!-- //정보 -->
-						</section>
 
-						<section class="content_middle">
-							<h3 class="tit">새로운 소식</h3>
-							<div class="card_news_area">
+						<section class="content_search_result">
+							<h3 class="blind">검색 결과</h3>
+
+							<div class="search_box_area">
+								<div class="search_box">
+									<input type="text" placeholder="검색어를 입력해 주세요" class="search_pop_input">
+									<button class="btn pop_delete_btn">
+										<span>삭제</span>
+									</button>
+									<button class="btn search_pop_btn">
+										<span>검색</span>
+									</button>
+								</div>
+							</div>
+							
+							<div class="tit_info_area">
+								<!-- js 보이기: is_show 감추기: is_hide -->
+								<span class="con_info is_hide">
+									<em class="result_txt">채용</em>의 검색결과 <em class="result_num">12</em>건이 있어요.
+								</span>
+								<span class="con_info">
+									<em class="result_txt">채용</em>에 대한 검색결과가 없어요.
+								</span>
+								<span class="con_info_sub">검색어를 변경해 보세요.</span>
+							</div>
+
+							TODO: 
+							<!-- js 보이기: is_show 감추기: is_hide -->
+							<div class="card_news_area is_hide">
 								<ul class="card_news_list_grp">
 									<li class="card_news_list">
 										<div class="list_wrap">
@@ -108,10 +99,38 @@
 											</div>
 										</div>
 									</li>
-										<li class="card_news_list">
+									<li class="card_news_list">
 										<div class="list_wrap">
 											<div class="news_img">
 												<img src="../../resources/images/temp/img_thumb_4.jpg" alt="소식 썸네일 이미지" width="384" height="256">
+											</div>
+											<div class="news_txt">
+												<div class="txt_tit">WE MAKE IT 채용</div>
+												<div class="txt_detail">
+													😀 서울재즈페스티벌에 팬데믹을 뚫고 3년만에 돌아왔습니다!
+												</div>
+												<div class="txt_date">2022.07.11</div>
+											</div>
+										</div>
+									</li>
+									<li class="card_news_list">
+										<div class="list_wrap">
+											<div class="news_img">
+												<img src="../../resources/images/temp/img_thumb_5.jpg" alt="소식 썸네일 이미지" width="384" height="256">
+											</div>
+											<div class="news_txt">
+												<div class="txt_tit">WE MAKE IT 채용</div>
+												<div class="txt_detail">
+													😀 서울재즈페스티벌에 팬데믹을 뚫고 3년만에 돌아왔습니다!
+												</div>
+												<div class="txt_date">2022.07.11</div>
+											</div>
+										</div>
+									</li>
+									<li class="card_news_list">
+										<div class="list_wrap">
+											<div class="news_img">
+												<img src="../../resources/images/temp/img_thumb_6.jpg" alt="소식 썸네일 이미지" width="384" height="256">
 											</div>
 											<div class="news_txt">
 												<div class="txt_tit">WE MAKE IT 채용</div>
@@ -130,11 +149,12 @@
 								</div>
 							</div>
 						</section>
+
 					<!-- //컨텐츠 영역 -->
 					</div>
 				</div><!-- // #container -->
 			</main>
-			<!-- //container/main -->
+			<!-- //container/sub -->
 
 			<!-- footer -->
 			<footer class="footer_wrap"></footer>

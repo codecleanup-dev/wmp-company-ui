@@ -1,0 +1,34 @@
+.content_search_result{
+  margin-top: 80px;
+  .tit_info_area{
+    display: inline-block;
+    span{
+      display: block;
+    }
+    .con_tit{
+      font-size: $size60;
+      font-weight: $weight-medium;
+      color: color(black, 1)
+    }
+    .con_info{
+      margin-top: 60px;
+      font-family: $sub-font;
+      font-size: $size24;
+      font-weight: $weight-regular;
+      color: color(black, 2);
+      letter-spacing: -0.5px;
+      em{
+        color: color(red, 0);
+      }
+    }
+    .con_info_sub{
+      margin-top: 8px;
+      font-family: $sub-font;
+      font-size: $size16;
+      color: color(black, 3);
+    }
+  }
+  .card_news_area{
+		margin-top: 40px;
+	}
+}

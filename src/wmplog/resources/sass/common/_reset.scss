@@ -1,6 +1,6 @@
 /* Reset */
 body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0}
-body{font-family: $w-font;font-size:$size;color:color(black,1)}
+body{font-family: $base-font;font-size:$size;color:color(black,1)}
 input,textarea,select,button,table{font-family:inherit;font-size:$size;color:color(black,1)}
 body{word-break: break-all;}
 img,fieldset,button{border:0}

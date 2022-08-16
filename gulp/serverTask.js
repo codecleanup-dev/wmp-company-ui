@@ -37,7 +37,7 @@ module.exports = (gulp, $, config) => {
 			logFonts: gulp.watch(config.logFonts.src, gulp.task('logfonts')),
 			logimgSprite: gulp.watch(config.logimgSprite.src, gulp.task('logimgSprite')),
 			mSvg: gulp.watch(config.mSvg.src, gulp.task('mBuildsvg')),
-			htmlLint: gulp.watch(config.logHtml.src, gulp.task('htmlLint')),
+			// htmlLint: gulp.watch(config.logHtml.src, gulp.task('htmlLint')),
 		};
 
 		for (let key in watcher) {

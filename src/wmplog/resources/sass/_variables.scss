@@ -13,15 +13,10 @@ $palettes: (
 		6: #DDD,
 		7: #EEE,
 		8: #f7f7f7,
-		9: #e1e1e1, // lucy 삭제 
-		10: #414141,
-		11: #969696,
-		12: #f8f8f8,
-		13: #717171,
-		14: #aaaba9,
-		15: #a5a5a5,
-		16: #eeeeee,
-		17: #e0e0e0
+		17: #e0e0e0,
+		18: #f7f8f9,
+		19: #d9d9d9,
+		20: #444,
 	),
 	red: (
 		0: #FF585D
@@ -38,8 +33,11 @@ $palettes: (
 	),
 );
 
+// color(black,3);
+
 // 헤더 높이
 $header-height: 80px;
+$swiper-height: 433px;
 
 //image url
 //$img-url : '/src/pc/resources/images';
@@ -57,8 +55,8 @@ $common-spr-img:'#{$spr-img-url}/common.png';
 $bg-transparent:'#{$img-url}/common/bg_transparent.png';
 
 //font-family
-$w-font : Wemakeprice;
-$SpoqaHanSans-font : 'Spoqa Han Sans Neo', 'sans-serif';
+$base-font : Wemakeprice;
+$sub-font : 'Spoqa Han Sans Neo', 'sans-serif';
 
 $size: 10px;
 $size1: 1.3rem;
@@ -72,19 +70,32 @@ $size8: 3.4rem;
 $size9: 5.2rem;
 $size10: 6.0rem;
 
+
+$size13: 1.3rem;
+$size14: 1.4rem;
+$size16: 1.6rem;
+$size18: 1.8rem;
+$size20: 2.0rem;
+$size24: 2.4rem;
+$size32: 3.2rem;
+$size34: 3.4rem;
+$size60: 6.0rem;
+
+
+$weight-light: 300;
 $weight-regular: 400;
 $weight-medium: 500;
 $weight-bold: 700;
-
 $letter-spacing: 0;
 
 
 //content-center-size
-$w1280: 1280px;
-$content-center-size: 1280px;
+$content-size: 1280px;
+// $content-center-size: 1280px;
 $scr-width : 17px;//window 스크롤 넓이
 
-
+$banner-width: 800px;
+$banner-height: 433px;
 $header-h: 80px; 
 $footer-h: 247px; 
 

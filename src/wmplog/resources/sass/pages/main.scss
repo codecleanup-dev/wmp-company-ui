@@ -3,13 +3,7 @@
 // basic setting scaffolding
 @import '../__base-set';
 
-// main image sprites
-// @import '../vendors/img/main';
+// 배너
+@import '../common/modules/_swiper';
 
-// @import 'main/main_common';
-
-// // 메인페이지 컨텐츠
-// @import "main/main_content";
-
-// // 핵심가치 팝업
-// @import "main/main_popup";
+@import 'main/main';

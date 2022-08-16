@@ -852,17 +852,15 @@
 //svg
 //etc svg
 @mixin svg($url,$color:null,$position:0 0,$repeat:no-repeat){
-	background:$color url('../svg/#{$url}.svg') $position $repeat;
-	// background:$color url('../svg/#{$url}.svg?v='+$time) $position $repeat;
+	// background:$color url('../svg/#{$url}.svg') $position $repeat;
+	background:$color url('../svg/#{$url}.svg?v='+$time) $position $repeat;
 }
 @mixin vsvg($url,$color:null,$position:0 0,$repeat:no-repeat){
 	background:$color url('../vsvg/#{$url}.svg?v='+$time) $position $repeat;
-	// background:$color url('../vsvg/#{$url}.svg?v='+$time) $position $repeat;
 }
 
 @mixin svg-url($url){
-	background-image:url('../svg/#{$url}.svg');
-	// background-image:url('../svg/#{$url}.svg?v='+$time);
+	background-image:url('../svg/#{$url}.svg?v='+$time);
 }
 
 @mixin vsvg-url($url){

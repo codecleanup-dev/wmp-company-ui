@@ -1,56 +1,65 @@
 html, body{
 	height: 100vh;
 	font-size: $size;
+	font-weight: $weight-regular;
 }
+
+// * {
+// 	backdrop-filter: blur(20px);
+// 	-webkit-backdrop-filter: blur(20px);
+// 	}
+.is_show{
+	display: block !important;
+}
+.is_hide{
+	display: none !important;
+}
+
+.is_dim{
+	.main, .footer_wrap{
+		filter: blur(6px);
+  	-webkit-filter: blur(6px);
+	}
+	&::before{
+		content: '';
+		@include poslt(0, 0);
+		width: 100%; 
+		height: 100%;
+		opacity: 0.06;
+		z-index: 100;
+	}
+}	
+
 // layout 공통
 .wrap{
 	position:relative;
-	min-width: $w1280;
-	min-height: 100%;
+	height: 100%;
 }
 .center_inner{
 	position:relative;
-	@extend %inner-center-block;
+	width: $content-size;
+	min-width: $content-size;
+	margin: 0 auto;
+	text-align: left;
+	&.center{
+		text-align: center;
+	}
 }
+// 공통 컨테이너 
 .container{
 	position: relative;
-	&.main{
-		min-height: calc(100% - #{$header-h} - #{$footer-h});
-	}
-	.container_inner{
-		padding-top: $header-h;
+	text-align: center;
+	min-height: calc(100% - #{$footer-h});
+	.container_inner_wrap{
+		position: relative;
+		display: inline-block;
+		width: $content-size;
 		min-height: 700px;
-		.contents_wrap{
-			width:100%;
-		}
-		.content_main{
-			position:relative;
-			height:100%;
+		padding-top: $header-h;
+		padding-bottom: 200px;
+		.container_inner{
+			position: relative;
+			padding: 0 32px;
 		}
 	}
 }
-
-
-//action
-$distance: 50px; //거리
-$derections: ( //방향
-	top : (0,$distance),
-	left : ($distance,0),
-	bottom : (0,-$distance),
-	right : (-$distance,0)
-);
-// @each $derection, $info in $derections{
-// 	&.to_#{$derection}{
-// 		-webkit-animation:slide_#{$derection} 1.2s;
-// 		// @-webkit-keyframes slide_#{$derection} {
-// 		// 	0% {
-// 		// 		opacity:0;
-// 		// 		transform: translate(nth($info,1),nth($info,2));
-// 		// 	}
-// 		// 	100% {
-// 		// 		opacity:1;
-// 		// 		transform: translate(0,0);
-// 		// 	}
-// 		// }
-// 	}
-// }

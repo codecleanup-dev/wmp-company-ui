@@ -1,0 +1,26 @@
+.content_sub{
+  margin-top: 100px;
+  .tit_info_area{
+    display: inline-block;
+    span{
+      display: block;
+    }
+    .con_tit{
+      font-size: $size60;
+      font-weight: $weight-medium;
+      // TODO: font-weight: 600; 사이즈 없음 확인 필요 
+      color: color(black, 1)
+    }
+    .con_info{
+      margin-top: 12px;
+      font-family: $sub-font;
+      font-weight: $weight-regular;
+      // TODO: font-weight: 400; 디자인상으로는 light로 보임 
+      font-size: $size18;
+      color: color(black, 2)
+    }
+  }
+  .card_news_area{
+		margin-top: 100px;
+	}
+}
