@@ -9,7 +9,7 @@ header{
 	&:after{
 		content:'';
 		@include poslt(0, 8.1rem);
-		@include size(100%,1px);
+		@include size(100%, 1px);
 		background-color: color(black,6);
 		z-index: 100;
 	}
@@ -49,9 +49,9 @@ h1.logo{
 		> a{
 			position: relative;
 			display: inline-block;
-			@include font($size5, 8.0rem, color(black,0));
+			@include font($size20, rem(80px), color(black,0));
 			.base{
-				@include poslt(0,0);
+				@include poslt(0);
 				width: 100%;
 				text-align: center;
 				visibility: visible;
@@ -115,12 +115,4 @@ h1.logo{
 		}
 	}
 }
-// 검색 영역 활성화
-.is_dim{
-	.search_pop{
-		display: block;
-	}
-	.btn_area{
-		display: none;
-	}
-}
+

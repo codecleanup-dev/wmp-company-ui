@@ -9,7 +9,7 @@
 		}
 		.card_thumb_list{
 			position: relative;
-			margin-bottom: 80px;
+			margin-bottom: rem(80px);
 			&.is_motions{
 				transform: translateY(100px);
 				opacity: 0;
@@ -51,10 +51,10 @@
 				height: 256px;
 				border-radius: 12px;
 				overflow: hidden;
-				font-size: $size3;
+				font-size: $size16;
 				&:before{
 					content: '';
-					@include poslt(0, 0);
+					@include poslt(0);
 					display: block;
 					width: 100%; 
 					height: 100%; 
@@ -62,32 +62,29 @@
 				}
 				&:after{
 					content: '';
-					@include poslt(50%, 50%);
+					@include poslt(50%);
 					@include svgsprite($ic_thumbnail_small, common);
 					transform: translate(-50%, -50%);
 				}
 				img, video{
 					position: relative;
-					width: 100%;
-					height: 100%;
+					@include size(100%);
 					transition: .3s ease all;
 					z-index: 2;
 				}
 			}
 			.card_txt{
-				margin-top: 20px;
+				margin-top: rem(20px);
 				font-family: $sub-font;
 				font-size: $size14;
 				.txt_tit{
-					margin-bottom: 12px;
+					margin-bottom: rem(12px);
 					color: color(red, 0);
 				}
 				.txt_detail{
 					@include ellipsis(2);
-					margin-bottom: 20px;
-          line-height: 1.6em;
-					font-size: $size20;
-					color: color(black, 2);
+					margin-bottom: rem(20px);
+					@include font($size20, 1.6em, color(black, 2));
 				}
 				.txt_date{
 					color: color(black, 3);

@@ -46,7 +46,7 @@ button{
 		&.btn_add{
 			height: rem(54px);
 			line-height: rem(52px);
-			padding: 0 rem(160rem);
+			padding: 0 rem(170rem) 0 rem(160rem);
 			.txt{
 				// 더보기
 				&.txt_add{
@@ -56,10 +56,9 @@ button{
 					&::before{
 						content: '';
 						@include posrt(-18px, 50%);	
+						@include size(100%);
 						display: block;
-						width: 100%; 
-						height: 100%; 
-						margin-top: -3px;
+						margin-top: rem(-3px);
 						@include svgsprite($ic_btn_arrow, common)
 					}
 				}
@@ -67,10 +66,9 @@ button{
 		}
 		// 패밀리 사이트 
 		&.btn_site{
-			width: 100%;
-			height: 40px;
-			line-height: 38px;
-			padding: 0 100px 0 20px;
+			@include size(100%, rem(40px));
+			line-height: rem(38px);
+			padding: 0 rem(100px) 0 rem(20px);
 			text-align: left;
 			.txt{
 				// 패밀리 사이트 
@@ -80,10 +78,9 @@ button{
 					color: color(black,2);
 					&::before{
 						content: '';
-						@include posrt(-80px, 50%);	
+						@include posrt(rem(-80px), 50%);	
+						@include size(100%);
 						display: block;
-						width: 100%; 
-						height: 100%; 
 						margin-top: -3px;
 						@include svgsprite($ic_btn_arrow, common)
 					}

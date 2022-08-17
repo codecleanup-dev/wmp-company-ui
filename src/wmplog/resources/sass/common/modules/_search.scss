@@ -23,23 +23,35 @@
 		margin-top: rem(80px);
 	}
 }
-// 검색창 입력 영역 
+// 검색 영역 활성화
+.is_dim{
+	.search_pop{
+		display: block;
+	}
+}
+
+// 검색창 입력 영역 : 상단/검색 페이지 공통 
 .search_box{
 	position: relative;
 	display: inline-block;
 	width: 592px;
 	padding-bottom: rem(12px);
-	border-radius: 3px;
 	border-bottom: 2px solid color(black,2);
 	text-align: left;
 	input[type="text"]{
 		font-family: $sub-font;
-		font-size: $size34;
 		letter-spacing: -0.5px;
-		color: color(black,20);
 		text-align: left;
+		@include font($size34, null, color(black,20));
 		&::placeholder{
 			color: color(black,5);
+		}
+	}
+	button{
+		> span{
+			@include poslt(50%);
+			transform: translate(-50%, -50%);
+			@extend %img-replace;
 		}
 	}
 	.pop_delete_btn{
@@ -48,20 +60,14 @@
 		background-color: color(black,5);
 		border-radius: 50%;
 		span{
-			@include poslt(50%, 50%);
 			@include svgsprite($ic_header_pop_search_close, common);
-			transform: translate(-50%, -50%);
-			@extend %img-replace;
 		}
 	}
 	.search_pop_btn{
 		@include posrt(rem(-12px), rem(0));
 		@include size(rem(50px));
 		span{
-			@include poslt(50%, 50%);
-			transform: translate(-50%, -50%);
 			@include svgsprite($ic_header_pop_search, common);
-			@extend %img-replace;
 		}
 	}
 }

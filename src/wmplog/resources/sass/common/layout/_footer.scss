@@ -4,9 +4,8 @@
 	width: 100%;
 	height: rem(247px);
 	text-align:left;
-	font-size: 0;
 	background-color: color(black,18);
-	color: color(black,6);
+	@include font(0, null, color(black,6));
 	.footer_inner{
 		position: relative;
 		padding: rem(60px) rem(32px);
@@ -21,7 +20,7 @@
 		}
 	}
 	.info_area{
-		margin-top: 12px;
+		margin-top: rem(12px);
 		.category_box{
 			display: inline-block;
 			li{	
@@ -39,8 +38,7 @@
 				a{
 					position: relative;
 					padding: 0 rem(8px);
-					font-size: $size14;
-					color: color(black,3);
+					@include font($size14, null, color(black, 3));
 					opacity: 0.8;
 					&::before{
 						content: '';
@@ -56,10 +54,8 @@
 		}	
 		.info_box{
 			margin-top: rem(40px);
-			line-height: 1.6em;
 			font-family: $sub-font;
-			font-size: $size13;
-			color: color(black,3);
+			@include font($size13, 1.6em, color(black,3))
 		}
 	}
 	.side_box{
@@ -115,11 +111,9 @@
 				z-index: 10;
 				.site_list{
 					height: rem(40px);
-					line-height: rem(40px);
 					padding: 0 rem(12px);
 					font-family: $sub-font;
-					font-size: $size14;
-					color: color(black,1);
+					@include font($size14, rem(40px), color(black,1));
 					a{
 						position: relative;
 						display: block;
@@ -136,7 +130,6 @@
 						}
 					}
 				}
-
 			}
 		}
 	}

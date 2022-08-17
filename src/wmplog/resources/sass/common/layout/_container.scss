@@ -3,31 +3,23 @@ html, body{
 	font-size: $size;
 	font-weight: $weight-regular;
 }
-
-// * {
-// 	backdrop-filter: blur(20px);
-// 	-webkit-backdrop-filter: blur(20px);
-// 	}
 .is_show{
 	display: block !important;
 }
 .is_hide{
 	display: none !important;
 }
-
 .is_dim{
 	.main, 
 	.sub,
 	.result,
 	.footer_wrap{
 		filter: blur(6px);
-		// -webkit-filter: blur(6px);
 	}
 	&::before{
 		content: '';
-		@include poslt(0, 0);
-		width: 100%; 
-		height: 100%;
+		@include poslt(0);
+		@include size(100%);
 		opacity: 0.06;
 		z-index: 100;
 	}
@@ -48,7 +40,7 @@ html, body{
 		text-align: center;
 	}
 }
-// 공통 컨테이너 
+// container 공통  
 .container{
 	position: relative;
 	text-align: center;

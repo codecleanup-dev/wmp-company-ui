@@ -1,4 +1,4 @@
-// color-pallettes
+// color-pallettes / color(black,3);
 $palettes: (
 	white: (
 		0: #fff
@@ -32,9 +32,6 @@ $palettes: (
 		0: #a8bd28
 	),
 );
-
-// color(black,3);
-
 // 헤더 높이
 //image url
 //$img-url : '/src/pc/resources/images';
@@ -51,7 +48,7 @@ $spr-img-url : '../../css/spr';
 //투명배경(ie 11이하 hover나 클릭 이슈)
 // $bg-transparent:'#{$img-url}/common/bg_transparent.png';
 
-//font-family
+// font-family
 $base-font : Wemakeprice;
 $sub-font : 'Spoqa Han Sans Neo', 'sans-serif';
 
