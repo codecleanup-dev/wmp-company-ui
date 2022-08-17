@@ -1,5 +1,5 @@
 .content_search_result{
-  margin-top: 80px;
+  margin-top: rem(80px);
   .tit_info_area{
     display: inline-block;
     span{
@@ -11,7 +11,7 @@
       color: color(black, 1)
     }
     .con_info{
-      margin-top: 60px;
+      margin-top: rem(60px);
       font-family: $sub-font;
       font-size: $size24;
       font-weight: $weight-regular;
@@ -22,13 +22,29 @@
       }
     }
     .con_info_sub{
-      margin-top: 8px;
+      margin-top: rem(8px);
       font-family: $sub-font;
       font-size: $size16;
       color: color(black, 3);
     }
+    &.is_exist{
+      .con_info_1{
+        display: block;
+      }
+      .con_info_2{
+        display: none;
+      }
+    }
+    &.is_none{
+      .con_info_1{
+        display: none;
+      }
+      .con_info_2{
+        display: block;
+      }
+    }
   }
-  .card_news_area{
-		margin-top: 40px;
+  .card_thumb_area{
+		margin-top: rem(40px);
 	}
 }

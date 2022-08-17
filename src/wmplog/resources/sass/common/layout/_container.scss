@@ -16,9 +16,12 @@ html, body{
 }
 
 .is_dim{
-	.main, .footer_wrap{
+	.main, 
+	.sub,
+	.result,
+	.footer_wrap{
 		filter: blur(6px);
-  	-webkit-filter: blur(6px);
+		// -webkit-filter: blur(6px);
 	}
 	&::before{
 		content: '';
@@ -54,12 +57,12 @@ html, body{
 		position: relative;
 		display: inline-block;
 		width: $content-size;
-		min-height: 700px;
+		min-height: rem(700px);
 		padding-top: $header-h;
-		padding-bottom: 200px;
+		padding-bottom: rem(200px);
 		.container_inner{
 			position: relative;
-			padding: 0 32px;
+			padding: 0 rem(32px);
 		}
 	}
 }

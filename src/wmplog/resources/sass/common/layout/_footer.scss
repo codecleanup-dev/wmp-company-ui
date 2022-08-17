@@ -1,23 +1,15 @@
 // lucy
-// footer
-// @import '../../vendors/img/footer';
-// @import '../vendors/svg/footer';
-// %spr_footer{
-// 	// background-image:url('../spr/footer.png');
-// 	background-repeat: no-repeat;
-// }
-
 .footer_wrap{
 	position: relative;
 	width: 100%;
-	height: 247px;
+	height: rem(247px);
 	text-align:left;
 	font-size: 0;
 	background-color: color(black,18);
 	color: color(black,6);
 	.footer_inner{
 		position: relative;
-		padding: 60px 32px;
+		padding: rem(60px) rem(32px);
 	}
 	.footer_logo{
 		display: inline-block;
@@ -31,9 +23,10 @@
 	.info_area{
 		margin-top: 12px;
 		.category_box{
+			display: inline-block;
 			li{	
 				display: inline-block;
-				margin: 0 8px;
+				margin: 0 rem(8px);
 				&:first-child{
 					margin-left: 0;
 					a{
@@ -45,41 +38,41 @@
 				}
 				a{
 					position: relative;
-					padding: 0 8px;
+					padding: 0 rem(8px);
 					font-size: $size14;
 					color: color(black,3);
 					opacity: 0.8;
 					&::before{
 						content: '';
 						display: block;
-						@include poslt(-8px, 50%);
-						@include size(1px, 14px);
-						margin-top: -7px;
-						border-radius: 100px;
+						@include poslt(rem(-8px), 50%);
+						@include size(rem(1px), rem(14px));
+						transform: translate(-50%, -50%);
+						border-radius: rem(100px);
 						background-color: color(black,19);
 					}
 				}
 			}
-		}
-			
+		}	
 		.info_box{
-			margin-top: 40px;
+			margin-top: rem(40px);
 			line-height: 1.6em;
 			font-family: $sub-font;
 			font-size: $size13;
 			color: color(black,3);
 		}
 	}
-	.side_area{
-		@include posrt(32px, 60px);
-		.sns_box, .family_site_box{
+	.side_box{
+		@include posrt(rem(32px), rem(60px));
+		z-index: 50;
+		.side_sns, .side_family_site{
 			display: inline-block;
 			vertical-align: middle;
 		}
-		.sns_box{
+		.side_sns{
 			a{
 				display: inline-block;
-				margin-right: 10px;
+				margin-right: rem(10px);
 				@extend %img-replace;
 				&.sns_youtube{
 					@include svgsprite($ic_youtube, footer);
@@ -92,42 +85,51 @@
 				}
 			}
 		}
-		.family_site_box{
+		.side_family_site{
 			position: relative;
-			width: 204px;
-			margin-left: 10px;
-			&.is_show{
+			width: rem(204px);
+			margin-left: rem(10px);
+			.txt_site{
+				display: block;
+			}
+			&.is_select{
 				.site_list_grp{
 					display: block;
+					
+				}
+			}
+			&.is_unselect{
+				.site_list_grp{
+					display: none;
 				}
 			}
 			.site_list_grp{
 				display: none;
-				@include poslb(0, 44px);
+				@include poslb(0, rem(44px));
 				width: 100%;
-				padding: 12px 0; 
+				padding: rem(12px) 0; 
 				border: 1px solid color(black,3);
 				background-color: color(white,0);
-				border-radius: 12px;
+				border-radius: rem(12px);
 				box-sizing: border-box;
 				z-index: 10;
 				.site_list{
-					height: 40px;
-					line-height: 40px;
-					padding: 0 12px;
+					height: rem(40px);
+					line-height: rem(40px);
+					padding: 0 rem(12px);
 					font-family: $sub-font;
 					font-size: $size14;
 					color: color(black,1);
 					a{
 						position: relative;
 						display: block;
-						padding: 0 8px;
-						border-radius: 8px;
+						padding: 0 rem(8px);
+						border-radius: rem(8px);
 						&:before{
 							content: '';
 							@include posrt(10px, 50%);
 							@include svgsprite($ic_footer_link, common);
-							margin-top: -8px;
+							margin-top: rem(-8px);
 						}
 						&:hover{
 							background-color: color(black,8);

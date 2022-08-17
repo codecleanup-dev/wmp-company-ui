@@ -11,6 +11,8 @@
 	<link rel="stylesheet" href="/dist/wmplog/css/common/common.css" />
 	<link rel="stylesheet" href="/dist/wmplog/css/common/layout.css" />
 	<link rel="stylesheet" href="/dist/wmplog/css/pages/sub.css" />
+	<!-- 디자인QA용 -->
+	<script type="text/javascript" src="/src/wmplog/resources/js/jquery-1.11.2.min.js"></script>
 </head>
 
 <!-- js body | is_dim: 검색버튼 클릭시 검색 영역 활성화 -->
@@ -41,113 +43,21 @@
 									</button>
 								</div>
 							</div>
-							
-							<div class="tit_info_area">
+							<!-- js 검색결과 있을 때: is_exist / 없을 때: is_none -->
+							<div class="tit_info_area is_exist">
 								<!-- js 보이기: is_show 감추기: is_hide -->
-								<span class="con_info is_hide">
+								<span class="con_info con_info_1">
 									<em class="result_txt">채용</em>의 검색결과 <em class="result_num">12</em>건이 있어요.
 								</span>
-								<span class="con_info">
+								<span class="con_info con_info_2">
 									<em class="result_txt">채용</em>에 대한 검색결과가 없어요.
+									<span class="con_info_sub">검색어를 변경해 보세요.</span>
 								</span>
-								<span class="con_info_sub">검색어를 변경해 보세요.</span>
+								
 							</div>
 
-							TODO: 
 							<!-- js 보이기: is_show 감추기: is_hide -->
-							<div class="card_news_area is_hide">
-								<ul class="card_news_list_grp">
-									<li class="card_news_list">
-										<div class="list_wrap">
-											<div class="news_img">
-												<img src="../../resources/images/temp/img_thumb_1.jpg" alt="소식 썸네일 이미지" width="384" height="256">
-											</div>
-											<div class="news_txt">
-												<div class="txt_tit">WE MAKE IT 채용</div>
-												<div class="txt_detail">
-													😀 서울재즈페스티벌에 팬데믹을 뚫고 3년만에 돌아왔습니다!
-												</div>
-												<div class="txt_date">2022.07.11</div>
-											</div>
-										</div>
-									</li>
-										<li class="card_news_list">
-										<div class="list_wrap">
-											<div class="news_img">
-												<img src="../../resources/images/temp/img_thumb_2.jpg" alt="소식 썸네일 이미지" width="384" height="256">
-											</div>
-											<div class="news_txt">
-												<div class="txt_tit">WE MAKE IT 채용</div>
-												<div class="txt_detail">
-													😀 서울재즈페스티벌에 팬데믹을 뚫고 3년만에 돌아왔습니다!
-												</div>
-												<div class="txt_date">2022.07.11</div>
-											</div>
-										</div>
-									</li>
-										<li class="card_news_list">
-										<div class="list_wrap">
-											<div class="news_img">
-												<img src="../../resources/images/temp/img_thumb_3.jpg" alt="소식 썸네일 이미지" width="384" height="256">
-											</div>
-											<div class="news_txt">
-												<div class="txt_tit">WE MAKE IT 채용</div>
-												<div class="txt_detail">
-													😀 서울재즈페스티벌에 팬데믹을 뚫고 3년만에 돌아왔습니다!
-												</div>
-												<div class="txt_date">2022.07.11</div>
-											</div>
-										</div>
-									</li>
-									<li class="card_news_list">
-										<div class="list_wrap">
-											<div class="news_img">
-												<img src="../../resources/images/temp/img_thumb_4.jpg" alt="소식 썸네일 이미지" width="384" height="256">
-											</div>
-											<div class="news_txt">
-												<div class="txt_tit">WE MAKE IT 채용</div>
-												<div class="txt_detail">
-													😀 서울재즈페스티벌에 팬데믹을 뚫고 3년만에 돌아왔습니다!
-												</div>
-												<div class="txt_date">2022.07.11</div>
-											</div>
-										</div>
-									</li>
-									<li class="card_news_list">
-										<div class="list_wrap">
-											<div class="news_img">
-												<img src="../../resources/images/temp/img_thumb_5.jpg" alt="소식 썸네일 이미지" width="384" height="256">
-											</div>
-											<div class="news_txt">
-												<div class="txt_tit">WE MAKE IT 채용</div>
-												<div class="txt_detail">
-													😀 서울재즈페스티벌에 팬데믹을 뚫고 3년만에 돌아왔습니다!
-												</div>
-												<div class="txt_date">2022.07.11</div>
-											</div>
-										</div>
-									</li>
-									<li class="card_news_list">
-										<div class="list_wrap">
-											<div class="news_img">
-												<img src="../../resources/images/temp/img_thumb_6.jpg" alt="소식 썸네일 이미지" width="384" height="256">
-											</div>
-											<div class="news_txt">
-												<div class="txt_tit">WE MAKE IT 채용</div>
-												<div class="txt_detail">
-													😀 서울재즈페스티벌에 팬데믹을 뚫고 3년만에 돌아왔습니다!
-												</div>
-												<div class="txt_date">2022.07.11</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-								<div class="btn_box">
-									<button type="button" class="btn btn_line st1 btn_add">
-										<span class="txt txt_add">더보기</span>
-									</button>
-								</div>
-							</div>
+							<div class="card_thumb_area is_show"></div>
 						</section>
 
 					<!-- //컨텐츠 영역 -->
@@ -166,7 +76,6 @@
 	<script src="/src/wmplog/resources/js/swiper.js"></script>
 
 	<!-- 디자인QA용 -->
-	<script type="text/javascript" src="/src/wmplog/resources/js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="/src/wmplog/resources/js/guide.js"></script>
 </body>
 </html>

@@ -2,28 +2,30 @@
 header{
 	@include fixed(0,0,null,0);
 	height: $header-h;
-	// overflow: hidden;
 	box-sizing: border-box;
 	background: color(white,0);
 	text-align: center;
 	z-index: z-index(fixed);
 	&:after{
 		content:'';
-		@include poslb(0,0);
+		@include poslt(0, 8.1rem);
 		@include size(100%,1px);
 		background-color: color(black,6);
+		z-index: 100;
 	}
 	.header_inner_wrap{
 		position: relative;
 		display: inline-block;
 		min-width: $content-size;
+		height: $header-h;
 		.header_inner{
-			padding: 0 32px;
+			padding: 0 rem(32px);
 		}
 	}
 }
 h1.logo{
-	@include poslt(32px,28px);
+	@include poslt(rem(32px), 50%);
+	transform: translateY(-50%);
 	a{
 		display: block;
 		@include svgsprite($logo, common);
@@ -34,115 +36,91 @@ h1.logo{
 	float: right;
 	height: 100%;
 	vertical-align: top;
-	.gnb, .btn_area{
-		display: inline-block;
-		vertical-align: middle;
-	}
-	.gnb{
-		height: 100%;
-		margin-right: 42px;
-		li{
+}
+.gnb{
+	height: 100%;
+	margin-right: rem(242px);
+	li{
+		position: relative;
+		float: left;
+		padding: 0 rem(5px);
+		height: rem($header-h);
+		box-sizing: border-box;
+		> a{
 			position: relative;
-			float: left;
-			padding: 0 5px;
-			height: 80px;
-			box-sizing: border-box;
-			> a{
-				position: relative;
-				display: inline-block;
-				@include font($size5, 80px, color(black,0));
+			display: inline-block;
+			@include font($size5, 8.0rem, color(black,0));
+			.base{
+				@include poslt(0,0);
+				width: 100%;
+				text-align: center;
+				visibility: visible;
+			}
+			.hover{
+				visibility: hidden;
+				em{
+					color: color(red,0)
+				}
+			}
+			&.active, 
+			&:hover{
 				.base{
-					position: absolute;
-					top: 0; 
-					left: 0;
-					width: 100%;
-					text-align: center;
+					visibility: hidden;
 				}
 				.hover{
-					em{
-						color: color(red,0)
-					}
-				}
-				&:not(:hover){
-					.base{
-						visibility: visible;
-					}
-					.hover{
-						visibility: hidden;
-					}
-				}
-				&.active, 
-				&:hover{
-					.base{
-						visibility: hidden;
-					}
-					.hover{
-						visibility: visible;
-					}
-				}
-			}
-		}
-	}
-	.btn_area{
-		// @include posrt(0, 20px);
-		font-size: 0;
-		.btn_recruit{
-			display: inline-block;
-			height: 34px;
-			line-height: 34px;
-			padding: 0 20px;
-			border: 1px solid color(black,6);
-			background-color: color(white,0);
-			span{
-				font-family: $sub-font;
-				font-size: $size2;
-				color: color(black,2);
-			}
-		}
-		a, button{
-			vertical-align: middle;
-		}
-		button{
-			position: relative;
-			@include size(36px);
-			line-height: 36px;
-			margin-left: 20px;
-			background-color: transparent;
-			span{
-				display: inline-block;
-				vertical-align: middle;
-				@extend %img-replace;
-			}
-			&.btn_search{
-				span{
-					@include svgsprite($ic_header_search, common);
-				}
-			}
-			&.btn_category{
-				span{
-					@include svgsprite($ic_btn_menu, common);
+					visibility: visible;
 				}
 			}
 		}
 	}
 }
 
+.btn_area{
+	@include posrt(0, 50%);
+	transform: translateY(-50%);
+	font-size: 0;
+	a, button{
+		vertical-align: middle;
+	}
+	button{
+		position: relative;
+		@include size(rem(36px));
+		line-height: rem(36px);
+		margin-left: rem(20px);
+		background-color: transparent;
+		span{
+			display: inline-block;
+			vertical-align: middle;
+			@extend %img-replace;
+		}
+		// 검색 
+		&.btn_search{
+			.i_search{
+				@include svgsprite($ic_header_search, common);
+			}
+		}
+		// 모바일 메뉴 열기
+		&.btn_category{
+			display: none;
+			.i_category{
+				@include svgsprite($ic_btn_menu, common);
+			}
+			// 모바일 메뉴 닫기
+			&.btn_close{
+				z-index: 10;
+				.i_category{
+					@include svgsprite($ic_header_pop_close, common);
+				}
+			}	
+		}
+	}
+}
 // 검색 영역 활성화
 .is_dim{
 	.search_pop{
 		display: block;
 	}
-}
-.search_pop{
-	display: none;
-	@include poslt(0, $header-height);
-	width: 100%; 
-	height: 230px;
-	background-color: color(white,0);
-	text-align: center;
-	.btn_search_pop_close{
-		@include posrt(36px, 32px);
-		@include svgsprite($ic_header_pop_close, common);
-		@extend %img-replace;
+	.btn_area{
+		display: none;
 	}
 }

@@ -11,21 +11,25 @@
 	<link rel="stylesheet" href="/dist/wmplog/css/common/common.css" />
 	<link rel="stylesheet" href="/dist/wmplog/css/common/layout.css" />
 	<link rel="stylesheet" href="/dist/wmplog/css/pages/main.css" />
+	<!-- 디자인QA용 -->
+	<script type="text/javascript" src="/src/wmplog/resources/js/jquery-1.11.2.min.js"></script>
 </head>
 
 <!-- js body | is_dim: 검색버튼 클릭시 검색 영역 활성화 -->
 <body class="body">
 	<div class="wrap">
 			<!-- Header -->
+			<!-- layout/header.html -->
 			<header class="header_wrap"></header>
 			<!-- //Header -->
 
-			<!-- container/main -->
+			<!-- container/main: 메인페이지 -->
 			<main class="container main">
+				<h2 class="blind">컨텐츠영역</h2>
 				<div class="container_inner_wrap">
-					<h2 class="blind">컨텐츠영역</h2>
-					<!-- 컨텐츠 영역 -->
 					<div class="container_inner">
+
+						<!-- content_top: 메인 상단 -->
 						<section class="content_top">
 							<h3 class="blind">배너</h3>
 							<!-- 슬라이더 배너 -->
@@ -34,12 +38,20 @@
 								<div class="swiper">
 									<div class="swiper-wrapper">
 										<div class="swiper-slide">
-											<img src="../../resources/images/temp/img_banner_1.jpg" alt="배너">
+											<img src="../../resources/images/temp/img_banner_1.jpg" alt="slide1">
 										</div>
-										<div class="swiper-slide">slide2</div>
-										<div class="swiper-slide">slide3</div>
-										<div class="swiper-slide">slide4</div>
-										<div class="swiper-slide">slide5</div>
+										<div class="swiper-slide">
+											<img src="../../resources/images/temp/img_banner_2.jpg" alt="slide2">
+										</div>
+										<div class="swiper-slide">
+											<img src="../../resources/images/temp/img_banner_3.jpg" alt="slide3">
+										</div>
+										<div class="swiper-slide">
+											<img src="../../resources/images/temp/img_banner_4.jpg" alt="slide4">
+										</div>
+										<div class="swiper-slide">
+											<img src="../../resources/images/temp/img_banner_4.jpg" alt="slide5">
+										</div>
 									</div>
 									<!-- Add Pagination -->
 									<div class="pagination_progress"></div>
@@ -62,77 +74,23 @@
 							<!-- //정보 -->
 						</section>
 
+						<!-- content_top: 메인 콘텐츠 -->
 						<section class="content_middle">
-							<h3 class="tit">새로운 소식</h3>
-							<div class="card_news_area">
-								<ul class="card_news_list_grp">
-									<li class="card_news_list">
-										<div class="list_wrap">
-											<div class="news_img">
-												<img src="../../resources/images/temp/img_thumb_1.jpg" alt="소식 썸네일 이미지" width="384" height="256">
-											</div>
-											<div class="news_txt">
-												<div class="txt_tit">WE MAKE IT 채용</div>
-												<div class="txt_detail">
-													😀 서울재즈페스티벌에 팬데믹을 뚫고 3년만에 돌아왔습니다!
-												</div>
-												<div class="txt_date">2022.07.11</div>
-											</div>
-										</div>
-									</li>
-										<li class="card_news_list">
-										<div class="list_wrap">
-											<div class="news_img">
-												<img src="../../resources/images/temp/img_thumb_2.jpg" alt="소식 썸네일 이미지" width="384" height="256">
-											</div>
-											<div class="news_txt">
-												<div class="txt_tit">WE MAKE IT 채용</div>
-												<div class="txt_detail">
-													😀 서울재즈페스티벌에 팬데믹을 뚫고 3년만에 돌아왔습니다!
-												</div>
-												<div class="txt_date">2022.07.11</div>
-											</div>
-										</div>
-									</li>
-										<li class="card_news_list">
-										<div class="list_wrap">
-											<div class="news_img">
-												<img src="../../resources/images/temp/img_thumb_3.jpg" alt="소식 썸네일 이미지" width="384" height="256">
-											</div>
-											<div class="news_txt">
-												<div class="txt_tit">WE MAKE IT 채용</div>
-												<div class="txt_detail">
-													😀 서울재즈페스티벌에 팬데믹을 뚫고 3년만에 돌아왔습니다!
-												</div>
-												<div class="txt_date">2022.07.11</div>
-											</div>
-										</div>
-									</li>
-										<li class="card_news_list">
-										<div class="list_wrap">
-											<div class="news_img">
-												<img src="../../resources/images/temp/img_thumb_4.jpg" alt="소식 썸네일 이미지" width="384" height="256">
-											</div>
-											<div class="news_txt">
-												<div class="txt_tit">WE MAKE IT 채용</div>
-												<div class="txt_detail">
-													😀 서울재즈페스티벌에 팬데믹을 뚫고 3년만에 돌아왔습니다!
-												</div>
-												<div class="txt_date">2022.07.11</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-								<div class="btn_box">
-									<button type="button" class="btn btn_line st1 btn_add">
-										<span class="txt txt_add">더보기</span>
-									</button>
-								</div>
-							</div>
+							<!-- js is_motions: 애니메이션 -->
+							<h3 class="tit is_motions is_slideup">새로운 소식</h3>
+
+							<!-- 카드 리스트 영역 -->
+							<!-- layout/card_list.html -->
+							<div class="card_thumb_area"></div>
+							<!-- //카드 리스트 영역 -->
+
 						</section>
+						<!-- content_top: 메인 콘텐츠 -->
+
 					<!-- //컨텐츠 영역 -->
 					</div>
-				</div><!-- // #container -->
+				</div>
+				<!-- // #container -->
 			</main>
 			<!-- //container/main -->
 

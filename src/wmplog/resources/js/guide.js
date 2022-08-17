@@ -14,6 +14,7 @@ function getParam(str) {
 $('.header_wrap').load('/src/wmplog/views/layout/header.html', function () {
 });
 $('.footer_wrap').load('/src/wmplog/views/layout/footer.html', function () {});
+$('.card_thumb_area').load('/src/wmplog/views/layout/card_list.html', function () {});
 
 //헤더고정
 // $(window).scroll(function () {
@@ -33,15 +34,6 @@ $('.depth_1 > li').on('mouseleave', function (e) {
 	$(this).parents('.header_wrap').removeClass('active');
 })
 
-// 검색 영역
-if(type=='search'){
-	$('body').addClass('is_dim');
-}
-// if(type=='search' && 'none'){
-// 	$('.search_pop').addClass('is_show');
-// 	$('.card_news_area').addClass('is_hide')
-// }
-
 
 // 서브페이지
 if(type==1){
@@ -56,6 +48,18 @@ if(type==3){
 	$('.con_tit').text('잘 사는 삶');
 	$('.con_info').text('위메프와 함께 즐거운 삶을 더하는 방식을 소개합니다.');
 }
+// 상단 검색 영역 활성화
+if(type=='search'){
+	$('body').addClass('is_dim');
+}
+// 검색결과 없을 때
+if(type=='none'){
+	$('.tit_info_area').removeClass('is_exist');
+	$('.tit_info_area').addClass('is_none');
+	$('.card_thumb_area').removeClass('is_show');
+	$('.card_thumb_area').addClass('is_hide');
+}
+
 
 //toast
 var intervalTime;

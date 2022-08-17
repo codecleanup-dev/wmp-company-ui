@@ -33,7 +33,7 @@ module.exports = (gulp, $, config) => {
 			logScss: gulp.watch(config.logScss.src, gulp.task('logsass')),
 			logHtml: gulp.watch(config.logHtml.src, gulp.task('loghtml')),
 			logImgs: gulp.watch(config.logImgs.src, gulp.task('logimgs')),
-			logJs: gulp.watch(config.logJs.src, gulp.task('logjs')),
+			logJs: gulp.watch(config.logJs.src, gulp.task('logJs')),
 			logFonts: gulp.watch(config.logFonts.src, gulp.task('logfonts')),
 			logimgSprite: gulp.watch(config.logimgSprite.src, gulp.task('logimgSprite')),
 			mSvg: gulp.watch(config.mSvg.src, gulp.task('mBuildsvg')),

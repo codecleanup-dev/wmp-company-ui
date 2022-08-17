@@ -29,4 +29,4 @@ require('./gulp/lintTask.js')(gulp, $, gulpConfig);
 
 // gulp.task('default', gulp.series('clean', 'imgSpriteBuild', 'mSvgSprite', 'compfonts', 'compimgs', 'comphtml', 'compsass', 'logfonts', 'logimgs', 'loghtml', 'logsass'));
 
-gulp.task('default', gulp.series('clean', gulp.series('imgSpriteBuild','compfonts', 'compimgs', 'comphtml', 'compsass',  'mSvgSprite', 'logfonts', 'loghtml', 'logsass')));
+gulp.task('default', gulp.series('clean', gulp.series('imgSpriteBuild','compfonts', 'compimgs', 'comphtml', 'compsass',  'mSvgSprite', 'logfonts', 'loghtml', 'logsass', 'logJs')));

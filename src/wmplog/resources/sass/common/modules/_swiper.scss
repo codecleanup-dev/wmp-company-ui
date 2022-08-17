@@ -1,8 +1,8 @@
+// 슬라이드 배너
 .swiper-wrapper{
   align-items: center;
-  // justify-content: center;
   text-align: center;
-  font-size: $size3;
+  font-size: $size16;
 }
 // 좌우 버튼
 .swiper-button-next, .swiper-button-prev{
@@ -17,17 +17,6 @@
 .swiper-button-prev.swiper-button-disabled{
   opacity: 0;
 }
-// .swiper-pagination{
-//   font-size:0;
-//   &::before{
-//     content: '';
-//     display: block;
-//     width: 100%;
-//     height: 100%;
-//     background-color: color(white, 0);
-//     opacity: 0.6
-//   }
-// }
 // 프로그레스바
 .swiper-horizontal>.swiper-pagination-progressbar, 
 .swiper-pagination-progressbar.swiper-pagination-horizontal{

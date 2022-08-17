@@ -48,3 +48,40 @@
 		@return ceil(nth($img, 5) / -2) + $plus;
 	}
 }
+
+
+// lucy
+// $base: 10px;
+// @function rem($px, $base: $base-rem-size) {
+//   @return (remove-unit($px / $base)) * 1rem;
+// }
+
+$base-size: 10px;
+@function stripUnit($value) {
+	@return $value / ($value * 0 + 1);
+}
+@function rem($pxValue) {
+	@return #{stripUnit($pxValue) / stripUnit($base-size)}rem;
+}
+
+@function strip-unit($value, $newUnit: "") {
+    //https://www.sitepoint.com/understanding-sass-units/
+    $units: (
+			'px':   0px,
+			'em':   0em,
+			'rem':  0rem,
+    );
+
+    //https://css-tricks.com/snippets/sass/strip-unit-function/
+    $number: $value;
+    @if ($newUnit == "") {
+        @return $number;
+    }
+    @if map-has-key($units, $newUnit) {
+        @return map-get($units, $newUnit) + $number;
+    }
+    @error "Unknown unit `#{$newUnit}`.";
+}
+
+
+

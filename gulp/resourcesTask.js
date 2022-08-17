@@ -30,9 +30,16 @@ module.exports = (gulp, $, config) => {
 			.pipe(gulp.dest(config.logFonts.dest))
 	}
 
+	function logJs() {
+	return gulp
+		.src(config.logJs.src)
+		.pipe(gulp.dest(config.logJs.dest))
+	}
+
 	gulp.task(compimgs);
 	gulp.task(compfonts);
 	gulp.task(logimgs);
 	gulp.task(logfonts);
+	gulp.task(logJs);
 
 };

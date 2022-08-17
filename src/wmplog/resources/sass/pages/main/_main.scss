@@ -1,30 +1,26 @@
 .content_top{
 	position: relative;
-	margin-top: 60px;
+	margin-top: rem(60px);
 	.slider_area{
 		position: absolute;
 		top: 0; 
 		right: 0;
 		width: $banner-width;
-		height: $swiper-height;
-		border-radius: 12px;
-		background: color(black, 5);
+		height: $banner-height;
+		border-radius: rem(12px);
+		background: color(black, 8);
 		overflow: hidden;
 		text-align: right;
 		&::before{
-			content: '800 X 433';
-			@include poslt(0, 60%);
-			width: 100%;
-			margin-top: -16px;
-			font-size: $size8;
-			text-align: center;
-			color: color(black, 3);
-			opacity: 0.8;
+			content: '';
+			@include poslt(50%, 50%);
+			@include svgsprite($ic_thumbnail_large, common);
+			transform: translate(-50%, -50%);
 		}
 	}
 	.infotxt_area{
 		display: table;
-		height: $swiper-height;
+		height: $banner-height;
 		width: calc(100% - #{$banner-width} - 40px);
 		font-family: $sub-font;
 		font-size: $size9;
@@ -36,9 +32,9 @@
 			vertical-align: middle
 		}
 		.tit{
-			margin-bottom: 12px;
+			margin-bottom: rem(12px);
 			font-size: $size3;
-			color: color(red,0);
+			color: color(red,0)
 		}
 		.txt{
 			@include ellipsis(4);
@@ -46,14 +42,21 @@
 	}
 }
 .content_middle{
-	margin-top: 80px;
+	margin-top: rem(80px);
 	.tit{
 		font-family: $sub-font;
 		font-size: $size8;
 		font-weight: $weight-medium;
+		&.is_motions{
+			transform: translateY(rem(100px));
+			opacity: 0;
+			&.is_slideup{
+				@include animation-grp(slideup, 0.3s, 0.6s, 1, linear, forwards)
+			}
+		}
 	}
-	.card_news_area{
-		margin-top: 32px;
+	.card_thumb_area{
+		margin-top: rem(32px);
 	}
 }
 

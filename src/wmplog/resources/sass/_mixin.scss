@@ -755,6 +755,15 @@
 	animation-direction:$direction;
 }
 
+// lucy
+@mixin animation-grp($name, $delay, $duration, $iteration-count, $direction, $fill-mode){
+	animation-name: $name;
+	animation-delay: $delay;
+	animation-duration: $duration;
+	animation-iteration-count: $iteration-count;
+	animation-timing-function: $direction;
+	animation-fill-mode: $fill-mode;
+}
 
 //Keyframes
 @mixin keyframes($name){
@@ -897,6 +906,28 @@
 		@include svgsprite-bgposition($img);
 	}
 }
+
+// lucy
+@mixin svgsprite-bgx($img){
+	$bgx: map-get($img, 'bgx');
+}
+@mixin svgsprite-bgy($img){
+	$bgy: map-get($img, 'bgy');
+}
+@mixin svgsprite-rem2($img){
+	width:rem(map-get($img, 'width')/2);
+	height:rem(map-get($img, 'height')/2);
+	background-size: rem(map-get($img,'bgx')/2) rem(map-get($img,'bgy')/2);
+	background-position: rem(map-get($img, 'x')/2) rem(map-get($img, 'y')/2);
+}
+@mixin svgsprite-rem15($img){
+	width:rem(map-get($img, 'width')/1.5);
+	height:rem(map-get($img, 'height')/1.5);
+	background-size: rem(map-get($img,'bgx')/1.5) rem(map-get($img,'bgy')/1.5);
+	background-position: rem(map-get($img, 'x')/1.5) rem(map-get($img, 'y')/1.5);
+}
+
+
 
 @mixin vsvgsprite($img,$url:null){
 	@include svgsprite-size($img);

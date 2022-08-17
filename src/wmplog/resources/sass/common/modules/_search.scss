@@ -1,53 +1,67 @@
-	.search_pop{
-    .search_box{
-      margin-top: 80px;
-    }
-  }
-  
-  
-  
-  .search_box{
-		position: relative;
-		display: inline-block;
-		width: 592px;
-		padding-bottom: 12px;
-		border-radius: 3px;
-		border-bottom: 2px solid color(black,2);
-		text-align: left;
-		input[type="text"]{
-			font-family: $sub-font;
-			font-size: $size34;
-			letter-spacing: -0.5px;
-			color: color(black,20);
-			text-align: left;
-			&::placeholder{
-				color: color(black,5);
-			}
-		}
-		.pop_delete_btn{
-			@include posrt(54px, 13px);
-			width: 24px;
-			height: 24px;
-			background-color: color(black,5);
-			border-radius: 50%;
-			span{
-				@include poslt(50%, 50%);
-				margin-top: -7px;
-				margin-left: -7px;
-				@include svgsprite($ic_header_pop_search_close, common);
-				@extend %img-replace;
-			}
-		}
-		.search_pop_btn{
-			@include posrt(-12px, -4px);
-			width: 60px;
-			height: 60px;
-			span{
-				@include poslt(50%, 50%);
-				margin-top: -16px;
-				margin-left: -16px;
-				@include svgsprite($ic_header_pop_search, common);
-				@extend %img-replace;
-			}
+// 검색창 상단 
+.search_pop{
+	display: none;
+	@include poslt(0, $header-h);
+	width: 100%; 
+	height: rem(230px);
+	background-color: color(white,0);
+	text-align: center;
+	.btn_search_pop_close{
+		@include posrt(rem(36px), rem(32px));
+		@include size(3.6rem);
+		display: block;
+		span{
+			display: inline-block;
+			vertical-align: middle;
+			@include svgsprite($ic_header_pop_close, common);
+			@extend %img-replace;
 		}
 	}
+}
+.search_pop{
+	.search_box{
+		margin-top: rem(80px);
+	}
+}
+// 검색창 입력 영역 
+.search_box{
+	position: relative;
+	display: inline-block;
+	width: 592px;
+	padding-bottom: rem(12px);
+	border-radius: 3px;
+	border-bottom: 2px solid color(black,2);
+	text-align: left;
+	input[type="text"]{
+		font-family: $sub-font;
+		font-size: $size34;
+		letter-spacing: -0.5px;
+		color: color(black,20);
+		text-align: left;
+		&::placeholder{
+			color: color(black,5);
+		}
+	}
+	.pop_delete_btn{
+		@include posrt(rem(54px), rem(13px));
+		@include size(rem(24px));
+		background-color: color(black,5);
+		border-radius: 50%;
+		span{
+			@include poslt(50%, 50%);
+			@include svgsprite($ic_header_pop_search_close, common);
+			transform: translate(-50%, -50%);
+			@extend %img-replace;
+		}
+	}
+	.search_pop_btn{
+		@include posrt(rem(-12px), rem(0));
+		@include size(rem(50px));
+		span{
+			@include poslt(50%, 50%);
+			transform: translate(-50%, -50%);
+			@include svgsprite($ic_header_pop_search, common);
+			@extend %img-replace;
+		}
+	}
+}

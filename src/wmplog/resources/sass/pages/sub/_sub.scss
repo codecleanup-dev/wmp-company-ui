@@ -19,8 +19,24 @@
       font-size: $size18;
       color: color(black, 2)
     }
+    &.is_motions{
+      &.is_slideup{
+        .con_tit, 
+        .con_info{
+          transform: translateY(100px);
+          opacity: 0;
+          @include animation-grp(slideup, 0, 0.6s, 1, linear, forwards);
+        }
+        .con_tit{
+          animation-delay: 0.2s;
+        }
+        .con_info{
+          animation-delay: 0.4s;
+        }
+      }
+    }
   }
-  .card_news_area{
+  .card_thumb_area{
 		margin-top: 100px;
 	}
 }

@@ -36,9 +36,6 @@ $palettes: (
 // color(black,3);
 
 // 헤더 높이
-$header-height: 80px;
-$swiper-height: 433px;
-
 //image url
 //$img-url : '/src/pc/resources/images';
 // $spr-img-url : '/wmp/css/spr';
@@ -49,16 +46,19 @@ $img-url : '../../images';
 $spr-img-url : '../../css/spr';
 
 //common sprite
-$common-spr-img:'#{$spr-img-url}/common.png';
+// $common-spr-img:'#{$spr-img-url}/common.png';
 
 //투명배경(ie 11이하 hover나 클릭 이슈)
-$bg-transparent:'#{$img-url}/common/bg_transparent.png';
+// $bg-transparent:'#{$img-url}/common/bg_transparent.png';
 
 //font-family
 $base-font : Wemakeprice;
 $sub-font : 'Spoqa Han Sans Neo', 'sans-serif';
 
+// 기본 폰트 사이즈
 $size: 10px;
+
+// 폰트 사이즈
 $size1: 1.3rem;
 $size2: 1.4rem;
 $size3: 1.6rem;
@@ -71,6 +71,8 @@ $size9: 5.2rem;
 $size10: 6.0rem;
 
 
+$size11: 1.1rem;
+$size12: 1.2rem;
 $size13: 1.3rem;
 $size14: 1.4rem;
 $size16: 1.6rem;
@@ -79,25 +81,27 @@ $size20: 2.0rem;
 $size24: 2.4rem;
 $size32: 3.2rem;
 $size34: 3.4rem;
+$size36: 3.6rem;
 $size60: 6.0rem;
 
 
+// 폰트 굵기
 $weight-light: 300;
 $weight-regular: 400;
 $weight-medium: 500;
 $weight-bold: 700;
 $letter-spacing: 0;
 
-
-//content-center-size
+// 컨텐츠 중앙 넓이
 $content-size: 1280px;
-// $content-center-size: 1280px;
-$scr-width : 17px;//window 스크롤 넓이
 
+// 높이값
+$header-h: 8.0rem; 
+$footer-h: 24.7rem; 
+
+// 배너 
 $banner-width: 800px;
 $banner-height: 433px;
-$header-h: 80px; 
-$footer-h: 247px; 
 
 
 $z-indexes: (

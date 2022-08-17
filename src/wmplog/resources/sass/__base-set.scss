@@ -2,9 +2,10 @@
 // base scaffolding
 @import 'function';
 @import 'variables';
-@import '../vendors/svg/common';
-@import '../vendors/svg/footer';
 @import 'mixin';
 @import 'extend';
 
-@import '../common/components/_button';
+@import '../vendors/svg/common';
+@import '../vendors/svg/footer';
+@import '../common/components/button';
+@import '../common/components/keyframes';

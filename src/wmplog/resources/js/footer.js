@@ -3,18 +3,21 @@ const siteCon = document.querySelector('.site_list_grp'),
 			siteList = document.querySelectorAll('.site_list'),
 			siteBox = siteBtn.parentNode;
 
+// console.log(siteBtn)
+// console.log(siteBox)
+
 function hideBox(){
-	siteBox.classList.remove('is_show')
-	siteBox.classList.add('is_hide')
+	siteBox.classList.remove('is_select')
+	siteBox.classList.add('is_unselect')
 }
 function showBox(){
-	siteBox.classList.remove('is_hide')
-	siteBox.classList.add('is_show')
+	siteBox.classList.remove('is_unselect')
+	siteBox.classList.add('is_select')
 }
 siteBtn.addEventListener('click', (e) => {
-	if (siteBox.classList.contains('is_show')) {
+	if (siteBox.classList.contains('is_select')) {
 		hideBox()
-	}else if(siteBox.classList.contains('is_hide')) {
+	}else if(siteBox.classList.contains('is_unselect')) {
 		showBox()
 	}
 })
