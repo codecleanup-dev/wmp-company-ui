@@ -1,21 +1,26 @@
 a, button{
 	&.btn{
+		position: relative;
+		display: inline-block;
+		box-sizing: border-box;
 		background-color: transparent;
 		&.btn_line{
-			position: relative;
-			display: inline-block;
-			box-sizing: border-box;
-			border-width: 1px; 
-			border-style: solid;
+			@include bd(color(white, 0));
 			background-color: color(white, 0);
+			box-sizing: border-box;
 			&[class*=st1]{
 				border-color: color(black,3);
-				border-radius: 3px;
+				border-radius: 2px;
 			}
 			&[class*=st2]{
 				border-color: color(black,6);
 				border-radius: 100px;
 			}
+		}
+		&.btn_fill{
+			@include bd(color(black, 1));
+			border-radius: 2px;
+			background-color: color(black, 1)
 		}
 		.txt{
 			position: relative;
@@ -51,8 +56,7 @@ button{
 				// 더보기
 				&.txt_add{
 					font-weight: $weight-medium;
-					font-size: $size16;
-					color: color(black,1);
+					@include font($size16, null, color(black, 1));
 					&::before{
 						content: '';
 						@include posrt(-18px, 50%);	
@@ -74,8 +78,7 @@ button{
 				// 패밀리 사이트 
 				&.txt_site{
 					font-weight: $weight-regular;
-					font-size: $size14;
-					color: color(black,2);
+					@include font($size14, null, color(black, 2));
 					&::before{
 						content: '';
 						@include posrt(rem(-80px), 50%);	
@@ -86,6 +89,28 @@ button{
 					}
 				}
 			}
+		}
+		// 공유
+		&.btn_share{
+			height: rem(54px);
+			padding: 0 rem(40px) 0 rem(60px);
+			@include font($size16, rem(54px), color(black, 2));
+			.txt{
+				&.txt_share{
+					&::before{
+						content: '';
+						@include poslt(rem(-20px), 50%);	
+						@include svgsprite($ic_btn_share, common);
+						transform: translateY(-50%);
+					}
+				}
+			}
+		}
+		// 목록으로 가기
+		&.btn_list_view{
+			height: rem(54px);
+			padding: 0 rem(40px) 0;
+			@include font($size16, rem(54px), color(white, 0));
 		}
 	}	
 }

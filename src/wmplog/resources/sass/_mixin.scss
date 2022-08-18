@@ -265,6 +265,20 @@
 	height: $height;
 	line-height: $line-height;
 }
+
+// lucy 아이콘 중앙정렬
+@mixin ico-half{
+	content: '';
+	@include poslt(50%);
+	transform: translate(-50%, -50%);
+}
+@mixin ico-half-replace{
+	@include poslt(50%);
+	transform: translate(-50%, -50%);
+	@extend %img-replace;
+}
+
+
 // font
 @mixin font($font-size, $line-height, $color:null){
 	font-size: $font-size;
@@ -343,7 +357,7 @@
 @mixin svgsprite-bgy($img){
 	$bgy: map-get($img, 'bgy');
 }
-@mixin svgsprite-rem2($img){
+@mixin svgsprite-rem20($img){
 	width:rem(map-get($img, 'width')/2);
 	height:rem(map-get($img, 'height')/2);
 	background-size: rem(map-get($img,'bgx')/2) rem(map-get($img,'bgy')/2);
@@ -355,7 +369,12 @@
 	background-size: rem(map-get($img,'bgx')/1.5) rem(map-get($img,'bgy')/1.5);
 	background-position: rem(map-get($img, 'x')/1.5) rem(map-get($img, 'y')/1.5);
 }
-
+@mixin svgsprite-rem12($img){
+	width:rem(map-get($img, 'width')/1.2);
+	height:rem(map-get($img, 'height')/1.2);
+	background-size: rem(map-get($img,'bgx')/1.2) rem(map-get($img,'bgy')/1.2);
+	background-position: rem(map-get($img, 'x')/1.2) rem(map-get($img, 'y')/1.2);
+}
 
 @mixin img-vm1{
 	section{

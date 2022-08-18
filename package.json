@@ -11,7 +11,8 @@
 		"logsass": "gulp logsass",
 		"svg": "gulp svg-sprite",
 		"svgclean": "gulp svgclean",
-		"watch": "gulp watch"
+		"watch": "gulp watch",
+		"serve": "gulp server"
 	},
 	"repository": {
 		"type": "git",

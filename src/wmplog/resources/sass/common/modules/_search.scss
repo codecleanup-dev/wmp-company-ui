@@ -49,9 +49,7 @@
 	}
 	button{
 		> span{
-			@include poslt(50%);
-			transform: translate(-50%, -50%);
-			@extend %img-replace;
+			@include ico-half-replace;
 		}
 	}
 	.pop_delete_btn{

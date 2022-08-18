@@ -1,4 +1,6 @@
 .container{
+  font-family: $sub-font;
+  font-size: $size18;
   &.detail{
     .container_inner_wrap{
       width: 100%;
@@ -8,34 +10,165 @@
     }
   }
 }
-.content_detail_top{
-  @include img-vm3;
+// 상단 이미지
+.content_detail_img{
+  .detail_img_area{
+    position: relative;
+    width: 100%;
+    height: rem(600px);
+    background-color: color(black, 8);
+    &::before{
+      @include ico-half;
+			@include svgsprite($ic_thumbnail_large, common);
+    }
+    img{
+      position: relative;
+      @include size(100%);
+    }
+  }
 }
-// .content_detail_top{
-//   .detail_img_area{
-//     position: relative;
-//     width: 100%;
-//     height: 0;
-//     padding-bottom:56.26%;
-//     overflow: hidden;
-//     // min-height: rem(240px);
-//     max-height: rem(600px);
-//     background-color: color(black, 8);
-//     &::before{
-//       content: '';
-// 			@include poslt(50%);
-// 			@include svgsprite($ic_thumbnail_large, common);
-//       @include translate(-50%, -50%)
-//     }
-//     img{
-//       @include poslt(0, 0);
-//       @include size(100%);
-//       // height: rem(600px);
-//       max-height: rem(600px);
-//       object-fit: fill;
-//     }
-//   }
-// }
-.content_detail_middle{
-  
+// 본문 
+.content_detail_article{
+  margin-top: rem(40px);
+  h3.detail_title_area{
+    // font-weight: $weight-medium;
+    font-weight: $weight-regular;
+    .txt_tit{
+      margin-bottom: rem(20px);
+      font-size: $size16;
+      color: color(red, 0);
+    }
+    .txt_detail{
+      margin-bottom: rem(13px);
+      @include font($size52, 1.3em, color(black, 1));
+    }
+    .txt_date{
+      @include font($size14, null, color(black, 4));
+      font-size: $size14;
+    }
+  }
+  .detail_title_article_wrap{
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .detail_article_area{
+    text-align: left;
+    .article_title{
+      margin-top: rem(40px);
+      @include font($size28, 1.6em, color(black, 1));
+      // font-weight: $weight-bold;
+      font-weight: $weight-medium;
+    }
+    .article_content{
+      margin-top: rem(30px);
+      @include font($size18, 1.6em, color(black, 2))
+    }
+    .article_img{
+      margin-top: rem(40px);
+      text-align: center;
+      img{
+        border-radius: rem(16px);
+        overflow: hidden;
+        // @include size(100%, auto);
+      }
+    }
+    .link{
+      display: block;
+    }
+    .article_blockquote{
+      position: relative;
+      margin-top: rem(45px);
+      padding: rem(40px);
+      &::before{
+        content: '';
+        @include poslt(0, 0);
+        @include size(100%);
+        border-radius: rem(12px);
+        background-color: color(red, 2);
+        opacity: 0.5;
+      }
+      .txt{
+        position: relative;
+        @include font($size18, 1.6em, color(red, 1))
+      }
+    }
+		.article_introduce{
+      position: relative;
+      margin-top: rem(85px);
+      padding: rem(60px) rem(60px) rem(66px);
+      text-align: center;
+
+      &::before{
+        content: '';
+        @include poslt(0, 0);
+        @include size(100%);
+        border-radius: rem(12px);
+        background-color: color(red, 3);
+        opacity: 0.5;
+      }
+      .introduce_wrap{
+        position: relative;
+        display: inline-block;
+      }
+      .introduce_img{
+        img{
+          border-radius: 50%;
+          overflow: hidden;
+        }
+      }
+      .introduce_name{
+        margin-top: rem(12px);
+        @include font($size18, 1.4em, color(black, 1));
+        font-weight: $weight-bold;
+      }
+      .introduce_team{
+        @include font($size14, 1.6em, color(black, 2));
+      }
+      .introduce_txt{
+        margin-top: rem(20px);
+        @include font($size14, 1.6em, color(black, 3));
+      }
+    }
+  }
 }
+
+// 해시 태그/버튼
+.article_bottom{
+  margin-top: rem(40px);
+  .article_hash_tag{
+    ul{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    li{
+      display: inline-block;
+      height: 44px;
+      padding: 0 20px;
+      margin: 0 4px 8px; 
+      @include bd(color(black, 6));
+      @include font($size14, rem(44px), color(black, 2));
+      &:first-child(){
+        margin-left: 4px;
+      }
+    }
+  }
+  .article_button{
+    position: relative;
+    margin-top: rem(50px);
+    .btn_list_view{
+      @include posrt(0, 0)
+    }
+  }
+}
+
+// 카드 리스트
+.content_detail_list{
+  margin-top: rem(160px);
+  .tit{
+    margin-bottom: rem(32px);
+    @include font($size34, 1.6em, color(black, 1));
+    font-weight: $weight-regular;
+  }
+}
+

@@ -1,14 +1,21 @@
 //header
-header{
+.header_scroll_bar{
+	@include fixed($header-h, null, null, 0);
+	@include size(0, rem(4px));
+	background-color: color(red,0);
+	z-index: 100;
+}
+.header_wrap{
 	@include fixed(0,0,null,0);
 	height: $header-h;
 	box-sizing: border-box;
-	background: color(white,0);
+	background: color(#ffffff,0);
 	text-align: center;
+	// @include bd(color(black,6));
 	z-index: z-index(fixed);
-	&:after{
+	&:before{
 		content:'';
-		@include poslt(0, 8.1rem);
+		@include poslt(0, $header-h);
 		@include size(100%, 1px);
 		background-color: color(black,6);
 		z-index: 100;
@@ -22,14 +29,14 @@ header{
 			padding: 0 rem(32px);
 		}
 	}
-}
-h1.logo{
-	@include poslt(rem(32px), 50%);
-	transform: translateY(-50%);
-	a{
-		display: block;
-		@include svgsprite($logo, common);
-		@extend %img-replace;
+	h1.logo{
+		@include poslt(rem(32px), 50%);
+		transform: translateY(-50%);
+		a{
+			display: block;
+			@include svgsprite($logo, common);
+			@extend %img-replace;
+		}
 	}
 }
 .gnb_wrap{
@@ -49,7 +56,7 @@ h1.logo{
 		> a{
 			position: relative;
 			display: inline-block;
-			@include font($size20, rem(80px), color(black,0));
+			@include font($size20, $header-h, color(black,0));
 			.base{
 				@include poslt(0);
 				width: 100%;

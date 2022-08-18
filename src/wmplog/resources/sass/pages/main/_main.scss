@@ -12,10 +12,8 @@
 		overflow: hidden;
 		text-align: right;
 		&::before{
-			content: '';
-			@include poslt(50%, 50%);
+			@include ico-half;
 			@include svgsprite($ic_thumbnail_large, common);
-			transform: translate(-50%, -50%);
 		}
 	}
 	.infotxt_area{
@@ -23,7 +21,7 @@
 		height: $banner-height;
 		width: calc(100% - #{$banner-width} - 40px);
 		font-family: $sub-font;
-		font-size: $size9;
+		font-size: $size52;
 		font-weight: $weight-medium;
 		color: color(black,1);
 		text-align: left;
@@ -33,7 +31,7 @@
 		}
 		.tit{
 			margin-bottom: rem(12px);
-			font-size: $size3;
+			font-size: $size16;
 			color: color(red,0)
 		}
 		.txt{
@@ -45,7 +43,7 @@
 	margin-top: rem(80px);
 	.tit{
 		font-family: $sub-font;
-		font-size: $size8;
+		font-size: $size34;
 		font-weight: $weight-medium;
 		&.is_motions{
 			transform: translateY(rem(100px));

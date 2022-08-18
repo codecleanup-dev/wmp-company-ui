@@ -24,22 +24,22 @@ module.exports = (gulp, $, config) => {
 	};
 
 	// lucy 삭제
-	var displayError = function(error) {
+	// var displayError = function(error) {
 
-    var errorString = '[' + error.plugin + ']';
-    errorString += ' ' + error.message.replace("\n",'\n'); // Removes new line at the end - Q nope
+  //   var errorString = '[' + error.plugin + ']';
+  //   errorString += ' ' + error.message.replace("\n",'\n'); // Removes new line at the end - Q nope
 
-    // If the error contains the filename or line number add it to the string
-    if(error.fileName)
-        errorString += ' in ' + error.fileName;
+  //   // If the error contains the filename or line number add it to the string
+  //   if(error.fileName)
+  //       errorString += ' in ' + error.fileName;
 
-    if(error.lineNumber)
-        errorString += ' on line ' + error.lineNumber;
+  //   if(error.lineNumber)
+  //       errorString += ' on line ' + error.lineNumber;
 
-    // This will output an error like the following:
-    // [gulp-sass] error message in file_name on line 1
-    console.error(errorString);
-	}
+  //   // This will output an error like the following:
+  //   // [gulp-sass] error message in file_name on line 1
+  //   console.error(errorString);
+	// }
 
 	function compsass() {
 		return gulp
@@ -56,16 +56,19 @@ module.exports = (gulp, $, config) => {
 	function logsass() {
 		return gulp
 			.src(config.logScss.src)
+			.pipe($.if(!isProduction, $.sourcemaps.init()))
 			.pipe($.plumber({
 				errorHandler: isProduction ? false : true
 			}))
 			// .pipe($.sass(config.scssOpt).on('error', onError))
+			// lucy 중단되지 않음 
 			.pipe($.sass(config.scssOpt).on('error',$.sass.logError))
 			// lucy 삭제
 			// .pipe($.sass(config.scssOpt))
 			// .on('error', function(err){
 			// 	displayError(err);
 			// })
+			.pipe($.if(!isProduction, $.sourcemaps.write('./')))
 			.pipe(gulp.dest(config.logScss.dest))
 			.pipe(browserSync.stream())
 			.pipe(touch());

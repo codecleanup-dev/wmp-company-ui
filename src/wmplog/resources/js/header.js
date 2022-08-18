@@ -36,3 +36,14 @@ menuBtn.addEventListener('click', (e) => {
   // }
 })
 
+
+const scrollBar = document.querySelector('.header_scroll_bar');
+window.onscroll = function() {
+    scrollIndicator();
+}
+function scrollIndicator() {
+  let windowScroll =  document.body.scrollTop || document.documentElement.scrollTop;
+  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  let scrolled = (windowScroll / height) * 100;
+  scrollBar.style.width = scrolled + '%';
+}
