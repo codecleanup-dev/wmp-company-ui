@@ -26,16 +26,21 @@
 		min-width: $content-size;
 		height: $header-h;
 		.header_inner{
-			padding: 0 rem(32px);
+			position: relative;
+			height: 100%;
+			margin: 0 rem(32px);
 		}
 	}
 	h1.logo{
-		@include poslt(rem(32px), 50%);
+		@include poslt(0, 50%);
 		transform: translateY(-50%);
 		a{
 			display: block;
 			@include svgsprite($logo, common);
 			@extend %img-replace;
+			&:hover{
+				@include svgsprite($logo_hover, common);
+			}
 		}
 	}
 }

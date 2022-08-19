@@ -17,13 +17,16 @@
     width: 100%;
     height: rem(600px);
     background-color: color(black, 8);
+    overflow: hidden;
     &::before{
       @include ico-half;
 			@include svgsprite($ic_thumbnail_large, common);
     }
     img{
-      position: relative;
-      @include size(100%);
+      @include poslt(50%);
+      @include size(100%, 100%);
+      transform: translate(-50%, -50%);
+      object-fit: cover;
     }
   }
 }
@@ -53,89 +56,65 @@
     text-align: center;
   }
   .detail_article_area{
+    margin-top: rem(40px);
     text-align: left;
-    .article_title{
-      margin-top: rem(40px);
-      @include font($size28, 1.6em, color(black, 1));
-      // font-weight: $weight-bold;
-      font-weight: $weight-medium;
+		.article_editor{
+			// padding: 0 rem(20px);
+			img{
+				border-radius: rem(16px);
+				overflow: hidden;
+			}
+		}
+  }
+  .article_introduce_area{
+    position: relative;
+    margin-top: rem(85px);
+    .introduce_wrap{
+      position: relative;
+			padding: rem(60px) rem(60px) rem(66px);
+			text-align: center;
+			&::before{
+				content: '';
+				@include poslt(0, 0);
+				@include size(100%);
+				border-radius: rem(12px);
+				background-color: color(red, 3);
+				opacity: 0.5;
+			}
     }
-    .article_content{
-      margin-top: rem(30px);
-      @include font($size18, 1.6em, color(black, 2))
-    }
-    .article_img{
-      margin-top: rem(40px);
-      text-align: center;
+		.introduce_img, 
+		.introduce_name,
+		.introduce_team,
+		.introduce_txt{
+			position: relative;
+		}
+    .introduce_img{
       img{
-        border-radius: rem(16px);
+        border-radius: 50%;
         overflow: hidden;
-        // @include size(100%, auto);
       }
     }
-    .link{
-      display: block;
+    .introduce_name{
+      margin-top: rem(12px);
+      @include font($size18, 1.4em, color(black, 1));
+      font-weight: $weight-bold;
     }
-    .article_blockquote{
-      position: relative;
-      margin-top: rem(45px);
-      padding: rem(40px);
-      &::before{
-        content: '';
-        @include poslt(0, 0);
-        @include size(100%);
-        border-radius: rem(12px);
-        background-color: color(red, 2);
-        opacity: 0.5;
-      }
-      .txt{
-        position: relative;
-        @include font($size18, 1.6em, color(red, 1))
-      }
+    .introduce_team{
+      @include font($size14, 1.6em, color(black, 2));
     }
-		.article_introduce{
-      position: relative;
-      margin-top: rem(85px);
-      padding: rem(60px) rem(60px) rem(66px);
-      text-align: center;
-
-      &::before{
-        content: '';
-        @include poslt(0, 0);
-        @include size(100%);
-        border-radius: rem(12px);
-        background-color: color(red, 3);
-        opacity: 0.5;
-      }
-      .introduce_wrap{
-        position: relative;
-        display: inline-block;
-      }
-      .introduce_img{
-        img{
-          border-radius: 50%;
-          overflow: hidden;
-        }
-      }
-      .introduce_name{
-        margin-top: rem(12px);
-        @include font($size18, 1.4em, color(black, 1));
-        font-weight: $weight-bold;
-      }
-      .introduce_team{
-        @include font($size14, 1.6em, color(black, 2));
-      }
-      .introduce_txt{
-        margin-top: rem(20px);
-        @include font($size14, 1.6em, color(black, 3));
-      }
+    .introduce_txt{
+      margin-top: rem(20px);
+      @include font($size14, 1.6em, color(black, 3));
     }
   }
 }
 
 // 해시 태그/버튼
-.article_bottom{
+.article_bottom_area{
+	position: relative;
   margin-top: rem(40px);
+
+	text-align: left;
   .article_hash_tag{
     ul{
       display: flex;
@@ -143,13 +122,13 @@
     }
     li{
       display: inline-block;
-      height: 44px;
-      padding: 0 20px;
-      margin: 0 4px 8px; 
+      height: rem(44px);
+      padding: 0 rem(20px);
+      margin: 0 rem(4px) rem(8px); 
       @include bd(color(black, 6));
       @include font($size14, rem(44px), color(black, 2));
       &:first-child(){
-        margin-left: 4px;
+        margin-left: rem(4px);
       }
     }
   }
@@ -162,10 +141,11 @@
   }
 }
 
-// 카드 리스트
+// 상세 추천 콘텐츠 카드 리스트
 .content_detail_list{
   margin-top: rem(160px);
   .tit{
+		margin-left: rem(16px);
     margin-bottom: rem(32px);
     @include font($size34, 1.6em, color(black, 1));
     font-weight: $weight-regular;

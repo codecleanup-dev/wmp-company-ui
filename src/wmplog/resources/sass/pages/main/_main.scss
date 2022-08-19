@@ -1,6 +1,7 @@
 .content_top{
 	position: relative;
-	margin-top: rem(60px);
+	margin: rem(60px) rem(32px) 0 rem(32px);
+	// margin-top: rem(60px);
 	.slider_area{
 		position: absolute;
 		top: 0; 
@@ -18,8 +19,8 @@
 	}
 	.infotxt_area{
 		display: table;
-		height: $banner-height;
 		width: calc(100% - #{$banner-width} - 40px);
+		height: $banner-height;
 		font-family: $sub-font;
 		font-size: $size52;
 		font-weight: $weight-medium;
@@ -40,7 +41,8 @@
 	}
 }
 .content_middle{
-	margin-top: rem(80px);
+	margin: rem(80px) rem(16px) 0 rem(16px);
+	// margin-top: rem(80px);
 	.tit{
 		font-family: $sub-font;
 		font-size: $size34;
@@ -52,9 +54,6 @@
 				@include animation-grp(slideup, 0.3s, 0.6s, 1, linear, forwards)
 			}
 		}
-	}
-	.card_thumb_area{
-		margin-top: rem(32px);
 	}
 }
 

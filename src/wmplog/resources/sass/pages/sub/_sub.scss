@@ -1,23 +1,21 @@
 .content_sub{
-  margin-top: 100px;
+  margin-top: rem(100px);
   .tit_info_area{
     display: inline-block;
     span{
       display: block;
     }
     .con_tit{
-      font-size: $size60;
+      @include font($size60, null, color(black, 1));
       font-weight: $weight-medium;
       // TODO: font-weight: 600; 사이즈 없음 확인 필요 
-      color: color(black, 1)
     }
     .con_info{
-      margin-top: 12px;
+      margin-top: rem(12px);
       font-family: $sub-font;
+      @include font($size18, null, color(black, 2))
       font-weight: $weight-regular;
       // TODO: font-weight: 400; 디자인상으로는 light로 보임 
-      font-size: $size18;
-      color: color(black, 2)
     }
     &.is_motions{
       &.is_slideup{
@@ -37,6 +35,6 @@
     }
   }
   .card_thumb_area{
-		margin-top: 100px;
+		margin-top: rem(100px);
 	}
 }

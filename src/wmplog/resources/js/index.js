@@ -1,21 +1,19 @@
-// const slides = document.querySelectorAll('.card_thumb_list')
-// for (let i = 0; i < slides.length; i++) {
-//   console.log(slides[i])
-//   var slideIndex = slides[i];
-//   if(slideIndex == 3n+1){
-    
-//   }
-// }
-// function showSlides(n) {
-//   // if (n > slides.length) {
-//   //   slideIndex = 1;
-//   // }
-//   if (2n+1 < 1) {
-//     slideIndex = slides.length;
-//   }
-//   slides[slideIndex - 1].style.display = "block";
-// }
+// 검색창
+const inputArea = document.querySelector('.search_pop_input'),
+      deleteBtn = document.querySelector('.pop_delete_btn'),
+      searchBox = document.querySelector('.search_box'),
+      searchInput = searchBox.querySelector('.search_pop_input');
 
+if(searchInput){ 
+  function deleteHide(){
+    inputArea.value = '';
+    deleteBtn.style.display = 'none';
+  }
+  searchInput.addEventListener('keypress', function(key){
+    deleteBtn.style.display = 'block';
+    deleteBtn.addEventListener('click', deleteHide);
+  })
+}
 
 // 카드 리스트 상세 페이지 제어 
 const list = document.querySelectorAll('.card_thumb_list');
@@ -24,10 +22,9 @@ const addBtn = document.querySelector('.btn_box');
 
 if(container.classList.contains('detail')){
   for (let i = 0; i < list.length; i++) {
-    console.log(list[i])
+    // console.log(list[i])
     list[i].classList.remove('is_motions', 'is_slideup')
     addBtn.classList.add('is_hide')
-    // list.length < 7
-    // list[i].classList.remove('is_slideup')
   }
 }
+

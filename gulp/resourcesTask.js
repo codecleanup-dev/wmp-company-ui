@@ -1,9 +1,11 @@
 const browserSync = require('browser-sync').create();
+			// touch = require('gulp-touch-cmd');
 /**
  * @param gulp
  * @param $
  * @param config
  */
+
 module.exports = (gulp, $, config) => {
 
 	function compimgs() {
@@ -31,9 +33,10 @@ module.exports = (gulp, $, config) => {
 	}
 
 	function logJs() {
-	return gulp
-		.src(config.logJs.src)
-		.pipe(gulp.dest(config.logJs.dest))
+		return gulp
+			.src(config.logJs.src)
+			.pipe(gulp.dest(config.logJs.dest))
+			// .pipe(touch());
 	}
 
 	gulp.task(compimgs);

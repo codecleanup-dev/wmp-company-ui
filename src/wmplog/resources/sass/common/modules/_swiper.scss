@@ -4,6 +4,19 @@
   text-align: center;
   font-size: $size16;
 }
+// 이미지가 1000 x 700 중앙정렬 처리 
+.swiper-slide{
+  position: relative;
+  width: $banner-width;
+  height: $banner-height;
+  overflow: hidden;
+  img{
+    @include poslt(50%);
+    @include size(auto, 100%);
+    transform: translate(-50%, -50%);
+  }
+}
+
 // 좌우 버튼
 .swiper-button-next, .swiper-button-prev{
   &::after{
@@ -45,18 +58,16 @@
 }
 // 카운트
 .swiper-pagination-fraction{
-  @include posrb(157px, 22px);
+  @include posrb(160px, 22px);
   left: auto;
   width: auto;
-  font-size: $size13;
-  color: color(white, 0);
+  font-family: $sub-font;
+  font-weight: $weight-regular;
+  @include font($size13, null, color(white, 0));
   z-index: 10;
   text-align: right;
-  
 }
 .swiper-pagination-current{
+  font-weight: $weight-bold;
   opacity: 1;
-}
-.swiper-pagination-total{
-  opacity: 0.6;
 }

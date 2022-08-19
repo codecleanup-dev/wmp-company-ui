@@ -54,7 +54,12 @@ html, body{
 		padding-bottom: rem(200px);
 		.container_inner{
 			position: relative;
-			padding: 0 rem(32px);
+		}
+	}
+	.card_thumb_area{
+		margin-top: rem(32px);
+		.btn_box{
+			margin-top: rem(70px);
 		}
 	}
 }

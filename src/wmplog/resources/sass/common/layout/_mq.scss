@@ -3,19 +3,40 @@
 		font-size: 10px;
 	}
 }
-@media screen and (min-width: 481px) and (max-width: 768px){
+@media screen and (min-width: 481px) and (max-width: 1024px){
 	html{
 		font-size: 13px;
 	}
 }
-
-@media screen and (min-width: 768px) and (max-width: 1024px){
-	// 카드 썸네일 2개 보이기
-
+//---------------------------------------------
+//---------------------------------------------
+// PC 최소 넓이값 대응
+@media screen and (max-width: 1280px){
+	.header_wrap .header_inner_wrap{
+		min-width: 100%;
+	}
+	.container .container_inner_wrap{
+		width: 100%;
+	}
+	.center_inner{
+		width: 100%;
+		min-width: 100%;
+	}
 }
-
-@media screen and (max-width: 768px){
+//---------------------------------------------
+//---------------------------------------------
+// 모바일 대응 
+@media screen and (max-width: 1023px){
 	$header-h: 6.0rem; 
+	// 공통 버튼
+	button{
+		&.btn{
+			&.btn_add{
+				width: 100%;
+				padding: 0;
+			}
+		}
+	}
 	//---------------------------------------------
 	// 상단
 	.header_scroll_bar{
@@ -30,11 +51,11 @@
       min-width: 100%;
 			height: $header-h;
       .header_inner{
-        padding: 0 rem(20px);
+        margin: 0 rem(10px);
       }
     }
 		h1.logo{
-			left: rem(20px);
+			left: rem(10px);
 			a{
 				@include svgsprite-rem12($logo);
 			}
@@ -43,7 +64,7 @@
 		.gnb_wrap{
 			display: none;
 			float: none;
-			margin-top: $header-h;
+			// margin-top: $header-h;
 		}
 		.gnb{
 			margin-right: 0;
@@ -79,7 +100,7 @@
 		}
 
 		.btn_area{
-			right: rem(14px);
+			right: rem(4px);
 			button{
 				margin-left: 0;
 			}
@@ -97,7 +118,17 @@
 		}
   }
 	//---------------------------------------------
-	// 검색
+	// 버튼
+	.btn_area{
+		button{
+			margin-left: rem(10px);
+			&.btn_category{
+				display: inline-block;
+			}
+		}
+	}
+	//---------------------------------------------
+	// 검색창 상단 
 	.search_pop{
 		top: $header-h;
 		height: rem(177px);
@@ -114,6 +145,7 @@
 			padding-bottom: rem(8px);
 		}	
 	}
+	// 검색창 입력 영역 : 상단/검색 페이지 공통 
 	.search_box{
 		width: 100%;
 		input[type="text"]{
@@ -138,11 +170,13 @@
 			display: none;
 		}
 	}
-
 	//---------------------------------------------
 	// 하단
 	.footer_wrap{
 		height: 100%;
+		.footer_inner{
+			padding: rem(60px) rem(20px)
+		}
 		.info_area{
 			.info_box{
 				.info_company{
@@ -174,16 +208,6 @@
 		}
 	}
 	//---------------------------------------------
-	// 버튼
-	.btn_area{
-		button{
-			margin-left: rem(10px);
-			&.btn_category{
-				display: inline-block;
-			}
-		}
-	}
-	//---------------------------------------------
 	// 컨테이너
 	.wrap{
 		height: auto;
@@ -203,36 +227,215 @@
 			}
 		}
 	}
+	//---------------------------------------------
+	// 메인
 	.content_top{
 		display: none;
 	}
 	.content_middle{
-		margin-top: rem(40px);
+		margin: rem(40px) 0 0;
 		.tit{
+			font-size: rem(24px);
 			&.is_motions{
 				transform: translateY(rem(0px));
 			}
 		}
 	}
-	//---------------------------------------------
-	// 카드 리스트
-	.card_thumb_area {
-		.card_thumb_list_grp{
-			justify-content: center;
-			
+	// 서브
+	.content_sub{
+		margin-top: rem(60px);
+		.tit_info_area{
+			.con_tit{
+				font-size: $size40;
+			}
+			.con_info{
+				font-size: $size16;
+			}
 		}
-		.card_thumb_list{
-			margin-bottom: rem(40px)
+		.card_thumb_area{
+			margin-top: rem(60px);
 		}
 	}
 	//---------------------------------------------
+	// 상세
 	.container{
 		&.detail{
-			.content_detail_top{
+			// 상단 이미지
+			.content_detail_img{
 				.detail_img_area{
-					height: rem(240px);
+					height: 0;
+					padding-bottom: 56.25%;
+					// height: rem(240px);
+				}
+			}
+			// 본문 
+			.content_detail_article{
+				.detail_title_article_wrap{
+					width: 100%;
+				}
+				h3.detail_title_area{
+					padding: 0 rem(20px);
+					.txt_detail{
+					font-size: rem(28px);
+					}	
+				}
+				.detail_article_area{
+					img{
+						width: 100%;
+					}
+				}
+				.detail_article_area{
+					.article_editor{
+						padding: 0 rem(20px);
+					}
+				}
+				.article_introduce_area,
+				.article_bottom_area{
+					padding: 0 rem(20px);
+				}
+			}
+			// 상세 추천 콘텐츠 카드 리스트
+			.content_detail_list{
+				position: relative;
+				padding: 0 rem(20px);
+				.tit{
+					margin-left: 0;
 				}
 			}
 		}
 	}
+	//---------------------------------------------
 }	
+
+@media screen and (max-width: 1279px){
+	// 슬라이드 배너 
+	$banner-width: 632px;
+	$banner-height: 342px;
+	.content_top{
+		.slider_area{
+			width: $banner-width;
+			height: $banner-height;
+		}
+		.infotxt_area{
+			width: calc(100% - #{$banner-width} - 40px);
+			height: $banner-height;
+			font-size: rem(34px);
+		}
+	}
+	.swiper-slide{
+		width: $banner-width;
+		height: $banner-height;
+	}
+}
+
+//---------------------------------------------
+//---------------------------------------------
+// 카드 리스트 
+@media screen and (min-width: 1024px){
+	.card_thumb_list{
+		&:nth-child(-n+3){
+			margin-top: rem(0px);
+		}	
+		&.is_motions{
+			&:nth-child(-n+3){
+				animation-delay: 0.5s;
+			}
+			&:nth-child(n+4):nth-child(-n+6){
+				animation-delay: 1s;
+			}
+			&:nth-child(n+7):nth-child(-n+9){
+				animation-delay: 1.5s;
+			}
+		}
+	}
+}
+//---------------------------------------------
+@media screen and (min-width: 768px) and (max-width: 1023px){
+	.card_thumb_area {
+		.card_thumb_list_grp{
+			justify-content: space-between;
+		}
+		.card_thumb_list{
+			width: 50%;
+			&:nth-child(odd){
+				.card_link{		
+					margin-left: 0;
+				}
+			}
+			&:nth-child(even){
+				.card_link{		
+					margin-right: 0;
+				}
+			}
+			&:nth-child(-n+2){
+				margin-top: 0;
+			}
+			&.is_motions{
+				&:nth-child(-n+2){
+					animation-delay: 0.5s;
+				}
+				&:nth-child(n+3):nth-child(-n+4){
+					animation-delay: 1s;
+				}
+				&:nth-child(n+5):nth-child(-n+6){
+					animation-delay: 1.5s;
+				}
+				&:nth-child(n+7):nth-child(-n+8){
+					animation-delay: 2s;
+				}
+				&:nth-child(n+9){
+					animation-delay: 2.5s;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 767px){
+	.card_thumb_area {
+		.card_thumb_list_grp{
+			justify-content: center;
+		}
+		.card_thumb_list{
+			width: 100%;
+			&:first-child{
+				margin-top: 0;
+			}
+			.card_link{		
+				margin: 0;
+			}
+			&.is_motions{
+				&:nth-child(1){
+					animation-delay: 0.5s;
+				}
+				&:nth-child(2){
+					animation-delay: 1s;
+				}
+				&:nth-child(3){
+					animation-delay: 1.5s;
+				}
+				&:nth-child(4){
+					animation-delay: 2s;
+				}
+				&:nth-child(5){
+					animation-delay: 2.5s;
+				}
+			}
+		}
+	}
+}
+//---------------------------------------------
+@media screen and (max-width: 1023px){
+	.card_thumb_area {
+		.card_thumb_list{
+			margin-top: rem(40px);
+			.card_txt{
+				margin-top: rem(10px);
+				.txt_detail{
+					margin-bottom: rem(10px);
+				}
+			}
+		}
+	}
+}
+//---------------------------------------------
+//---------------------------------------------

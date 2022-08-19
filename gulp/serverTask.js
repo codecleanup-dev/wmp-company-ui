@@ -1,7 +1,6 @@
 const	log = require('fancy-log'),
 			colors = require('ansi-colors'),
 			browserSync = require('browser-sync').create(),
-			touch = require('gulp-touch-cmd'),
 			reload = browserSync.reload;
 
 /**

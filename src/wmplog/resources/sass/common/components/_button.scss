@@ -8,6 +8,9 @@ a, button{
 			@include bd(color(white, 0));
 			background-color: color(white, 0);
 			box-sizing: border-box;
+			&:hover{
+				background-color: color(black, 8);
+			}
 			&[class*=st1]{
 				border-color: color(black,3);
 				border-radius: 2px;
@@ -16,11 +19,15 @@ a, button{
 				border-color: color(black,6);
 				border-radius: 100px;
 			}
+
 		}
 		&.btn_fill{
 			@include bd(color(black, 1));
 			border-radius: 2px;
-			background-color: color(black, 1)
+			background-color: color(black, 1);
+			&:hover{
+				background-color: color(black, 21);
+			}
 		}
 		.txt{
 			position: relative;
