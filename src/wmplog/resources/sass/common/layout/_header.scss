@@ -52,16 +52,22 @@
 .gnb{
 	height: 100%;
 	margin-right: rem(242px);
+	font-size: 0;
 	li{
 		position: relative;
-		float: left;
-		padding: 0 rem(5px);
+		display: inline-block;
+		// padding: 0 rem(5px);
+		margin: 0 rem(11px);
 		height: rem($header-h);
 		box-sizing: border-box;
+		vertical-align: middle;
 		> a{
 			position: relative;
 			display: inline-block;
 			@include font($size20, $header-h, color(black,0));
+			span{
+				display: block;
+			}
 			.base{
 				@include poslt(0);
 				width: 100%;
@@ -71,21 +77,119 @@
 			.hover{
 				visibility: hidden;
 				em{
-					color: color(red,0)
+					visibility: hidden;
+					// color: color(red,0)
 				}
 			}
-			&.active, 
-			&:hover{
+			&.active{
 				.base{
-					visibility: hidden;
+					visibility: visible;
 				}
 				.hover{
 					visibility: visible;
+				}
+			}		
+			&:hover{
+				.base{
+					visibility: visible;
+				}
+				.hover{
+					visibility: hidden;
+				}
+			}
+			&.active{
+				.base{
+					color: color(red,0)
+				}
+				&:hover{
+					span, .base, .hover{
+						visibility: visible;
+						animation: none !important;
+					}
+				}
+			}
+		}
+		&:nth-child(1){
+			> a{
+				&.active{
+					.base{
+						transform:translateX(-28px);
+					}
+					.hover{
+						transform:translateX(0);
+					}
+				}
+				&:hover{
+					span{
+						@include animation-grp(null, 0, 0.5s, 1, linear, forwards);
+					}
+					.base{
+						animation-name: category1-fadeout;
+						animation-duration: 0.2s;
+					}
+					.hover{
+						animation-name: category1-fadein;
+						animation-duration: 0.2s;
+						animation-delay: 0.5s;
+					}
+				}
+			}
+		}
+		&:nth-child(2){
+			> a{
+				&.active{
+					.base{
+						transform:translateX(-38px);
+					}
+					.hover{
+						transform:translateX(0);
+					}
+				}
+				&:hover{
+					span{
+						@include animation-grp(null, 0, 0.5s, 1, linear, forwards);
+					}
+					.base{
+						animation-name: category2-fadeout;
+						animation-duration: 0.2s;
+					}
+					.hover{
+						animation-name: category2-fadein;
+						animation-duration: 0.3s;
+						animation-delay: 0.5s;
+					}
+				}
+			}
+		}
+		&:nth-child(3){
+			> a{
+				&.active{
+					.base{
+						transform:translateX(31px);
+					}
+					.hover{
+						transform:translateX(0);
+					}
+				}
+				&:hover{
+					span{
+						@include animation-grp(null, 0, 0.5s, 1, linear, forwards);
+					}
+					.base{
+						animation-name: category3-fadeout;
+						animation-duration: 0.2s;
+					}
+					.hover{
+						animation-name: category3-fadein;
+						animation-duration: 0.2s;
+						animation-delay: 0.5s;
+					}
 				}
 			}
 		}
 	}
 }
+	
 
 .btn_area{
 	@include posrt(0, 50%);
@@ -127,4 +231,3 @@
 		}
 	}
 }
-

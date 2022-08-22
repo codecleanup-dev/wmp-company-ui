@@ -2,7 +2,8 @@
 
 // basic setting scaffolding
 @import '../__base-set';
+// 서브 페이지 
 @import 'sub/sub';
 @import 'sub/result';
-
-@import '../common/layout/mq';
+// 미디어쿼리
+@import 'mq/mq';

@@ -2,10 +2,9 @@
 
 // basic setting scaffolding
 @import '../__base-set';
-
-// 배너
+// 슬라이드 배너
 @import '../common/modules/_swiper';
-
+// 메인 페이지 
 @import 'main/main';
-
-@import '../common/layout/mq';
+// 미디어쿼리
+@import 'mq/mq';

@@ -11,22 +11,18 @@ function getParam(str) {
 }
 
 //헤더, 푸터, 리스트, 상세 본문 
-$('.header_wrap').load('/src/wmplog/views/layout/header.html', function () {});
-$('.footer_wrap').load('/src/wmplog/views/layout/footer.html', function () {});
-$('.card_thumb_area').load('/src/wmplog/views/layout/card_list.html', function () {
+$('.header_wrap').load('/src/wmplog/views/layout/header.html', function () {
+	if(type==1){
+		$('.work').find('a').addClass('active');
+	}else if(type==2){
+		$('.together').find('a').addClass('active');
+	}else if(type==3){
+		$('.life').find('a').addClass('active');
+	}
 
-	// var windowWidth = $( window ).width();   
-	// if(windowWidth <= 768) { 
-		
-	// 	var listNumber = $('.card_thumb_list');
-	// 	for (var i = 0; i <listNumber.length; i++) {
-	// 		console.log(listNumber[i])
-	// 		if(listNumber >= 6){
-	// 			listNumber.hide();
-	// 		}
-	// 	};
-	// }
 });
+$('.footer_wrap').load('/src/wmplog/views/layout/footer.html', function () {});
+$('.card_thumb_area').load('/src/wmplog/views/layout/card_list.html', function () {});
 
 $('.article_editor').load('/src/wmplog/views/layout/article.html', function () {});
 
@@ -43,6 +39,7 @@ if(type==3){
 	$('.con_tit').text('잘 사는 삶');
 	$('.con_info').text('위메프와 함께 즐거운 삶을 더하는 방식을 소개합니다.');
 }
+
 // 상단 검색 영역 활성화
 if(type=='search'){
 	$('body').addClass('is_dim');
