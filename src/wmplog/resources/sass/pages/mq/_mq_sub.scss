@@ -1,0 +1,31 @@
+@media screen and (max-width: 1023px){
+  // 서브
+	.content_sub{
+		margin-top: rem(60px);
+		.tit_info_area{
+			.con_tit{
+				font-size: $size40;
+			}
+			.con_info{
+				font-size: $size16;
+			}
+		}
+		.card_thumb_area{
+			margin-top: rem(60px);
+		}
+	}
+  // 검색결과
+  .content_search_result{
+		margin-top: rem(60px);
+    .tit_info_area{
+      display: block;
+      text-align: left;
+      .con_info{
+        font-size: $size16;
+      }
+      .con_info_sub{
+        font-size: $size14;
+      }
+    }
+	}
+}

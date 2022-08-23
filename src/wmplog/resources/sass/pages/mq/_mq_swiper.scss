@@ -1,0 +1,20 @@
+@media screen and (max-width: 1279px){
+	// 슬라이드 배너 
+	$banner-width: 632px;
+	$banner-height: 342px;
+	.content_top{
+		.slider_area{
+			width: $banner-width;
+			height: $banner-height;
+		}
+		.infotxt_area{
+			width: calc(100% - #{$banner-width} - 40px);
+			height: $banner-height;
+			font-size: rem(34px);
+		}
+	}
+	.swiper-slide{
+		width: $banner-width;
+		height: $banner-height;
+	}
+}

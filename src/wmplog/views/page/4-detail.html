@@ -20,6 +20,8 @@
 		<!-- Header -->
 		<!-- layout/header.html -->
 		<header class="header_wrap"></header>
+		<!-- js 상단 스크롤바는 상세 페이지만 노출 -->
+		<div class="header_scroll_bar"></div>
 		<!-- //Header -->
 
 		<!-- container/detail: 상세페이지 -->
@@ -132,12 +134,17 @@
 
 	</div>
 
-	<div>
-		
+	<!-- 토스트 팝업 -->
+	<!-- js is_show: 토스트 팝업 활성화  -->
+	<div class="popup toast_popup is_motions">
+		<div class="toast_box">
+			<span class="txt txt-link-copy">링크가 복사되었어요</span>
+		</div>
 	</div>
+	<!-- //토스트 팝업 -->
 
 
-	<!-- <script src="../../resources/js/index.js"></script> -->
+	<script src="../../resources/js/index.js"></script>
 
 	<!-- 디자인QA용 -->
 	<script type="text/javascript" src="/src/wmplog/resources/js/guide.js"></script>

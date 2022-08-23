@@ -39,10 +39,11 @@
 	border-bottom: 2px solid color(black,2);
 	text-align: left;
 	input[type="text"]{
+		width: calc(100% - #{rem(120px)});
 		font-family: $sub-font;
 		letter-spacing: -0.5px;
 		text-align: left;
-		@include font($size34, null, color(black,20));
+		@include font($size34, null, color(black,1));
 		&::placeholder{
 			color: color(black,5);
 		}

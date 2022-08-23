@@ -55,7 +55,8 @@ $spr-img-url : '../../css/spr';
 
 // font-family
 $base-font : Wemakeprice;
-$sub-font : 'Spoqa Han Sans Neo', 'sans-serif';
+$sub-font : 'Spoqa Han Sans Neo', sans-serif;
+$emoji-font : 'Noto Color Emoji', 'Segoe UI Symbol', 'Segoe UI Emoji', 'Apple Color Emoji';
 
 // 기본 폰트 사이즈
 $size: 10px;
@@ -82,6 +83,7 @@ $size60: rem(60px);
 $weight-light: 300;
 $weight-regular: 400;
 $weight-medium: 500;
+$weight-semibold: 600; //위메프체만 사용
 $weight-bold: 700;
 $letter-spacing: 0;
 
@@ -95,6 +97,13 @@ $footer-h: 24.7rem;
 // 슬라이드 배너 
 $banner-width: 800px;
 $banner-height: 433px;
+
+
+$category1: -28px;
+$category2: -38px;
+$category3: 31px;
+
+$gap: 8px;
 
 
 $z-indexes: (

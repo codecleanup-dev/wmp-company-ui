@@ -13,17 +13,17 @@ a, button{
 			}
 			&[class*=st1]{
 				border-color: color(black,3);
-				border-radius: 2px;
+				border-radius: rem(6px);
 			}
 			&[class*=st2]{
 				border-color: color(black,6);
-				border-radius: 100px;
+				border-radius: rem(100px);
 			}
 
 		}
 		&.btn_fill{
 			@include bd(color(black, 1));
-			border-radius: 2px;
+			border-radius: rem(6px);
 			background-color: color(black, 1);
 			&:hover{
 				background-color: color(black, 21);
@@ -101,7 +101,7 @@ button{
 		&.btn_share{
 			height: rem(54px);
 			padding: 0 rem(40px) 0 rem(60px);
-			@include font($size16, rem(54px), color(black, 2));
+			@include font($size16, rem(54px), color(black, 1));
 			.txt{
 				&.txt_share{
 					&::before{

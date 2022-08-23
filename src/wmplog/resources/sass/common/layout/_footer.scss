@@ -55,8 +55,9 @@
 		}	
 		.info_box{
 			margin-top: rem(40px);
+			@include font($size13, 1.6em, color(black,3));
 			font-family: $sub-font;
-			@include font($size13, 1.6em, color(black,3))
+			font-weight: $weight-light;
 		}
 	}
 	.side_box{

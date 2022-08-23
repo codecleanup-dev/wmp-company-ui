@@ -21,7 +21,7 @@
 		display: table;
 		width: calc(100% - #{$banner-width} - 40px);
 		height: $banner-height;
-		font-family: $sub-font;
+		font-family: $emoji-font, $sub-font;
 		font-size: $size52;
 		font-weight: $weight-medium;
 		color: color(black,1);
@@ -51,7 +51,7 @@
 			transform: translateY(rem(100px));
 			opacity: 0;
 			&.is_slideup{
-				@include animation-grp(slideup, 0.3s, 0.6s, 1, linear, forwards)
+				@include animation-grp(slideup, 0.2s, 0.6s, 1, linear, forwards)
 			}
 		}
 	}

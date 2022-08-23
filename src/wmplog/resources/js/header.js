@@ -18,14 +18,13 @@ const body = document.querySelector('.body'),
 
 if (searchBtn) {
 	searchBtn.addEventListener('click', (e) => {
-		console.log(body)
+		// console.log(body)
 		body.classList.add('is_dim')
 	})
 	searchCloseBtn.addEventListener('click', (e) => {
 		body.classList.remove('is_dim')
 	})
 }
-
 
 // 모바일 카테고리 
 const menuBtn = document.querySelector('.btn_category'),
@@ -44,7 +43,7 @@ if (menuBtn) {
 		menuBtn.classList.remove('btn_close');
 	}
 	menuBtn.addEventListener('click', (e) => {
-		console.log(headerWrap)
+		// console.log(headerWrap)
 		if (headerWrap.classList.contains('is_open')) {
 			closeMenu()
 		} else {

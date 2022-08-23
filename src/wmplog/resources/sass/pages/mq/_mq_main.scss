@@ -1,0 +1,15 @@
+@media screen and (max-width: 1023px){
+	// 메인
+	.content_top{
+		display: none;
+	}
+	.content_middle{
+		margin: rem(40px) 0 0;
+		.tit{
+			font-size: rem(24px);
+			&.is_motions{
+				transform: translateY(rem(0px));
+			}
+		}
+	}
+}

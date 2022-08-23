@@ -32,14 +32,13 @@
 }
 // 본문 
 .content_detail_article{
-  margin-top: rem(40px);
+  margin-top: rem(60px);
   h3.detail_title_area{
     // font-weight: $weight-medium;
     font-weight: $weight-regular;
     .txt_tit{
       margin-bottom: rem(20px);
-      font-size: $size16;
-      color: color(red, 0);
+      @include font($size16, null, color(red, 0));
     }
     .txt_detail{
       margin-bottom: rem(13px);
@@ -47,16 +46,17 @@
     }
     .txt_date{
       @include font($size14, null, color(black, 4));
-      font-size: $size14;
+      font-weight: $weight-light;
+
     }
   }
   .detail_title_article_wrap{
-    width: 800px;
+    width: rem(800px);
     margin: 0 auto;
     text-align: center;
   }
   .detail_article_area{
-    margin-top: rem(40px);
+    margin-top: rem(60px);
     text-align: left;
 		.article_editor{
 			// padding: 0 rem(20px);
@@ -68,7 +68,7 @@
   }
   .article_introduce_area{
     position: relative;
-    margin-top: rem(85px);
+    margin-top: rem(80px);
     .introduce_wrap{
       position: relative;
 			padding: rem(60px) rem(60px) rem(66px);
@@ -87,6 +87,7 @@
 		.introduce_team,
 		.introduce_txt{
 			position: relative;
+      font-weight: $weight-light;
 		}
     .introduce_img{
       img{
@@ -97,7 +98,7 @@
     .introduce_name{
       margin-top: rem(12px);
       @include font($size18, 1.4em, color(black, 1));
-      font-weight: $weight-bold;
+      font-weight: $weight-medium;
     }
     .introduce_team{
       @include font($size14, 1.6em, color(black, 2));
@@ -127,6 +128,8 @@
       margin: 0 rem(4px) rem(8px); 
       @include bd(color(black, 6));
       @include font($size14, rem(44px), color(black, 2));
+      border-radius: rem(100px);
+      cursor: pointer;
       &:first-child(){
         margin-left: rem(4px);
       }
@@ -148,7 +151,7 @@
 		margin-left: rem(16px);
     margin-bottom: rem(32px);
     @include font($size34, 1.6em, color(black, 1));
-    font-weight: $weight-regular;
+    font-weight: $weight-medium;
   }
 }
 

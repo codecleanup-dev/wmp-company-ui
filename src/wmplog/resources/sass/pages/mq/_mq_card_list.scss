@@ -1,0 +1,105 @@
+// 카드 리스트 
+@media screen and (min-width: 1024px){
+	.card_thumb_list{
+		&:nth-child(-n+3){
+			margin-top: rem(0px);
+		}	
+		&.is_motions{
+			&:nth-child(-n+3){
+				animation-delay: 0.4s;
+			}
+			&:nth-child(n+4):nth-child(-n+6){
+				animation-delay: 1s;
+			}
+			&:nth-child(n+7):nth-child(-n+9){
+				animation-delay: 1.6s;
+			}
+		}
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 1023px){
+	.card_thumb_area {
+		.card_thumb_list_grp{
+			justify-content: space-between;
+		}
+		.card_thumb_list{
+			width: 50%;
+			&:nth-child(odd){
+				.card_link{		
+					margin-left: 0;
+				}
+			}
+			&:nth-child(even){
+				.card_link{		
+					margin-right: 0;
+				}
+			}
+			&:nth-child(-n+2){
+				margin-top: 0;
+			}
+			&.is_motions{
+				&:nth-child(-n+2){
+					animation-delay: 0.5s;
+				}
+				&:nth-child(n+3):nth-child(-n+4){
+					animation-delay: 1s;
+				}
+				&:nth-child(n+5):nth-child(-n+6){
+					animation-delay: 1.5s;
+				}
+				&:nth-child(n+7):nth-child(-n+8){
+					animation-delay: 2s;
+				}
+				&:nth-child(n+9){
+					animation-delay: 2.5s;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 767px){
+	.card_thumb_area {
+		.card_thumb_list_grp{
+			justify-content: center;
+		}
+		.card_thumb_list{
+			width: 100%;
+			&:first-child{
+				margin-top: 0;
+			}
+			.card_link{		
+				margin: 0;
+			}
+			&.is_motions{
+				&:nth-child(1){
+					animation-delay: 0.5s;
+				}
+				&:nth-child(2){
+					animation-delay: 1s;
+				}
+				&:nth-child(3){
+					animation-delay: 1.5s;
+				}
+				&:nth-child(4){
+					animation-delay: 2s;
+				}
+				&:nth-child(5){
+					animation-delay: 2.5s;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 1023px){
+	.card_thumb_area {
+		.card_thumb_list{
+			margin-top: rem(40px);
+			.card_txt{
+				margin-top: rem(12px);
+				.txt_detail{
+					margin-bottom: rem(10px);
+				}
+			}
+		}
+	}
+}

@@ -1,7 +1,7 @@
-/*
-Spoqa Han Sans Neo
-*/
+/* Spoqa Han Sans Neo */
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+/* WinOS Emoji 대응 */
+@import url(//db.onlinewebfonts.com/c/e55c62dd52a676ea2f7da5b5d1039328?family=Noto+Color+Emoji);
 
 @font-face {
 	font-family: 'Wemakeprice';
@@ -13,7 +13,7 @@ Spoqa Han Sans Neo
 @font-face {
 	font-family: 'Wemakeprice';
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 600;
 	src: url(../../fonts/Wemakeprice-SemiBold.woff2) format("woff2"),
 		   url(../../fonts/Wemakeprice-SemiBold.woff) format("woff"),
 }
