@@ -16,9 +16,14 @@
 	.container .container_inner_wrap{
 		width: 100%;
 	}
-	.center_inner{
+	.container_inner_wrap{
 		width: 100%;
 		min-width: 100%;
+		padding-top: rem(70px);
+		padding-bottom: rem(120px);
+		.container_inner{
+			padding: 0 rem(20px);
+		}
 	}
 }
 //---------------------------------------------
@@ -26,29 +31,40 @@
 // PC 대응
 @media screen and (min-width: 1024px){
 	.gnb{
+		@include gnb(category);
 		li{
-			> a{
-				span{
-					display: block;
-				}
-				.base{
-					@include poslt(0);
-					width: 100%;
-					text-align: center;
-					visibility: visible;
-				}
-				.hover{
+			span{
+				display: block;
+			}
+			.base{
+				@include poslt(0);
+				width: 100%;
+				text-align: center;
+				visibility: visible;
+			}
+			.hover{
+				visibility: hidden;
+				em{
 					visibility: hidden;
-					em{
-						visibility: hidden;
-					}
-				}	
-				&:hover{
+				}
+			}	
+			> a{
+				&.is-over{
 					span{
-						@include animation-grp(null, 0, 0.3s, 1, linear, forwards);
+						@include animation-grp(null, 0, 0.5s, 1, ease-in-out, forwards);
 					}
+					// .base{
+					// 	animation-delay: 0.1s;
+					// 	animation-duration: 0.3s;
+					// }
 					.hover{
 						visibility: hidden;
+					}
+				}
+				&.is-out{
+					span{
+						visibility: visible;
+						@include animation-grp(null, 0, 0.1s, 1, ease-in, forwards);
 					}
 				}
 				&.active{
@@ -57,11 +73,16 @@
 					}
 					.hover{
 						visibility: visible;
-						transform:translateX(0);
+						transform: translateX(0);
 					}
 				}	
 				&.active{
-					&:hover{
+					span, .base, .hover{
+						visibility: visible;
+						animation: none !important;
+					}
+					&.is-over,
+					&.is-out{
 						span, .base, .hover{
 							visibility: visible;
 							animation: none !important;
@@ -71,6 +92,23 @@
 			}
 			&:nth-child(1){
 				> a{
+					&.is-over{
+						.base{
+							animation-duration: 0.2s;
+						}
+						.hover{
+							animation-delay: 0.05s;
+							animation-duration: 0.3s;
+						}
+					}
+					&.is-out{
+						.base{
+							animation-duration: 0.2s;
+						}
+						.hover{
+							animation-duration: 0.1s;
+						}
+					}
 					&.active{
 						.base{
 							transform:translateX($category1);
@@ -80,6 +118,23 @@
 			}
 			&:nth-child(2){
 				> a{
+					&.is-over{
+						.base{
+							animation-duration: 0.2s;
+						}
+						.hover{
+							animation-delay: 0.05s;
+							animation-duration: 0.4s;
+						}
+					}
+					&.is-out{
+						.base{
+							animation-duration: 0.2s;
+						}
+						.hover{
+							animation-duration: 0.1s;
+						}
+					}
 					&.active{
 						.base{
 							transform:translateX($category2);
@@ -89,6 +144,22 @@
 			}
 			&:nth-child(3){
 				> a{
+					&.is-over{
+						.base{
+							animation-duration: 0.2s;
+						}
+						.hover{
+							animation-duration: 0.3s;
+						}
+					}
+					&.is-out{
+						.base{
+							animation-duration: 0.2s;
+						}
+						.hover{
+							animation-duration: 0.1s;
+						}
+					}
 					&.active{
 						.base{
 							transform:translateX($category3);
@@ -98,14 +169,28 @@
 			}
 		}
 	}
-}
 
+}
+@media screen and (min-width: 1280px){
+	.center_inner{
+		width: $content-size;
+		min-width: $content-size;
+	}
+}
 //---------------------------------------------
 //---------------------------------------------
 // 태블릿/모바일 대응 
 @media screen and (max-width: 1023px){
 	$header-h: 6.0rem; 
 	// 공통 버튼
+	a{
+		&.btn{
+			&.btn_recruit{
+				margin-right: rem(5px);
+				padding: 0 rem(16px);
+			}
+		}
+	}
 	button{
 		&.btn{
 			&.btn_add{
@@ -114,10 +199,20 @@
 			}
 		}
 	}
+	.btn_area{
+		button{
+			&.btn_category{
+				&.is_mobile{
+					display: inline-block;
+				}
+			}
+		}
+	}
 	//---------------------------------------------
 	// 상단
 	.header_scroll_bar{
 		@include fixed($header-h, null, null, 0);
+		@include size(0, rem(3px));
 	}
   .header_wrap{
 		height: $header-h;
@@ -125,22 +220,21 @@
 			@include poslt(0, $header-h);
 		}
 		.header_inner_wrap{
-      min-width: 100%;
+			min-width: 100%;
 			height: $header-h;
-      .header_inner{
-        margin: 0 rem(10px);
-      }
-    }
+			.header_inner{
+				margin: 0 rem(10px);
+			}
+		}
 		h1.logo{
 			left: rem(10px);
 			a{
-				@include svgsprite-rem12($logo);
+				@include svgsprite-rem($logo, 1.2);
 				&:hover{
-					@include svgsprite-rem12($logo_hover);
+					@include svgsprite-rem($logo_hover, 1.2);
 				}
 			}
 		}	
-
 		.gnb_wrap{
 			display: none;
 			float: none;
@@ -149,16 +243,16 @@
 		.gnb{
 			margin-right: 0;
 			.category_list_grp{
-				padding-top: rem(100px);
+				padding-top: rem(160px);
 			}
 			li{
 				float: none;
 				display: block;
-				height: $header-h;
+				height: rem(80px);
 				text-align: left;
 				> a{
 					display: block;
-					@include font($size36, $header-h, color(black,0));
+					@include font($size36, rem(80px), color(black,0));
 					.base{
 						display: none;
 					}
@@ -167,23 +261,22 @@
 			&.is_motions{
 				&.is_slideup{
 					li{
-						@include animation-grp(slideup, 0, 0.3s, 1, linear, forwards);
-						transform: translateY(rem(100px));
+						@include animation-grp(slideup, 0, 0.4s, 1, ease, forwards);
+						transform: translateY(rem(30px));
 						opacity: 0;
 						&:nth-child(1){
-							animation-delay: 0.4s;
+							animation-delay: 0.1s;
 						}
 						&:nth-child(2){
-							animation-delay: 0.8s;
+							animation-delay: 0.2s;
 						}
 						&:nth-child(3){
-							animation-delay: 1.2s;
+							animation-delay: 0.3s;
 						}
 					}
 				}
 			}
 		}
-
 		.btn_area{
 			right: rem(4px);
 			button{
@@ -207,11 +300,9 @@
 	.btn_area{
 		button{
 			margin-left: rem(10px);
-			&.btn_category{
-				display: inline-block;
-			}
 		}
 	}
+	// 팝업
 	.popup{
 		&.toast_popup{
 			bottom: rem(54px); 
@@ -231,54 +322,6 @@
 		}
 	}
 	//---------------------------------------------
-	// 검색창 상단 
-	.search_pop{
-		top: $header-h;
-		height: rem(177px);
-		.center_inner{
-			width: auto;
-			min-width: auto;
-			padding: 0 20px;
-		}
-		.btn_search_pop_close{
-			@include posrt(rem(10px), rem(-50px));
-		}
-		.search_box{
-			margin-top: $header-h;
-			padding-bottom: rem(4px);
-		}	
-	}
-	// 검색창 입력 영역 : 상단/검색 페이지 공통 
-	.search_box{
-		width: 100%;
-		padding-bottom: rem(8px);
-		input[type="text"]{
-			width: calc(100% - #{rem(80px)});
-			font-size: $size24;
-		}
-		.pop_delete_btn{
-			@include posrt(rem(46px), 50%);
-			top: calc(50% - #{rem(4px)});
-			@include size(rem(16px));
-			transform: translateY(-50%);
-			span{
-				@include svgsprite-rem20($ic_header_pop_search_close);
-			}
-		}
-		.search_pop_btn{
-			top: calc(50% - #{rem(4px)});
-			transform: translateY(-50%);
-			span{
-				@include svgsprite-rem13($ic_header_pop_search);
-			}
-		}
-	}
-	// 검색 영역 활성화
-	.is_dim{
-		.btn_area{
-			display: none;
-		}
-	}
 	//---------------------------------------------
 	// 하단
 	.footer_wrap{
@@ -310,7 +353,7 @@
 				}
 				.side_family_site{
 					width: 100%;
-					margin-top: 20px;
+					margin-top: rem(20px);
 					margin-left: 0;
 				}
 			}
@@ -324,17 +367,15 @@
 	.center_inner{
 		width: 100%;
 		min-width: 100%;
+		&.is_mobile{
+			padding: 0;
+		}
 	}
 	.container{
 		min-height: auto;
 		.container_inner_wrap{
-			width: 100%;
 			padding-top: $header-h;
-			padding-bottom: rem(120px);
-			.container_inner{
-				padding: 0 rem(20px);
-			}
 		}
 	}
 	//---------------------------------------------
-}	
+}

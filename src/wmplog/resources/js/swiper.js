@@ -1,4 +1,6 @@
 var pagingSwiper = new Swiper('.swiper', {
+	loop: true, 
+	loopedSlides: 5, 
 	autoplay: {
 		delay: 2500,
 		disableOnInteraction: false,
@@ -11,8 +13,10 @@ var pagingSwiper = new Swiper('.swiper', {
 		nextEl: '.swiper-button-next',
 		prevEl: '.swiper-button-prev',
 	},
-	});
-	var slideswiper = new Swiper('.swiper', {
+});
+var slideswiper = new Swiper('.swiper', {
+	loop: true, 
+	loopedSlides: 5, 
 	pagination: {
 		el: ".pagination_number",
 		clickable: false,

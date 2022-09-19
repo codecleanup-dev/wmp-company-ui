@@ -1,13 +1,13 @@
 .content_top{
 	position: relative;
-	margin: rem(60px) rem(32px) 0 rem(32px);
-	// margin-top: rem(60px);
+	width: calc(100% - #{rem(64px)});
+	margin: rem(60px) rem(32px) 0;
+	h3.tit{
+		display: none;
+	}
 	.slider_area{
-		position: absolute;
-		top: 0; 
-		right: 0;
-		width: $banner-width;
-		height: $banner-height;
+		@include posrt(0, 0);
+		@include size($banner-width, $banner-height);
 		border-radius: rem(12px);
 		background: color(black, 8);
 		overflow: hidden;
@@ -21,10 +21,9 @@
 		display: table;
 		width: calc(100% - #{$banner-width} - 40px);
 		height: $banner-height;
-		font-family: $emoji-font, $sub-font;
-		font-size: $size52;
+		font-family: $sub-font;
 		font-weight: $weight-medium;
-		color: color(black,1);
+		@include font($size52, null, color(black,1));
 		text-align: left;
 		.infotxt_area_wrap{
 			display: table-cell;
@@ -32,17 +31,15 @@
 		}
 		.tit{
 			margin-bottom: rem(12px);
-			font-size: $size16;
-			color: color(red,0)
+			@include font($size16, null, color(red,0));
 		}
 		.txt{
-			@include ellipsis(4);
+			@include ellipsis(4, null, 1.2em);
 		}
 	}
 }
+.content_top,
 .content_middle{
-	margin: rem(80px) rem(16px) 0 rem(16px);
-	// margin-top: rem(80px);
 	.tit{
 		font-family: $sub-font;
 		font-size: $size34;
@@ -55,5 +52,8 @@
 			}
 		}
 	}
+}
+.content_middle{
+	margin: rem(80px) rem(16px) 0;
 }
 

@@ -1,3 +1,25 @@
+// PC 및 IE hover 대응
+@media (hover: hover), (-ms-high-contrast: active), (-ms-high-contrast: none){
+	.card_thumb_area{
+		.card_thumb_list{
+			.card_link{
+				&:hover{
+					.card_img{
+						img, video{
+							transform: scale(1.3);
+							object-fit: cover;
+						}
+					}
+					.card_txt{
+						.txt_detail{
+							color: color(red, 0);
+						}
+					}
+				}
+			}
+		}
+	}
+}
 // 카드 리스트 
 @media screen and (min-width: 1024px){
 	.card_thumb_list{
@@ -6,18 +28,24 @@
 		}	
 		&.is_motions{
 			&:nth-child(-n+3){
-				animation-delay: 0.4s;
+				animation-delay: 0.5s;
 			}
 			&:nth-child(n+4):nth-child(-n+6){
 				animation-delay: 1s;
 			}
 			&:nth-child(n+7):nth-child(-n+9){
-				animation-delay: 1.6s;
+				animation-delay: 1.5s;
 			}
 		}
 	}
 }
 @media screen and (min-width: 768px) and (max-width: 1023px){
+	.content_detail_list{
+		margin: rem(160px) rem(20px) 0 rem(20px);
+		.tit{
+			margin-left: 0;
+		}
+	}
 	.card_thumb_area {
 		.card_thumb_list_grp{
 			justify-content: space-between;
@@ -92,14 +120,31 @@
 }
 @media screen and (max-width: 1023px){
 	.card_thumb_area {
+		&.is_mobile{
+			display: block;
+		}
+		.card_thumb_list_grp{
+			margin-top: rem(40px);
+			&:first-child:not(){
+				.card_thumb_list{
+					&.is_mitions{
+						animation: none
+					}
+				}
+			}
+		}
 		.card_thumb_list{
 			margin-top: rem(40px);
 			.card_txt{
-				margin-top: rem(12px);
+				margin-top: rem(16px);
 				.txt_detail{
 					margin-bottom: rem(10px);
 				}
 			}
+		}
+		// 모바일/태블릿 더보기 버튼 삭제 
+		.btn_box{
+			display: none;
 		}
 	}
 }

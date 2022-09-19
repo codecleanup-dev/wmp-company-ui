@@ -1,0 +1,57 @@
+// 태블릿/모바일 대응 
+@media screen and (max-width: 1023px){
+	$header-h: 6.0rem; 
+	// 검색창 상단 
+	.search_pop{
+		position: fixed;
+		top: rem(61px);
+		height: rem(177px);
+		z-index: z-index(fixed);
+		.center_inner{
+			width: auto;
+			min-width: auto;
+			padding: 0 rem(20px);
+		}
+		.btn_search_pop_close{
+			@include posrt(rem(14px), rem(-50px));
+		}
+		.search_box{
+			margin-top: $header-h;
+			padding-bottom: rem(4px);
+		}	
+	}
+	// 검색창 입력 영역 : 상단/검색 페이지 공통 
+	.search_box{
+		width: 100%;
+		padding-bottom: rem(8px);
+		input[type="text"]{
+			width: calc(100% - #{rem(80px)});
+			font-size: $size24;
+		}
+		.pop_delete_btn{
+			@include posrt(rem(46px), 50%);
+			top: calc(50% - #{rem(4px)});
+			@include size(rem(16px));
+			transform: translateY(-50%);
+			span{
+				@include svgsprite-rem($ic_header_pop_search_close, 2);
+			}
+		}
+		.search_pop_btn{
+			top: calc(50% - #{rem(4px)});
+			transform: translateY(-50%);
+			span{
+				@include svgsprite-rem($ic_header_pop_search, 1.3);
+			}
+		}
+	}
+	// 검색 영역 활성화
+	.wrap.is_dim{
+		.btn_area{
+			display: none;
+		}
+		+ .search_pop{
+			display: block;
+		}
+	}
+}

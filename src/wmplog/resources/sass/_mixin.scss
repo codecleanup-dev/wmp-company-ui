@@ -1,5 +1,10 @@
+@mixin media-ie11{
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		@content; 
+	}
+}
 //ellipsis 말줄임시 사용, 기본 1줄(1줄이면서 webkit-box로 사용할경우 boxline:1)
-@mixin ellipsis($count:1,$boxline:null){
+@mixin ellipsis($count:1,$boxline:null,$lineh:null){
 	overflow:hidden;
 	text-overflow:ellipsis;
 	@if $count == 1{
@@ -15,138 +20,10 @@
 		-webkit-line-clamp:$count;
 		-webkit-box-orient:vertical;
 	}
-}
-//arrow
-@mixin arrow($size,$right,$deg,$color,$top:null,$pseudo:after,$bd-width:1px){
-	&:#{$pseudo}{
-		content:'';
-		position:absolute;
-		box-sizing:border-box;
-		width:$size;
-		height:$size;
-		@if $top == null{
-			top:50%;
-			margin-top:(- half($size)) - 1;
-		}@else{
-			top:$top;
-		}
-		right:$right;
-		border:solid $color;
-		border-width:$bd-width $bd-width 0 0;
-		@include rotate($deg);
-		pointer-events:none;
+	@include media-ie11{
+		line-height: $lineh;
+		max-height: calc(#{$lineh} * #{$count});
 	}
-}
-//appearance
-@mixin appearance($appearance){
-	-webkit-appearance:$appearance;
-	-moz-appearance:$appearance;
-	appearance:$appearance;
-}
-//User select
-@mixin user-select($select){
-	-webkit-user-select:$select;
-	user-select:$select;
-}
-
-//Box shadow
-@mixin box-shadow($shadow...){
-	-webkit-box-shadow:$shadow;
-	box-shadow:$shadow;
-}
-@mixin border-top-radius($radius){
-	border-top-right-radius:$radius;
-	border-top-left-radius:$radius;
-}
-@mixin border-right-radius($radius){
-	border-top-right-radius:$radius;
-	border-bottom-right-radius:$radius;
-}
-@mixin border-bottom-radius($radius){
-	border-bottom-right-radius:$radius;
-	border-bottom-left-radius:$radius;
-}
-@mixin border-left-radius($radius){
-	border-top-left-radius:$radius;
-	border-bottom-left-radius:$radius;
-}
-
-
-//== Transition
-//** Transition full value
-@mixin transition($transition...){
-	-webkit-transition:$transition;
-	transition:$transition;
-}
-//** Transition each set option
-@mixin transition-option($options, $transitions){
-	-webkit-transition-#{$options}:$transitions;
-	transition-#{$options}:$transitions;
-}
-//** Transition propery
-@mixin transition-property($property...){
-	@include transition-option('property', $property);
-}
-//** Transition delay
-@mixin transition-delay($delay...){
-	@include transition-option('delay', $delay);
-}
-//** Transition duration
-@mixin transition-duration($duration...){
-	@include transition-option('duration', $duration);
-}
-//** Transition timing-function
-@mixin transition-timing-function($timing-function...){
-	@include transition-option('timing-function', $timing-function);
-}
-
-
-//== Transform
-//** Transform full value
-@mixin transform($transforms){
-	-webkit-transform:$transforms;
-	transform:$transforms;
-}
-
-//** Transform rotate
-@mixin rotate($deg){
-	@include transform(rotate(#{$deg}deg));
-}
-
-//** Transform rotateX
-@mixin rotateX($deg){
-	@include transform(rotateX(#{$deg}deg));
-}
-
-//** Transform rotateY
-@mixin rotateY($deg){
-	@include transform(rotateY(#{$deg}deg));
-}
-
-//** Transform scale
-@mixin scale($scale){
-	@include transform(scale($scale));
-}
-
-//** Transform translate
-@mixin translate($x, $y){
-	@include transform(translate($x, $y));
-}
-
-//** Transform translate3d
-@mixin translate3d($x, $y, $z){
-	@include transform(translate3d($x, $y, $z));
-}
-
-//** Transform skew
-@mixin skew($x, $y){
-	@include transform(skew(#{$x}deg, #{$y}deg));
-}
-
-//** Transform origin
-@mixin transform-origin($origin){
-	-webkit-transform-origin:$origin;
-	transform-origin:$origin;
 }
 //== Animation
 @mixin animation($animation){
@@ -246,10 +123,6 @@
 	}
 }
 
-//max-width media query
-@mixin media-sm-width($width) {
-	@media (max-width: $width) { @content; }
-}
 // position center
 @mixin center-positon($width,$height:$width){
 	position:absolute;
@@ -266,7 +139,7 @@
 	line-height: $line-height;
 }
 
-// lucy 아이콘 중앙정렬
+// icon center
 @mixin ico-half{
 	content: '';
 	@include poslt(50%);
@@ -277,7 +150,6 @@
 	transform: translate(-50%, -50%);
 	@extend %img-replace;
 }
-
 
 // font
 @mixin font($font-size, $line-height, $color:null){
@@ -350,63 +222,40 @@
 		}
 	}
 }
-// lucy
+// svg background size
 @mixin svgsprite-bgx($img){
 	$bgx: map-get($img, 'bgx');
 }
 @mixin svgsprite-bgy($img){
 	$bgy: map-get($img, 'bgy');
 }
-@mixin svgsprite-rem20($img){
-	width:rem(map-get($img, 'width')/2);
-	height:rem(map-get($img, 'height')/2);
-	background-size: rem(map-get($img,'bgx')/2) rem(map-get($img,'bgy')/2);
-	background-position: rem(map-get($img, 'x')/2) rem(map-get($img, 'y')/2);
+@mixin svgsprite-rem($img, $devide: 2){
+	width:rem(map-get($img, 'width')/$devide);
+	height:rem(map-get($img, 'height')/$devide);
+	background-size: rem(map-get($img,'bgx')/$devide) rem(map-get($img,'bgy')/$devide);
+	background-position: rem(map-get($img, 'x')/$devide) rem(map-get($img, 'y')/$devide);
 }
-@mixin svgsprite-rem15($img){
-	width:rem(map-get($img, 'width')/1.5);
-	height:rem(map-get($img, 'height')/1.5);
-	background-size: rem(map-get($img,'bgx')/1.5) rem(map-get($img,'bgy')/1.5);
-	background-position: rem(map-get($img, 'x')/1.5) rem(map-get($img, 'y')/1.5);
-}
-@mixin svgsprite-rem13($img){
-	width:rem(map-get($img, 'width')/1.3);
-	height:rem(map-get($img, 'height')/1.3);
-	background-size: rem(map-get($img,'bgx')/1.3) rem(map-get($img,'bgy')/1.3);
-	background-position: rem(map-get($img, 'x')/1.3) rem(map-get($img, 'y')/1.3);
-}
-@mixin svgsprite-rem12($img){
-	width:rem(map-get($img, 'width')/1.2);
-	height:rem(map-get($img, 'height')/1.2);
-	background-size: rem(map-get($img,'bgx')/1.2) rem(map-get($img,'bgy')/1.2);
-	background-position: rem(map-get($img, 'x')/1.2) rem(map-get($img, 'y')/1.2);
-}
-
-
-// @mixin key($key, $val){
-// 	@keyframes #{$key}-fadein{
-// 		0%{
-// 			transform:translateX(0);
-// 		}
-// 		100%{
-// 			transform:translateX($val);
-// 		}
-// 	}
-// }
-
+// GNB
 @mixin gnb($name){
 	$tatal: 3;
 	@for $i from 1 through $tatal{
 		li{
 			&:nth-child(#{$i}){
 				> a{
-					&:hover{
+					&.is-over{
 						.base{
-							animation-name: $name#{$i}-fadeout;
+							animation-name: $name#{$i}-baseover;
 						}
 						.hover{
-							animation-name: $name#{$i}-fadein;
-							animation-delay: 0.5s;
+							animation-name: $name#{$i}-hoverover;
+						}
+					}
+					&.is-out{
+						.base{
+							animation-name: $name#{$i}-baseout;
+						}
+						.hover{
+							animation-name: $name#{$i}-hoverout;
 						}
 					}
 				}

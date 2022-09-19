@@ -6,6 +6,5 @@ const envOption = {
 }
 const options = minimist(process.argv.slice(2), envOption)
 const isProduction = options.env === 'prod'
-// const isProduction = options.env === 'dev'
 
 module.exports = isProduction

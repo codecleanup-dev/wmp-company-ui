@@ -1,157 +1,156 @@
-.container{
-  font-family: $sub-font;
-  font-size: $size18;
-  &.detail{
-    .container_inner_wrap{
-      width: 100%;
-      .container_inner{
-        padding: 0;
-      }
-    }
-  }
+.container {
+	font-family: $sub-font;
+	font-size: $size18;
+	&.detail {
+		.container_inner_wrap {
+			width: 100%;
+			.container_inner {
+				padding: 0;
+			}
+		}
+	}
 }
-// 상단 이미지
-.content_detail_img{
-  .detail_img_area{
-    position: relative;
-    width: 100%;
-    height: rem(600px);
-    background-color: color(black, 8);
-    overflow: hidden;
-    &::before{
-      @include ico-half;
-			@include svgsprite($ic_thumbnail_large, common);
-    }
-    img{
-      @include poslt(50%);
-      @include size(100%, 100%);
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-    }
-  }
-}
-// 본문 
-.content_detail_article{
-  margin-top: rem(60px);
-  h3.detail_title_area{
-    // font-weight: $weight-medium;
-    font-weight: $weight-regular;
-    .txt_tit{
-      margin-bottom: rem(20px);
-      @include font($size16, null, color(red, 0));
-    }
-    .txt_detail{
-      margin-bottom: rem(13px);
-      @include font($size52, 1.3em, color(black, 1));
-    }
-    .txt_date{
-      @include font($size14, null, color(black, 4));
-      font-weight: $weight-light;
 
-    }
-  }
-  .detail_title_article_wrap{
-    width: rem(800px);
-    margin: 0 auto;
-    text-align: center;
-  }
-  .detail_article_area{
-    margin-top: rem(60px);
-    text-align: left;
-		.article_editor{
+// 상단 이미지
+.content_detail_img {
+	.detail_img_area {
+		position: relative;
+		width: 100%;
+		height: rem(600px);
+		background-color: color(black, 8);
+		overflow: hidden;
+		&::before {
+			@include ico-half;
+			@include svgsprite($ic_thumbnail_large, common);
+		}
+		img {
+			@include poslt(50%);
+			@include size(100%, 100%);
+			transform: translate(-50%, -50%);
+			object-fit: cover;
+		}
+	}
+}
+
+// 본문 
+.content_detail_article {
+	margin-top: rem(60px);
+	h3.detail_title_area {
+		font-weight: $weight-regular;
+		.txt_tit {
+			margin-bottom: rem(20px);
+			@include font($size16, null, color(red, 0));
+		}
+		.txt_detail {
+			margin-bottom: rem(13px);
+			@include font($size52, 1.3em, color(black, 1));
+		}
+		.txt_date {
+			@include font($size14, null, color(black, 4));
+			font-weight: $weight-light;
+		}
+	}
+	.detail_title_article_wrap {
+		width: rem(800px);
+		margin: 0 auto;
+		text-align: center;
+	}
+	.detail_article_area {
+		margin-top: rem(60px);
+		text-align: left;
+		.article_editor {
 			// padding: 0 rem(20px);
-			img{
+			img {
 				border-radius: rem(16px);
 				overflow: hidden;
 			}
 		}
-  }
-  .article_introduce_area{
-    position: relative;
-    margin-top: rem(80px);
-    .introduce_wrap{
-      position: relative;
+	}
+	.article_introduce_area {
+		position: relative;
+		margin-top: rem(80px);
+		.introduce_wrap {
+			position: relative;
 			padding: rem(60px) rem(60px) rem(66px);
 			text-align: center;
-			&::before{
+			&::before {
 				content: '';
 				@include poslt(0, 0);
 				@include size(100%);
 				border-radius: rem(12px);
-				background-color: color(red, 3);
+				background-color: color(black, 8);
 				opacity: 0.5;
 			}
-    }
-		.introduce_img, 
+		}
+		.introduce_img,
 		.introduce_name,
 		.introduce_team,
-		.introduce_txt{
+		.introduce_txt {
 			position: relative;
-      font-weight: $weight-light;
+			font-weight: $weight-light;
 		}
-    .introduce_img{
-      img{
-        border-radius: 50%;
-        overflow: hidden;
-      }
-    }
-    .introduce_name{
-      margin-top: rem(12px);
-      @include font($size18, 1.4em, color(black, 1));
-      font-weight: $weight-medium;
-    }
-    .introduce_team{
-      @include font($size14, 1.6em, color(black, 2));
-    }
-    .introduce_txt{
-      margin-top: rem(20px);
-      @include font($size14, 1.6em, color(black, 3));
-    }
-  }
+		.introduce_img {
+			img {
+				border-radius: 50%;
+				overflow: hidden;
+			}
+		}
+		.introduce_name {
+			margin-top: rem(12px);
+			@include font($size18, 1.4em, color(black, 1));
+			font-weight: $weight-medium;
+		}
+		.introduce_team {
+			@include font($size14, 1.6em, color(black, 2));
+		}
+		.introduce_txt {
+			margin-top: rem(20px);
+			@include font($size14, 1.6em, color(black, 3));
+		}
+	}
 }
 
 // 해시 태그/버튼
-.article_bottom_area{
+.article_bottom_area {
 	position: relative;
-  margin-top: rem(40px);
-
+	margin-top: rem(40px);
 	text-align: left;
-  .article_hash_tag{
-    ul{
-      display: flex;
-      flex-wrap: wrap;
-    }
-    li{
-      display: inline-block;
-      height: rem(44px);
-      padding: 0 rem(20px);
-      margin: 0 rem(4px) rem(8px); 
-      @include bd(color(black, 6));
-      @include font($size14, rem(44px), color(black, 2));
-      border-radius: rem(100px);
-      cursor: pointer;
-      &:first-child(){
-        margin-left: rem(4px);
-      }
-    }
-  }
-  .article_button{
-    position: relative;
-    margin-top: rem(50px);
-    .btn_list_view{
-      @include posrt(0, 0)
-    }
-  }
+	.article_hash_tag {
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		li {
+			display: inline-block;
+			height: rem(44px);
+			padding: 0 rem(20px);
+			margin: 0 rem(4px) rem(8px);
+			@include bd(color(black, 6));
+			@include font($size14, rem(44px), color(black, 2));
+			border-radius: rem(100px);
+			cursor: pointer;
+			&:first-child() {
+				margin-left: rem(4px);
+			}
+		}
+	}
+
+	.article_button {
+		position: relative;
+		margin-top: rem(50px);
+		.btn_list_view {
+			@include posrt(0, 0)
+		}
+	}
 }
 
 // 상세 추천 콘텐츠 카드 리스트
-.content_detail_list{
-  margin-top: rem(160px);
-  .tit{
+.content_detail_list {
+	margin-top: rem(160px);
+	.tit {
 		margin-left: rem(16px);
-    margin-bottom: rem(32px);
-    @include font($size34, 1.6em, color(black, 1));
-    font-weight: $weight-medium;
-  }
+		margin-bottom: rem(32px);
+		@include font($size34, 1.6em, color(black, 1));
+		font-weight: $weight-medium;
+	}
 }
-

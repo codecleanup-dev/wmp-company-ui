@@ -1,73 +1,88 @@
 // 슬라이드 배너
-.swiper-wrapper{
-  align-items: center;
-  text-align: center;
-  font-size: $size16;
+.swiper-wrapper {
+	align-items: center;
+	text-align: center;
+	font-size: $size16;
 }
 // 이미지가 1000 x 700 중앙정렬 처리 
-.swiper-slide{
-  position: relative;
-  width: $banner-width;
-  height: $banner-height;
-  overflow: hidden;
-  img{
-    @include poslt(50%);
-    @include size(auto, 100%);
-    transform: translate(-50%, -50%);
-  }
+.swiper-slide {
+	position: relative;
+	width: $banner-width;
+	height: $banner-height;
+	overflow: hidden;
+	cursor: pointer;
+	img {
+		@include poslt(50%);
+		@include size(auto, 100%);
+		transform: translate(-50%, -50%);
+	}
 }
-
 // 좌우 버튼
-.swiper-button-next, .swiper-button-prev{
-  &::after{
-    content: '';
-    @include svgsprite($ic_banner_arrow, common)
-  }
+// IE 11 대응
+.swiper-button-next, 
+.swiper-container-rtl .swiper-button-prev,
+.swiper-button-prev, 
+.swiper-container-rtl .swiper-button-next{
+	background-image: none;
+}
+.swiper-button-prev{
+	left: 24px;
 }
 .swiper-button-next{
-  transform: rotate(-180deg)
+	right: 24px;
 }
-.swiper-button-prev.swiper-button-disabled{
-  opacity: 0;
+.swiper-button-next, 
+.swiper-button-prev{
+	&::after {
+		content: '';
+		display: block;
+		@include svgsprite($ic_banner_arrow, common)
+	}
+}
+.swiper-button-next {
+	transform: rotate(-180deg)
+}
+.swiper-button-next,
+.swiper-button-prev {
+	&.swiper-button-disabled{
+		opacity: 1;
+	}
 }
 // 프로그레스바
-.swiper-horizontal>.swiper-pagination-progressbar, 
-.swiper-pagination-progressbar.swiper-pagination-horizontal{
-  @include posrb(32px, 28px);
-  top: auto;
-  left: auto;
-  width: 120px !important;
-  height: 4px;
-  text-align: right;
-  z-index: 10;
+.pagination_progress.swiper-pagination-progressbar{
+	@include posrb(67px, 29px);
+	top: auto;
+	left: auto;
+	width: 120px !important;
+	height: 3px;
+	text-align: right;
+	z-index: z-index(basic);
 }
-.swiper-pagination-progressbar{
-  background-color: transparent;
-  &::before{
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: color(white, 0);
-    opacity: 0.3
-  }
+.swiper-pagination-progressbar {
+	background-color: transparent;
+	&::before {
+		content: '';
+		display: block;
+		@include size(100%);
+		background-color: color(white, 0);
+		opacity: 0.3
+	}
 }
-.swiper-pagination-progressbar 
-.swiper-pagination-progressbar-fill{
-  background-color: color(white, 0);
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+	background-color: color(white, 0);
 }
 // 카운트
-.swiper-pagination-fraction{
-  @include posrb(160px, 22px);
-  left: auto;
-  width: auto;
-  font-family: $sub-font;
-  font-weight: $weight-regular;
-  @include font($size13, null, color(white, 0));
-  z-index: 10;
-  text-align: right;
+.swiper-pagination-fraction {
+	@include posrb(28px, 22px);
+	left: auto;
+	width: auto;
+	font-family: $sub-font;
+	font-weight: $weight-regular;
+	@include font($size13, null, color(white, 0));
+	z-index: z-index(basic);
+	text-align: right;
 }
-.swiper-pagination-current{
-  font-weight: $weight-bold;
-  opacity: 1;
+.swiper-pagination-current {
+	font-weight: $weight-bold;
+	opacity: 1;
 }

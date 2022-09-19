@@ -3,8 +3,8 @@ const 	gulp = require('gulp'),
 				pattern: [
 					'gulp-*',
 					'gulp.*'
-		    ],
-		    scope: ['devDependencies']
+				],
+				scope: ['devDependencies']
 		}),
 		isProduction = require('./gulp/config/gulp.env'),
 		gulpConfig = require('./gulp/config/gulp.config');

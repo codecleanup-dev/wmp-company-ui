@@ -20,46 +20,6 @@
   color: color(white,0);
 }
 
-
-//checkbox
-.ip_chk{
-	// @extend %label_base;
-	padding-left: 20px;
-	vertical-align: middle;
-	font-size: 14px;
-	input:checked ~ i{
-		&:before{
-			// @include sprite($ico_chk_on);
-		}
-	}
-	//icon
-	i{
-		&:before{
-			// @include sprite($ico_chk);
-		}
-	}
-}
-//radio button
-.ip_radi{
-	// @extend %label_base;
-	padding-left: 20px;
-	vertical-align: middle;
-	font-size: 14px;
-	i{
-		&:before{
-			// @include sprite($ico_rd);
-		}
-	}
-	span{
-		outline:none;
-	}
-	input:checked ~ i{
-		&:before{
-			// @include sprite($ico_rd_on);
-		}
- 	}
-}
-//
 input,
 textarea{
 	border: none;

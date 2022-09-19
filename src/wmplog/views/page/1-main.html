@@ -8,50 +8,59 @@
 	<meta http-equiv="imagetoolbar" content="no">
 	<link rel="shortcut icon" href="/dist/wmplog/images/common/favicon.ico">
 	<!-- css swiper slider: 상단 배너  -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-	<link rel="stylesheet" href="/dist/wmplog/css/common/common.css" />
-	<link rel="stylesheet" href="/dist/wmplog/css/common/layout.css" />
-	<link rel="stylesheet" href="/dist/wmplog/css/pages/main.css" />
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+	<link rel="stylesheet" href="/dist/wmplog/css/common/common.css">
+	<link rel="stylesheet" href="/dist/wmplog/css/common/layout.css">
+	<link rel="stylesheet" href="/dist/wmplog/css/pages/main.css">
 	<!-- 디자인QA용 -->
 	<script type="text/javascript" src="/src/wmplog/resources/js/jquery-1.11.2.min.js"></script>
 </head>
-
 <!-- js body | is_dim: 검색버튼 클릭시 검색 영역 활성화 -->
 <body class="body">
 	<div class="wrap">
 		<!-- Header -->
 		<!-- layout/header.html -->
-		<header class="header_wrap"></header>
+		<header class="header_wrap is_close"></header>
 		<!-- //Header -->
-
 		<!-- container/main: 메인페이지 -->
-		<main class="container main">
+		<main class="container main" >
 			<h2 class="blind">컨텐츠영역</h2>
 			<div class="container_inner_wrap">
 				<div class="container_inner">
-
 					<!-- content_top: 메인 상단 -->
 					<section class="content_top">
-						<h3 class="blind">배너</h3>
+						<!-- js is_motions: 애니메이션 -->
+						<h3 class="tit is_mobile is_motions is_slideup">추천 콘텐츠</h3>
 						<!-- 슬라이더 배너 -->
 						<div class="slider_area">
 							<!-- js swiper slider: 상단 배너  -->
 							<div class="swiper">
 								<div class="swiper-wrapper">
 									<div class="swiper-slide">
-										<img src="../../resources/images/temp/img_1000x700.jpg" alt="slide1">
+										<a href="#">
+											<img src="../../resources/images/temp/img_1000x700.jpg" alt="slide1">
+										</a>
 									</div>
 									<div class="swiper-slide">
-										<img src="../../resources/images/temp/img_slide_2.jpg" alt="slide2">
+										<a href="#">
+											<img src="../../resources/images/temp/img_slide_2.jpg" alt="slide2">
+										</a>
 									</div>
 									<div class="swiper-slide">
-										<img src="../../resources/images/temp/img_slide_3.jpg" alt="slide3">
+										<a href="#">
+											<img src="../../resources/images/temp/img_slide_3.jpg" alt="slide3">
+										</a>
 									</div>
 									<div class="swiper-slide">
-										<img src="../../resources/images/temp/img_slide_4.jpg" alt="slide4">
+										<a href="#">
+											<img src="../../resources/images/temp/img_slide_4.jpg" alt="slide4">
+										</a>
 									</div>
 									<div class="swiper-slide">
-										<img src="../../resources/images/temp/img_slide_5.jpg" alt="slide5">
+										<a href="#">
+											<img src="../../resources/images/temp/img_slide_5.jpg" alt="slide5">
+										</a>
 									</div>
 								</div>
 								<!-- Add Pagination -->
@@ -66,45 +75,48 @@
 						<!-- 정보 -->
 						<div class="infotxt_area">
 							<div class="infotxt_area_wrap">
-								<h3 class="tit">WE MAKE IT 채용</h3>
+								<h4 class="tit">WE MAKE IT 채용</h4>
 								<div class="txt">
 									SJF위메프 서울재즈페스티벌에 핫한 위메프가 떴다!🐻 공연을 서울재즈페스티벌에 팬데믹을 뚫고 3년만에 돌아왔습니다!
 								</div>
 							</div>
 						</div>
 						<!-- //정보 -->
+						<!-- 카드 리스트 영역 -->
+						<!-- layout/card_list.html -->
+						<div class="card_thumb_area is_mobile"></div>
+						<!-- //카드 리스트 영역 -->
 					</section>
-
 					<!-- content_top: 메인 콘텐츠 -->
 					<section class="content_middle">
 						<!-- js is_motions: 애니메이션 -->
 						<h3 class="tit is_motions is_slideup">새로운 소식</h3>
-
 						<!-- 카드 리스트 영역 -->
 						<!-- layout/card_list.html -->
 						<div class="card_thumb_area"></div>
 						<!-- //카드 리스트 영역 -->
-
 					</section>
 					<!-- content_top: 메인 콘텐츠 -->
-
 				<!-- //컨텐츠 영역 -->
 				</div>
 			</div>
 			<!-- // #container -->
 		</main>
 		<!-- //container/main -->
-
 		<!-- footer -->
 		<footer class="footer_wrap"></footer>
 		<!-- //footer -->
 	</div>
-
-  <!-- js swiper slider: 상단 배너  -->
-	<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-	<script src="/src/wmplog/resources/js/swiper.js"></script>
-
+	<!-- 검색 팝 영역 -->
+	<div class="search_pop search_wrap"></div>
+	<!-- //검색 팝 영역 -->
 	<!-- 디자인QA용 -->
 	<script type="text/javascript" src="/src/wmplog/resources/js/guide.js"></script>
+	<!-- js swiper slider: 상단 배너  -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+	<script src="/src/wmplog/resources/js/swiper.js"></script>
+	<!-- js index: 공통  -->
+	<script src="/src/wmplog/resources/js/index.js"></script>
 </body>
 </html>

@@ -19,12 +19,11 @@ $('.header_wrap').load('/src/wmplog/views/layout/header.html', function () {
 	}else if(type==3){
 		$('.life').find('a').addClass('active');
 	}
-
 });
 $('.footer_wrap').load('/src/wmplog/views/layout/footer.html', function () {});
 $('.card_thumb_area').load('/src/wmplog/views/layout/card_list.html', function () {});
-
 $('.article_editor').load('/src/wmplog/views/layout/article.html', function () {});
+$('.search_pop').load('/src/wmplog/views/layout/search_pop.html', function () {});
 
 // 서브페이지
 if(type==1){
@@ -42,7 +41,7 @@ if(type==3){
 
 // 상단 검색 영역 활성화
 if(type=='search'){
-	$('body').addClass('is_dim');
+	$('.wrap').addClass('is_dim');
 }
 // 검색결과 없을 때
 if(type=='none'){
@@ -52,15 +51,4 @@ if(type=='none'){
 	$('.card_thumb_area').addClass('is_hide');
 }
 
-//toast
-var intervalTime;
-function actionToast($target, time) {
-	if (time == null) time = 2000;
-	var $toast = $('.pop_toast');
-	if ($toast != $($target)) { $toast.removeClass('on') };
-	clearTimeout(intervalTime);
-	$($target).addClass('on');
-	intervalTime = setTimeout(function () {
-		$($target).removeClass('on')
-	}, time);
-}
+

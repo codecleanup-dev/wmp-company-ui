@@ -1,8 +1,16 @@
+html{
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+}
 html, body{
 	height: 100vh;
 	font-family: $base-font;
 	font-size: $size;
 	font-weight: $weight-regular;
+}
+input::-ms-clear{
+	display:none;
 }
 .is_show{
 	display: block !important;
@@ -14,27 +22,42 @@ html, body{
 	.main, 
 	.sub,
 	.result,
+	.detail,
 	.footer_wrap{
 		filter: blur(6px);
+		&::before{
+			content: '';
+			@include poslt(0);
+			@include size(100%);
+			opacity: 0.06;
+			z-index: z-index(high);
+		}
+	}	
+}
+@include media-ie11{
+	.is_dim{
+		overflow: hidden;
+		&::before{
+			content: '';
+			@include poslt(0, 0);
+			@include size(100%);
+			background-color: color(black, 0);
+			opacity: 0.4;
+			z-index: z-index(high);
+		}
 	}
-	&::before{
-		content: '';
-		@include poslt(0);
-		@include size(100%);
-		opacity: 0.06;
-		z-index: 100;
-	}
-}	
-
+}
 // layout 공통
 .wrap{
 	position:relative;
 	height: 100%;
+	margin: 0 auto; 
+	text-align: center;
 }
 .center_inner{
 	position:relative;
-	width: $content-size;
-	min-width: $content-size;
+	width: 100%;
+	min-width: 100%;
 	margin: 0 auto;
 	text-align: left;
 	&.center{
@@ -44,6 +67,7 @@ html, body{
 // container 공통  
 .container{
 	position: relative;
+	margin: 0 auto; 
 	text-align: center;
 	min-height: calc(100% - #{$footer-h});
 	.container_inner_wrap{

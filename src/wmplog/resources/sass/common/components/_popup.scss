@@ -1,45 +1,45 @@
-.popup{
-  display: none;
-  position: fixed;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  z-index: 100;
-  &.toast_popup{
-    bottom: 50%; 
-    transform: translateY(-50%);
-    .toast_box{
-      @include poslb(50%, 0);
-      display: inline-block;
-      transform: translate(-50%, 0);
-      padding: 15px 90px;
-      font-family: $sub-font;
-      &::before{
-        content: '';
-        @include poslb(0, 0);
-        @include size(100%);
-        background-color: color(black, 0);
-        border-radius: rem(6px);
-        opacity: 0.7;
-      }
-      .txt{
-        position: relative;
-        padding-left: rem(20px);
-        @include font($size14, null, color(white, 0));
-        &.txt-link-copy{
-          &::before{
-            content: '';
-            @include poslt(0, 50%);
-            transform: translate(0, -50%);
-            @include svgsprite($ic_toast_share, common);
-          }
-        }
-      }
-    }
-    &.is_motions{
-      .toast_box{
-        @include animation-grp(toastfade, 0, 1.5s, 1, linear, forwards);
-      }
-    }
-  }
+.popup {
+	display: none;
+	position: fixed;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	z-index: z-index(high);
+	&.toast_popup {
+		bottom: 50%;
+		transform: translateY(-50%);
+		.toast_box {
+			@include poslb(50%, 0);
+			display: inline-block;
+			transform: translate(-50%, 0);
+			padding: rem(15px) rem(90px);
+			font-family: $sub-font;
+			&::before {
+				content: '';
+				@include poslb(0, 0);
+				@include size(100%);
+				background-color: color(black, 0);
+				border-radius: rem(6px);
+				opacity: 0.7;
+			}
+			.txt {
+				position: relative;
+				padding-left: rem(20px);
+				@include font($size14, null, color(white, 0));
+				&.txt-link-copy {
+					&::before {
+						content: '';
+						@include poslt(0, 50%);
+						transform: translate(0, -50%);
+						@include svgsprite($ic_toast_share, common);
+					}
+				}
+			}
+		}
+		&.is_motions {
+			.toast_box {
+				@include animation-grp(toastfade, 0, 1.5s, 1, linear, forwards);
+			}
+		}
+	}
 }

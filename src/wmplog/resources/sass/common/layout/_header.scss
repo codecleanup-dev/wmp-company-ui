@@ -3,7 +3,7 @@
 	@include fixed($header-h, null, null, 0);
 	@include size(0, rem(4px));
 	background-color: color(red,0);
-	z-index: 100;
+	z-index: z-index(high);
 }
 .header_wrap{
 	@include fixed(0,0,null,0);
@@ -11,14 +11,13 @@
 	box-sizing: border-box;
 	background: color(#ffffff,0);
 	text-align: center;
-	// @include bd(color(black,6));
 	z-index: z-index(fixed);
 	&:before{
 		content:'';
 		@include poslt(0, $header-h);
 		@include size(100%, 1px);
 		background-color: color(black,6);
-		z-index: 100;
+		z-index: z-index(high);
 	}
 	.header_inner_wrap{
 		position: relative;
@@ -53,11 +52,10 @@
 	height: 100%;
 	margin-right: rem(242px);
 	font-size: 0;
-	@include gnb(category);
 	li{
 		position: relative;
 		display: inline-block;
-		margin: 0 rem(11px);
+		margin: 0 rem(20px);
 		height: rem($header-h);
 		box-sizing: border-box;
 		vertical-align: middle;
@@ -68,7 +66,6 @@
 		}
 	}
 }
-
 .btn_area{
 	@include posrt(0, 50%);
 	transform: translateY(-50%);
@@ -101,7 +98,7 @@
 			}
 			// 모바일 메뉴 닫기
 			&.btn_close{
-				z-index: 10;
+				z-index: z-index(basic);
 				.i_category{
 					@include svgsprite($ic_header_pop_close, common);
 				}

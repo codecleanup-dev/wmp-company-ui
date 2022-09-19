@@ -13,20 +13,16 @@ $palettes: (
 		6: #DDD,
 		7: #EEE,
 		8: #f7f7f7,
-		17: #e0e0e0,
-		18: #f7f8f9,
-		19: #d9d9d9,
-		20: #444,
-		21: #454545,
+		9: #f7f8f9,
+		10: #d9d9d9,
+		11: #454545,
 	),
 	red: (
 		0: #FF585D, 
 		1: #f63869,
 		2: #ffeaf3, 
 		3: #fff0f0,
-		
 	),
-	// lucy 삭제 
 	blue: (
 		0: #00a8d1
 	),
@@ -37,26 +33,19 @@ $palettes: (
 		0: #a8bd28
 	),
 );
-// 헤더 높이
-//image url
-//$img-url : '/src/pc/resources/images';
-// $spr-img-url : '/wmp/css/spr';
-// $img-url : '/wmp/images';
 
 //상대경로
 $img-url : '../../images';
 $spr-img-url : '../../css/spr';
 
-//common sprite
-// $common-spr-img:'#{$spr-img-url}/common.png';
-
 //투명배경(ie 11이하 hover나 클릭 이슈)
 // $bg-transparent:'#{$img-url}/common/bg_transparent.png';
 
 // font-family
-$base-font : Wemakeprice;
-$sub-font : 'Spoqa Han Sans Neo', sans-serif;
-$emoji-font : 'Noto Color Emoji', 'Segoe UI Symbol', 'Segoe UI Emoji', 'Apple Color Emoji';
+$defalut-font: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$base-font : Wemakeprice, $defalut-font;
+$sub-font : 'Spoqa Han Sans Neo', $defalut-font;
+// $emoji-font : 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 // 기본 폰트 사이즈
 $size: 10px;
@@ -78,7 +67,6 @@ $size40: rem(40px);
 $size52: rem(52px);
 $size60: rem(60px);
 
-
 // 폰트 굵기
 $weight-light: 300;
 $weight-regular: 400;
@@ -87,7 +75,7 @@ $weight-semibold: 600; //위메프체만 사용
 $weight-bold: 700;
 $letter-spacing: 0;
 
-// 컨텐츠 중앙 넓이
+// 컨텐츠 중앙 넓이값
 $content-size: 1280px;
 
 // 높이값
@@ -98,13 +86,11 @@ $footer-h: 24.7rem;
 $banner-width: 800px;
 $banner-height: 433px;
 
-
+// GNB 
 $category1: -28px;
 $category2: -38px;
 $category3: 31px;
-
 $gap: 8px;
-
 
 $z-indexes: (
 	auto							: auto,
@@ -112,7 +98,7 @@ $z-indexes: (
 	low								: 1,
 	basic							: 5,
 	mid								: 10,
-	high							: 15,
+	high							: 100,
 	fixed							: 500,
 	layer							: 1000
 );

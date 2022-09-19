@@ -5,11 +5,11 @@ a, button{
 		box-sizing: border-box;
 		background-color: transparent;
 		&.btn_line{
-			@include bd(color(white, 0));
-			background-color: color(white, 0);
+			@include bd(color(white,0));
+			background-color: color(white,0);
 			box-sizing: border-box;
 			&:hover{
-				background-color: color(black, 8);
+				background-color: color(black,8);
 			}
 			&[class*=st1]{
 				border-color: color(black,3);
@@ -19,14 +19,13 @@ a, button{
 				border-color: color(black,6);
 				border-radius: rem(100px);
 			}
-
 		}
 		&.btn_fill{
-			@include bd(color(black, 1));
+			@include bd(color(black,1));
 			border-radius: rem(6px);
-			background-color: color(black, 1);
+			background-color: color(black,1);
 			&:hover{
-				background-color: color(black, 21);
+				background-color: color(black,11);
 			}
 		}
 		.txt{
@@ -63,7 +62,7 @@ button{
 				// 더보기
 				&.txt_add{
 					font-weight: $weight-medium;
-					@include font($size16, null, color(black, 1));
+					@include font($size16, null, color(black,1));
 					&::before{
 						content: '';
 						@include posrt(-18px, 50%);	
@@ -91,7 +90,7 @@ button{
 						@include posrt(rem(-80px), 50%);	
 						@include size(100%);
 						display: block;
-						margin-top: -3px;
+						margin-top: rem(-3px);
 						@include svgsprite($ic_btn_arrow, common)
 					}
 				}
@@ -101,7 +100,7 @@ button{
 		&.btn_share{
 			height: rem(54px);
 			padding: 0 rem(40px) 0 rem(60px);
-			@include font($size16, rem(54px), color(black, 1));
+			@include font($size16, rem(54px), color(black,1));
 			.txt{
 				&.txt_share{
 					&::before{
@@ -117,7 +116,7 @@ button{
 		&.btn_list_view{
 			height: rem(54px);
 			padding: 0 rem(40px) 0;
-			@include font($size16, rem(54px), color(white, 0));
+			@include font($size16, rem(54px), color(white,0));
 		}
 	}	
 }

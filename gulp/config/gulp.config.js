@@ -99,9 +99,9 @@ const config = {
 		]
 	},
 
-	logpreview: {
+	logreview: {
 		src: 'src/wmplog/resources/js/*.js',
-		dest: 'src/wmplog/resources/js/',
+		dest: 'src/wmplog/resources/js'
 	},
 
 	logSvgReviewPath: {
@@ -110,7 +110,7 @@ const config = {
 	},
 
 	browsers: [
-		'last 3 versions',
+		// 'last 3 versions',
 		'Android >= 4',
 		'Chrome >= 20',
 		'Firefox >= 15',

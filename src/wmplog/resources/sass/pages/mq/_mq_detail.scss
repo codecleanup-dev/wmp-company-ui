@@ -1,3 +1,11 @@
+@media screen and (min-width: 1921px){
+	.content_detail_img{
+		.detail_img_area{
+			height: rem(700px);
+		}
+	}
+}
+
 // 태블릿 대응
 @media screen and (max-width: 1023px){
 	.container{
@@ -17,7 +25,7 @@
 				h3.detail_title_area{
 					padding: 0 rem(20px);
 					.txt_detail{
-					font-size: rem(28px);
+						font-size: rem(28px);
 					}	
 				}
 				.detail_article_area{
@@ -57,12 +65,31 @@
 	}
   .container{
     &.detail{
+			// 상단 이미지
+			.content_detail_img{
+				.detail_img_area{
+					padding-bottom: 70%;
+				}
+			}
+			.content_detail_article{
+				margin-top: rem(40px);
+				.detail_article_area{
+					margin-top: rem(40px);
+				}
+			}
       // 상세 추천 콘텐츠 카드 리스트 미노출
       .content_detail_list{
         display: none;
       }
     }
   }
+	.content_detail_img{
+		.detail_img_area {
+			&::before {
+				@include svgsprite($ic_thumbnail_small, common);
+			}
+		}
+	}
   .article_bottom_area{
     .article_button{
       .btn_list_view{

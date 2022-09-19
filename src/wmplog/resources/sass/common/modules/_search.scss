@@ -1,15 +1,16 @@
 // 검색창 상단 
 .search_pop{
 	display: none;
-	@include poslt(0, $header-h);
-	width: 100%; 
-	height: rem(230px);
+	@include fixed($header-h, null, null, 0);
+	@include size(100%, rem(230px));
 	background-color: color(white,0);
 	text-align: center;
+	z-index: z-index(high);
 	.btn_search_pop_close{
-		@include posrt(rem(36px), rem(32px));
+		@include posrt(rem(30px), rem(25px));
 		@include size(3.6rem);
 		display: block;
+		z-index: z-index(high);
 		span{
 			display: inline-block;
 			vertical-align: middle;
@@ -24,8 +25,8 @@
 	}
 }
 // 검색 영역 활성화
-.is_dim{
-	.search_pop{
+.wrap.is_dim{
+	+ .search_pop{
 		display: block;
 	}
 }
@@ -46,6 +47,10 @@
 		@include font($size34, null, color(black,1));
 		&::placeholder{
 			color: color(black,5);
+		}
+		&:-ms-input-placeholder{
+			color: color(black,5) !important;
+			opacity: 1 
 		}
 	}
 	button{

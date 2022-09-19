@@ -1,11 +1,9 @@
 @import '../../vendors/svg/footer';
-// lucy
 .footer_wrap{
 	position: relative;
-	width: 100%;
-	height: rem(247px);
+	@include size(100%, rem(247px));
 	text-align:left;
-	background-color: color(black,18);
+	background-color: color(black,9);
 	@include font(0, null, color(black,6));
 	.footer_inner{
 		position: relative;
@@ -48,7 +46,7 @@
 						@include size(rem(1px), rem(14px));
 						transform: translate(-50%, -50%);
 						border-radius: rem(100px);
-						background-color: color(black,19);
+						background-color: color(black,10);
 					}
 				}
 			}
@@ -62,7 +60,7 @@
 	}
 	.side_box{
 		@include posrt(rem(32px), rem(60px));
-		z-index: 50;
+		z-index: z-index(mid);
 		.side_sns, .side_family_site{
 			display: inline-block;
 			vertical-align: middle;
@@ -110,7 +108,7 @@
 				background-color: color(white,0);
 				border-radius: rem(12px);
 				box-sizing: border-box;
-				z-index: 10;
+				z-index: z-index(basic);
 				.site_list{
 					height: rem(40px);
 					padding: 0 rem(12px);
