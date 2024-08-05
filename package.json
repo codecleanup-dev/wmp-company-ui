@@ -1,5 +1,5 @@
 {
-	"name": "wmp-ui",
+	"name": "위메프 로그 UI개발",
 	"version": "1.0.0",
 	"description": "UI-Devloper resource",
 	"main": "gulpfile.babel.js",
@@ -14,20 +14,7 @@
 		"watch": "gulp watch",
 		"serve": "gulp server"
 	},
-	"repository": {
-		"type": "git",
-		"url": "ssh://git@stash.wemakeprice.com:7999/tmui/wmp-ui.git"
-	},
 	"author": "wemakeprice UI-Developer",
-	"contributors": [
-		"gloria <gloria@wemakeprice.com>",
-		"youngha <youngha@wemakeprice.com>",
-		"shooda <shooda@wemakeprice.com>",
-		"caias <caias@wemakeprice.com>",
-		"haeri <haeri@wemakeprice.com>",
-		"ruru913 <ruru913@wemakeprice.com>",
-		"sismaru <sismaru@wemakeprice.com>"
-	],
 	"license": "ISC",
 	"dependencies": {
 		"yarn": "^1.22.19"
